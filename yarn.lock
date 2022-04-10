@@ -382,13 +382,6 @@ caniuse-lite@^1.0.30001283:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001325.tgz#2b4ad19b77aa36f61f2eaf72e636d7481d55e606"
   integrity sha512-sB1bZHjseSjDtijV1Hb7PB2Zd58Kyx+n/9EotvZ4Qcz2K3d0lWB8dB4nb8wN/TsOGFq3UuAm0zQZNQ4SoR7TrQ==
 
-carousel2@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/carousel2/-/carousel2-0.2.1.tgz#a03a2e3394de9c59d941d26969fcb0f6b90a20dd"
-  integrity sha1-oDouM5TenFnZQdJpafyw9rkKIN0=
-  dependencies:
-    lang2 "^0.2.0"
-
 chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
@@ -1123,11 +1116,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jquery@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
-  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
-
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -1164,11 +1152,6 @@ json5@^1.0.1:
   dependencies:
     array-includes "^3.1.4"
     object.assign "^4.1.2"
-
-lang2@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/lang2/-/lang2-0.2.1.tgz#5985afa6996125e2ac7a90527ff6fb96390d9642"
-  integrity sha1-WYWvpplhJeKsepBSf/b7ljkNlkI=
 
 language-subtag-registry@~0.3.2:
   version "0.3.21"
