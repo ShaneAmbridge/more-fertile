@@ -1,0 +1,69 @@
+.main {
+	width: 100%;
+	height: 434px;
+	display: flex;
+	justify-content: center;
+	background: url("/images/pregnent-women.png");
+	background-size: cover;
+	background-color: #e2e6e9;
+	.container {
+		width: 90%;
+		max-width: 1280px;
+		display: flex;
+		justify-content: flex-end;
+		.owlcontainer {
+			width: 100%;
+			max-width: 550px;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			.item {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+
+				.stars {
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					margin-bottom: 20px;
+					.star {
+						width: 24px;
+						height: 24px;
+					}
+				}
+				.text {
+					font-family: "Lexend", Sans-serif;
+					font-size: 27px;
+					font-weight: 500;
+					line-height: 1.23em;
+					color: #2a2a2a;
+				}
+				.authorinfo {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					h4 {
+						font-weight: 500;
+						margin: 0;
+						font-size: 14px;
+						line-height: 1.4;
+						padding-right: 15px;
+						border-right: 1px solid #d189b1;
+					}
+					p {
+						color: inherit;
+						font-style: normal;
+						font-size: 14px;
+						line-height: 1.4;
+						font-family: inherit;
+						font-weight: 300;
+						display: inline-block;
+						position: relative;
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+.disAndRes {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	p {
+		color: #8a2678;
+		font-family: "Roboto", Sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+	}
+}
+.titleAndDis {
+	width: 100%;
+	h1 {
+		text-align: center;
+		color: #8a2678;
+		font-family: "Lexend", Sans-serif;
+		font-size: 28px;
+		font-weight: 600;
+		line-height: 50px;
+		margin: 0;
+	}
+	p {
+		font-family: "Lexend";
+		font-weight: 300;
+		color: #2a2a2a;
+		font-size: 15px;
+		line-height: 160%;
+		text-align: center;
+		margin: 10px 0px 30px 0px;
+	}
+}

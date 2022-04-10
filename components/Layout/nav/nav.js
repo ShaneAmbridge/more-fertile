@@ -24,7 +24,6 @@ const Nav = ({ items }) => {
 							{item?.childItems?.nodes.length > 0 && (
 								<div className={styles.submenu}>
 									{item?.childItems?.nodes.map((subitem, j) => {
-										console.log("render");
 										return (
 											<div key={j + "kj"} className={styles.submenuItem}>
 												{subitem.label}
