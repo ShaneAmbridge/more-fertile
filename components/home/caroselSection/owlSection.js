@@ -6,6 +6,10 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel2"), {
 	ssr: false,
 });
 import "react-owl-carousel2/lib/styles.css";
+dynamic(() => import("../../../loader.js"), {
+	ssr: false,
+});
+
 const OwlSection = () => {
 	const [notInServer, setNotInServer] = useState(false);
 	useEffect(() => {
