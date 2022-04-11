@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"wpe-build": "next build"
+		"wpe-build": ""
 	},
 	"dependencies": {
 		"@apollo/client": "^3.5.10",
