@@ -12,7 +12,7 @@ import OwlSection from "../components/home/caroselSection/owlSection";
 import Script from "next/script";
 export default function Home({ items }) {
 	return (
-		<>
+		<LayoutMain items={items}>
 			<Script
 				src='https://code.jquery.com/jquery-3.6.0.min.js'
 				integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
@@ -39,31 +39,31 @@ export default function Home({ items }) {
 			<Points />
 			<Services />
 			<OwlSection />
-		</>
+		</LayoutMain>
 	);
 }
-// export async function getStaticProps(context) {
-// 	const { data } = await client.query({
-// 		query: gql`
-// 			query menuItems {
-// 				menuItems(where: { parentId: "", location: PRIMARY }) {
-// 					nodes {
-// 						locations
-// 						label
-// 						parentId
-// 						childItems {
-// 							nodes {
-// 								label
-// 								path
-// 							}
-// 						}
-// 					}
-// 				}
-// 			}
-// 		`,
-// 	});
+export async function getStaticProps(context) {
+	const { data } = await client.query({
+		query: gql`
+			query menuItems {
+				menuItems(where: { parentId: "", location: PRIMARY }) {
+					nodes {
+						locations
+						label
+						parentId
+						childItems {
+							nodes {
+								label
+								path
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
 
-// 	return {
-// 		props: { items: data },
-// 	};
-// }
+	return {
+		props: { items: data },
+	};
+}
