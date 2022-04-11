@@ -14,7 +14,9 @@ const OwlSection = () => {
 	const [notInServer, setNotInServer] = useState(false);
 	useEffect(() => {
 		if (typeof window !== undefined) {
-			setNotInServer(true);
+			if (typeof $ !== undefined) {
+				setNotInServer(true);
+			}
 		}
 	}, []);
 	const options = {
