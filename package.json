@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"wpe-build": "next build"
+		"wpe-build": "npm install --save --legacy-peer-deps && next build"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.5.10",
@@ -21,9 +21,5 @@
 	"devDependencies": {
 		"eslint": "8.12.0",
 		"eslint-config-next": "12.1.4"
-	},
-	"engines": {
-		"npm": "please-use-yarn",
-		"yarn": ">= 1.19.1"
 	}
 }
