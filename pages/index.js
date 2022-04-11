@@ -9,15 +9,16 @@ import Points from "../components/home/points/points";
 import Services from "../components/home/services/services";
 import OwlSection from "../components/home/caroselSection/owlSection";
 import Head from "next/head";
+import Script from "next/script";
 export default function Home({ items }) {
 	return (
 		<>
 			<Head>
-				<script
+				<Script
 					src='https://code.jquery.com/jquery-3.6.0.min.js'
 					integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
 					crossOrigin='anonymous'
-				></script>
+				></Script>
 			</Head>
 			<Hero />
 			<Container>
