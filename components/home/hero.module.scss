@@ -1,62 +1,80 @@
 .main {
 	width: 100%;
 	height: 460px;
-	background: url("/images/morefertile-main.png");
-	background-size: cover;
-	display: flex;
-	justify-content: center;
 
-	.container {
-		width: 90%;
-		max-width: 1140px;
-		height: 100%;
+	position: relative;
+	.containerwrapper {
+		width: 100%;
+		height: 460px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
 		display: flex;
 		justify-content: center;
-		flex-direction: column;
-		.siteName {
-			color: #8a2678;
-			font-family: "Lexend", Sans-serif;
-			font-size: 30px;
-			font-weight: 300;
-			line-height: 38px;
-			margin: 0;
-			margin-bottom: 18px;
-		}
-		.title {
-			width: 540px;
-
-			font-family: "Lexend", Sans-serif;
-			font-size: 40px;
-			font-weight: 600;
-			line-height: 50px;
-			color: #2a2a2a;
-
-			span {
+		.container {
+			width: 90%;
+			max-width: 1140px;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			.siteName {
 				color: #8a2678;
+				font-family: "Lexend", Sans-serif;
+				font-size: 30px;
+				font-weight: 300;
+				line-height: 38px;
+				margin: 0;
+				margin-bottom: 18px;
+			}
+			.title {
+				max-width: 540px;
+
+				font-family: "Lexend", Sans-serif;
+				font-size: 40px;
+				font-weight: 600;
+				line-height: 50px;
+				color: #2a2a2a;
+
+				span {
+					color: #8a2678;
+				}
+			}
+			.discription {
+				max-width: 350px;
+				font-family: "Lexend", Sans-serif;
+				font-size: 18px;
+				font-weight: 500;
+
+				margin-top: 20px;
+				margin-bottom: 40px;
+				overflow-wrap: break-word;
+				box-sizing: border-box;
+			}
+			.button {
+				width: 197px;
+				text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
+				fill: #ffffff;
+				color: #ffffff;
+				background-color: #d189b1;
+				border-radius: 20px 20px 20px 20px;
+				padding: 12px 12px 12px 12px;
+				border: none;
+				img {
+					margin-right: 5px;
+				}
 			}
 		}
-		.discription {
-			width: 350px;
-			font-family: "Lexend", Sans-serif;
-			font-size: 18px;
-			font-weight: 500;
-
-			margin-top: 20px;
-			margin-bottom: 40px;
-			overflow-wrap: break-word;
-			box-sizing: border-box;
-		}
-		.button {
-			width: 197px;
-			text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
-			fill: #ffffff;
-			color: #ffffff;
-			background-color: #d189b1;
-			border-radius: 20px 20px 20px 20px;
-			padding: 12px 12px 12px 12px;
-			border: none;
-			img {
-				margin-right: 5px;
+	}
+}
+@media (max-width: "900px") {
+	.main {
+		.containerwrapper {
+			.container {
+				.title {
+					font-size: 30px;
+				}
 			}
 		}
 	}

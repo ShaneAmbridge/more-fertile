@@ -9,7 +9,7 @@ import "react-owl-carousel2/lib/styles.css";
 dynamic(() => import("../../../loader.js"), {
 	ssr: false,
 });
-
+import Image from "next/image";
 const OwlSection = () => {
 	const [notInServer, setNotInServer] = useState(false);
 	useEffect(() => {
@@ -28,69 +28,72 @@ const OwlSection = () => {
 	};
 	return (
 		<div className={styles.main}>
-			<div className={styles.container}>
-				<div className={styles.owlcontainer}>
-					{notInServer ? (
-						<OwlCarousel options={options}>
-							<div className={styles.item}>
-								<div className={styles.stars}>
-									<div className={styles.star}>
-										<StarIcon />
+			<Image layout='fill' src='/images/pregnent-women.png' />
+			<div className={styles.containerwrapper}>
+				<div className={styles.container}>
+					<div className={styles.owlcontainer}>
+						{notInServer ? (
+							<OwlCarousel options={options}>
+								<div className={styles.item}>
+									<div className={styles.stars}>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
 									</div>
-									<div className={styles.star}>
-										<StarIcon />
-									</div>
-									<div className={styles.star}>
-										<StarIcon />
-									</div>
-									<div className={styles.star}>
-										<StarIcon />
-									</div>
-									<div className={styles.star}>
-										<StarIcon />
+									<p className={styles.text}>
+										“I have now come to the end of the 12 months of membership
+										&amp; I have been very happy with the services provided.”
+									</p>
+									<div className={styles.authorinfo}>
+										<h4>Mr Wagner</h4>
+										<p>New York</p>
 									</div>
 								</div>
-								<p className={styles.text}>
-									“I have now come to the end of the 12 months of membership
-									&amp; I have been very happy with the services provided.”
-								</p>
-								<div className={styles.authorinfo}>
-									<h4>Mr Wagner</h4>
-									<p>New York</p>
-								</div>
-							</div>
 
-							<div className={styles.item}>
-								<div className={styles.stars}>
-									<div className={styles.star}>
-										<StarIcon />
+								<div className={styles.item}>
+									<div className={styles.stars}>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
+										<div className={styles.star}>
+											<StarIcon />
+										</div>
 									</div>
-									<div className={styles.star}>
-										<StarIcon />
-									</div>
-									<div className={styles.star}>
-										<StarIcon />
-									</div>
-									<div className={styles.star}>
-										<StarIcon />
-									</div>
-									<div className={styles.star}>
-										<StarIcon />
+									<p className={styles.text}>
+										“I have now come to the end of the 12 months of membership
+										&amp; I have been very happy with the services provided.”
+									</p>
+									<div className={styles.authorinfo}>
+										<h4>Mr Wagner</h4>
+										<p>New York</p>
 									</div>
 								</div>
-								<p className={styles.text}>
-									“I have now come to the end of the 12 months of membership
-									&amp; I have been very happy with the services provided.”
-								</p>
-								<div className={styles.authorinfo}>
-									<h4>Mr Wagner</h4>
-									<p>New York</p>
-								</div>
-							</div>
-						</OwlCarousel>
-					) : (
-						<div></div>
-					)}
+							</OwlCarousel>
+						) : (
+							<div></div>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

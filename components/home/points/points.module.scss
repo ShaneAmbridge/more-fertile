@@ -7,32 +7,49 @@
 		width: 95%;
 		max-width: 1335px;
 		height: 100%;
-		background: url("/images/writing.png");
-		background-size: cover;
-		display: flex;
-		justify-content: flex-end;
-		.points {
-			width: 50%;
-			max-width: 658px;
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			h2 {
-				color: #8a2678;
-				font-family: "Roboto", Sans-serif;
-				font-size: 22px;
-				font-weight: 700;
-				text-transform: uppercase;
-				line-height: 31px;
-				margin: 0;
+		.containerwrapper {
+			width: 100%;
+			height: 400px;
+			position: relative;
+			.points {
+				width: 50%;
+				max-width: 658px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				h2 {
+					color: #8a2678;
+					font-family: "Roboto", Sans-serif;
+					font-size: 22px;
+					font-weight: 700;
+					text-transform: uppercase;
+					line-height: 31px;
+					margin: 0;
+				}
+				p {
+					font-family: "Lexend", Sans-serif;
+					font-size: 18px;
+					font-weight: 500;
+					color: #2a2a2a;
+					margin-left: 20px;
+				}
 			}
-			p {
-				font-family: "Lexend", Sans-serif;
-				font-size: 18px;
-				font-weight: 500;
-				color: #2a2a2a;
-				margin-left: 20px;
+		}
+	}
+}
+@media (max-width: "900px") {
+	.main {
+		.container {
+			.containerwrapper {
+				.points {
+					width: 100%;
+					padding-left: 55px;
+				}
 			}
 		}
 	}

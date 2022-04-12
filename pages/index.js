@@ -8,8 +8,8 @@ import Missions from "../components/home/mission/mission";
 import Points from "../components/home/points/points";
 import Services from "../components/home/services/services";
 import OwlSection from "../components/home/caroselSection/owlSection";
-
 import Script from "next/script";
+
 export default function Home({ items }) {
 	return (
 		<LayoutMain items={items}>

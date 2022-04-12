@@ -13,6 +13,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			flex-wrap: wrap;
 			.title {
 				color: #8a2678;
 				font-family: "Roboto", Sans-serif;
@@ -72,6 +73,22 @@
 			font-weight: 600;
 			line-height: 50px;
 			margin-top: 60px;
+		}
+	}
+}
+
+@media (max-width: "900px") {
+	.main {
+		.container {
+			.titleAndDescription {
+				.title {
+					font-size: 22px;
+				}
+				.des {
+					max-width: 100%;
+					text-align: center;
+				}
+			}
 		}
 	}
 }
