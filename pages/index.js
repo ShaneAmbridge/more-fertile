@@ -9,7 +9,7 @@ import Points from "../components/home/points/points";
 import Services from "../components/home/services/services";
 import OwlSection from "../components/home/caroselSection/owlSection";
 import Script from "next/script";
-import $ from "jquery";
+
 export default function Home({ items }) {
 	return (
 		<LayoutMain items={items}>

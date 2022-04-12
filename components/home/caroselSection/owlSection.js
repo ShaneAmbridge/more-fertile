@@ -10,7 +10,7 @@ dynamic(() => import("../../../loader.js"), {
 	ssr: false,
 });
 import Image from "next/image";
-import $ from "jquery";
+
 const OwlSection = () => {
 	const [notInServer, setNotInServer] = useState(false);
 	useEffect(() => {
