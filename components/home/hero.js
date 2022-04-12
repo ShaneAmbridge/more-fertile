@@ -1,9 +1,12 @@
 import styles from "./hero.module.scss";
 import Image from "next/image";
-const Hero = () => {
+const Hero = ({ ww }) => {
 	return (
 		<div className={styles.main}>
-			<Image layout='fill' src='/images/morefertile-main.png' />
+			{ww < 601 && (
+				<Image layout='fill' src='/images/morefertile-mainSmall.png' />
+			)}
+			{ww > 600 && <Image layout='fill' src='/images/morefertile-main.png' />}
 			<div className={styles.containerwrapper}>
 				<div className={styles.container}>
 					<p className={styles.siteName}>morefertile®</p>

@@ -5,23 +5,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 
-const OwlSection = () => {
-	const [size, setSize] = useState(0);
-	const [ww, setWw] = useState(0);
-	useLayoutEffect(() => {
-		function updateSize() {
-			setSize(window.innerWidth);
-		}
-		window.addEventListener("resize", updateSize);
-		updateSize();
-		return () => window.removeEventListener("resize", updateSize);
-	}, []);
-	useEffect(() => {
-		setWw(size);
-	}, [size]);
+const OwlSection = ({ ww }) => {
 	return (
 		<div className={styles.main}>
-			<Image layout='fill' src='/images/pregnent-women.png' />
+			{ww < 601 && (
+				<Image layout='fill' src='/images/pregnent-womenSmall.png' />
+			)}
+			{ww > 600 && <Image layout='fill' src='/images/pregnent-women.png' />}
 			<div className={styles.containerwrapper}>
 				<div className={styles.container}>
 					<div className={styles.owlcontainer}>

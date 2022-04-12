@@ -8,12 +8,25 @@ import Missions from "../components/home/mission/mission";
 import Points from "../components/home/points/points";
 import Services from "../components/home/services/services";
 import OwlSection from "../components/home/caroselSection/owlSection";
-
+import React, { useLayoutEffect, useState, useEffect } from "react";
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home({ items }) {
+	const [size, setSize] = useState(0);
+	const [ww, setWw] = useState(0);
+	useLayoutEffect(() => {
+		function updateSize() {
+			setSize(window.innerWidth);
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+	useEffect(() => {
+		setWw(size);
+	}, [size]);
 	return (
 		<LayoutMain items={items}>
-			<Hero />
+			<Hero ww={ww} />
 			<Container>
 				<div className={styles.disAndRes}>
 					<p>DISCOVER WHAT MOREFERTILE HAS TO OFFER</p>
@@ -30,9 +43,9 @@ export default function Home({ items }) {
 					</p>
 				</div>
 			</Container>
-			<Points />
+			<Points ww={ww} />
 			<Services />
-			<OwlSection />
+			<OwlSection ww={ww} />
 		</LayoutMain>
 	);
 }

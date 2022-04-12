@@ -1,11 +1,12 @@
 import styles from "./points.module.scss";
 import Image from "next/image";
-const Points = () => {
+const Points = ({ ww }) => {
 	return (
 		<div className={styles.main}>
 			<div className={styles.container}>
 				<div className={styles.containerwrapper}>
-					<Image layout='fill' src='/images/writing.png' />
+					{ww < 601 && <Image layout='fill' src='/images/writingSmall.png' />}
+					{ww > 600 && <Image layout='fill' src='/images/writing.png' />}
 					<div className={styles.points}>
 						<h2>MAXIMISE your chances of pregnancy with personalised:</h2>
 						<p>
