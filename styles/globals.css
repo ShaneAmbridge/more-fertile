@@ -1,19 +1,61 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Lexend', sans-serif !important;
+	padding: 0;
+	margin: 0;
+	font-family: "Lexend", sans-serif !important;
 }
 
 a:hover {
-  color: #2a2a2a;
+	color: #2a2a2a;
 }
 
 a {
-  color: #8a2678;
-  text-decoration: none;
+	color: #8a2678;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+#__next
+	> div
+	> div.owlSection_main__1OQ90
+	> div
+	> div
+	> div
+	> div
+	> div.carousel.carousel-slider
+	> ul
+	> li.dot {
+	background: black !important;
+	opacity: 1 !important;
+	box-shadow: none;
+}
+#__next
+	> div
+	> div.owlSection_main__1OQ90
+	> div
+	> div
+	> div
+	> div
+	> div.carousel.carousel-slider
+	> ul
+	> li.dot.selected {
+	background: none !important;
+	border: 2px solid #d189b1;
+	box-shadow: none;
+	padding: 6px;
+}
+#__next
+	> div
+	> div.owlSection_main__1OQ90
+	> div
+	> div
+	> div
+	> div
+	> div.carousel.carousel-slider
+	> ul.control-dots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

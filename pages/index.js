@@ -8,17 +8,11 @@ import Missions from "../components/home/mission/mission";
 import Points from "../components/home/points/points";
 import Services from "../components/home/services/services";
 import OwlSection from "../components/home/caroselSection/owlSection";
-import Script from "next/script";
+
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home({ items }) {
 	return (
 		<LayoutMain items={items}>
-			<Script
-				src='https://code.jquery.com/jquery-3.6.0.min.js'
-				integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
-				crossOrigin='anonymous'
-			/>
-
 			<Hero />
 			<Container>
 				<div className={styles.disAndRes}>

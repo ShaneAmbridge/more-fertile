@@ -16,7 +16,7 @@
 		"next": "^12.1.5-canary.4",
 		"react": "18.0.0",
 		"react-dom": "18.0.0",
-		"react-owl-carousel2": "^0.3.0",
+		"react-responsive-carousel": "^3.2.23",
 		"sass": "^1.49.11"
 	},
 	"devDependencies": {
