@@ -26,7 +26,7 @@ const OwlSection = () => {
 				<div className={styles.container}>
 					<div className={styles.owlcontainer}>
 						<Carousel
-							width={ww < 500 ? "310px" : "550px"}
+							width={ww < 650 ? "310px" : "550px"}
 							autoPlay={true}
 							showArrows={false}
 							showStatus={false}
