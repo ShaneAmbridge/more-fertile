@@ -1,11 +1,24 @@
 import styles from "./owlSection.module.scss";
 import StarIcon from "./starIcon";
-
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 
 const OwlSection = () => {
+	const [size, setSize] = useState(0);
+	const [ww, setWw] = useState(0);
+	useLayoutEffect(() => {
+		function updateSize() {
+			setSize(window.innerWidth);
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+	useEffect(() => {
+		setWw(size);
+	}, [size]);
 	return (
 		<div className={styles.main}>
 			<Image layout='fill' src='/images/pregnent-women.png' />
@@ -13,7 +26,7 @@ const OwlSection = () => {
 				<div className={styles.container}>
 					<div className={styles.owlcontainer}>
 						<Carousel
-							width={"550px"}
+							width={ww < 500 ? "310px" : "550px"}
 							autoPlay={true}
 							showArrows={false}
 							showStatus={false}
