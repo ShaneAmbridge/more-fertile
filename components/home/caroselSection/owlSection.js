@@ -21,6 +21,7 @@ const OwlSection = ({ ww }) => {
 							showArrows={false}
 							showStatus={false}
 							infiniteLoop={true}
+							showThumbs={false}
 						>
 							<div className={styles.item}>
 								<div className={styles.stars}>

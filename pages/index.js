@@ -9,6 +9,8 @@ import Points from "../components/home/points/points";
 import Services from "../components/home/services/services";
 import OwlSection from "../components/home/caroselSection/owlSection";
 import React, { useLayoutEffect, useState, useEffect } from "react";
+import Features from "../components/home/features/features";
+import HelpfulNavigation from "../components/home/halpfulNavigation/halpfulNavigation";
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home({ items }) {
 	const [size, setSize] = useState(0);
@@ -46,6 +48,8 @@ export default function Home({ items }) {
 			<Points ww={ww} />
 			<Services />
 			<OwlSection ww={ww} />
+			<Features ww={ww} />
+			<HelpfulNavigation />
 		</LayoutMain>
 	);
 }
