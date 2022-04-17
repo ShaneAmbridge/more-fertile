@@ -1,0 +1,107 @@
+.main {
+	width: 100%;
+	height: 100%;
+	padding: 50px 0px;
+	display: flex;
+	justify-content: center;
+	.container {
+		width: 90%;
+		max-width: 1140px;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		.heading {
+			width: 100%;
+			text-transform: uppercase;
+			font-size: 14px;
+			line-height: 1.285;
+			margin: 0 0 10px 0;
+			font-weight: 500;
+			color: #8a2678;
+		}
+		.links {
+			height: fit-content;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 30px;
+			margin-top: 20px;
+			.maleLink {
+				width: 252px;
+				height: 60px;
+				background-color: #26788a !important;
+				color: #fff !important;
+				font-size: 14px;
+				font-weight: 500;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				padding: 20px 30px;
+				height: 100%;
+				position: relative;
+				border-radius: 15px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				cursor: pointer;
+				.arrow {
+					position: absolute;
+					bottom: 5px;
+					right: 10px;
+					transition: all 0.2s ease-in-out 0s;
+					transform: rotate(45deg);
+				}
+				&:hover .arrow {
+					transform: rotate(-45deg);
+				}
+			}
+			.femaleLink {
+				width: 252px;
+				height: 60px;
+				background-color: #8a2678 !important;
+				color: #fff !important;
+				font-size: 14px;
+				font-weight: 500;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				padding: 20px 30px;
+				height: 100%;
+				position: relative;
+				border-radius: 15px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				position: relative;
+				cursor: pointer;
+				.arrow {
+					position: absolute;
+					bottom: 5px;
+					right: 10px;
+					transition: all 0.2s ease-in-out 0s;
+					transform: rotate(45deg);
+				}
+				&:hover .arrow {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.main {
+		.container {
+			.heading {
+				text-align: center;
+			}
+			.links {
+				.maleLink {
+					width: 100%;
+				}
+				.femaleLink {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

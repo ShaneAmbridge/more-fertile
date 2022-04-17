@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./nav.module.scss";
 import SearchIcon from "./searchIcon";
+import { gql } from "@apollo/client";
+import client from "../../../apollo-client";
 const Nav = ({ items }) => {
 	const [searchbox, setSearchBox] = useState(false);
 

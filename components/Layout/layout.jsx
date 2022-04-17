@@ -1,3 +1,4 @@
+import Footer from "./footer/footer";
 import styles from "./layout.module.scss";
 import Nav from "./nav/nav";
 import TopBar from "./top-bar/top-bar";
@@ -7,6 +8,7 @@ const LayoutMain = ({ active, children, items }) => {
 			<TopBar />
 			<Nav items={items} />
 			{children}
+			<Footer />
 		</div>
 	);
 };

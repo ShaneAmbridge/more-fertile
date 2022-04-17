@@ -1,0 +1,28 @@
+.main {
+	width: 100%;
+
+	background-color: #8a2678;
+	.flex {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 20px;
+		.copyright {
+			font-size: 18px;
+			color: #fff !important;
+			font-weight: 900 !important;
+		}
+		.links {
+			display: flex;
+			gap: 20px;
+			flex-wrap: wrap;
+
+			.link {
+				font-size: 18px;
+				color: #fff !important;
+				cursor: pointer;
+				font-weight: 400 !important;
+			}
+		}
+	}
+}

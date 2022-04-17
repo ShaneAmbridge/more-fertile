@@ -11,6 +11,8 @@ import OwlSection from "../components/home/caroselSection/owlSection";
 import React, { useLayoutEffect, useState, useEffect } from "react";
 import Features from "../components/home/features/features";
 import HelpfulNavigation from "../components/home/halpfulNavigation/halpfulNavigation";
+import UniqueFeatures from "../components/home/whatMakesUnique/whatMakesUnique";
+import QuickLinks from "../components/home/quickLinks/quickLinks";
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home({ items }) {
 	const [size, setSize] = useState(0);
@@ -50,6 +52,8 @@ export default function Home({ items }) {
 			<OwlSection ww={ww} />
 			<Features ww={ww} />
 			<HelpfulNavigation />
+			<UniqueFeatures ww={ww} />
+			<QuickLinks />
 		</LayoutMain>
 	);
 }
