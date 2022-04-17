@@ -2,9 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./nav.module.scss";
 import SearchIcon from "./searchIcon";
-import { gql } from "@apollo/client";
-import client from "../../../apollo-client";
-const Nav = ({ items }) => {
+
+const Nav = ({ items, setBigmenuopen, bigmenuOpen }) => {
 	const [searchbox, setSearchBox] = useState(false);
 
 	return (
@@ -13,7 +12,11 @@ const Nav = ({ items }) => {
 				<Image src={"/images/cropped-logo_button.png"} width={92} height={40} />
 			</div>
 			<div className={styles.menu}>
-				<div className={styles.resources}>
+				<div
+					bigmenu={bigmenuOpen ? "yes" : "no"}
+					onClick={() => setBigmenuopen(!bigmenuOpen)}
+					className={styles.resources}
+				>
 					<span>Resources</span>
 				</div>
 				{items?.menuItems?.nodes.map((item, i) => {

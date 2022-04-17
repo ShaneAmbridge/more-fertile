@@ -22,19 +22,19 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<line x1='15' y1='7' x2='25' y2='7' stroke='#ffffff'></line>
 								<line x1='15' y1='13' x2='25' y2='13' stroke='#ffffff'></line>
 								<line x1='15' y1='19' x2='25' y2='19' stroke='#ffffff'></line>
 								<path
-									dataCap='butt'
+									data-cap='butt'
 									d='M19,28c0-1.657,1.343-3,3-3H4 c-1.657,0-3,1.343-3,3v3h18V28z'
 									strokeLinecap='butt'
 								></path>
 								<path
-									dataCap='butt'
+									data-cap='butt'
 									d='M22,25c1.657,0,3,1.343,3,3 s1.343,3,3,3s3-1.343,3-3V1.032H9V25'
 									strokeLinecap='butt'
 								></path>
@@ -68,7 +68,7 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<circle cx='23' cy='24' r='7' stroke='#ffffff'></circle>
@@ -77,7 +77,7 @@ const QuickLinks = () => {
 								<line x1='9' y1='1' x2='9' y2='5'></line>
 								<line x1='23' y1='1' x2='23' y2='5'></line>
 								<line
-									dataCap='butt'
+									data-cap='butt'
 									x1='31'
 									y1='11'
 									x2='1'
@@ -115,11 +115,11 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<polyline
-									dataCap='butt'
+									data-cap='butt'
 									points='12.546,23 7,23 2,31 30,31 25,23 19.454,23 '
 									strokeLinecap='butt'
 									stroke='#ffffff'
@@ -156,7 +156,7 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<polyline
@@ -199,19 +199,19 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<line x1='15' y1='7' x2='25' y2='7' stroke='#ffffff'></line>
 								<line x1='15' y1='13' x2='25' y2='13' stroke='#ffffff'></line>
 								<line x1='15' y1='19' x2='25' y2='19' stroke='#ffffff'></line>
 								<path
-									dataCap='butt'
+									data-cap='butt'
 									d='M19,28c0-1.657,1.343-3,3-3H4 c-1.657,0-3,1.343-3,3v3h18V28z'
 									strokeLinecap='butt'
 								></path>
 								<path
-									dataCap='butt'
+									data-cap='butt'
 									d='M22,25c1.657,0,3,1.343,3,3 s1.343,3,3,3s3-1.343,3-3V1.032H9V25'
 									strokeLinecap='butt'
 								></path>
@@ -245,7 +245,7 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<circle cx='23' cy='24' r='7' stroke='#ffffff'></circle>
@@ -254,7 +254,7 @@ const QuickLinks = () => {
 								<line x1='9' y1='1' x2='9' y2='5'></line>
 								<line x1='23' y1='1' x2='23' y2='5'></line>
 								<line
-									dataCap='butt'
+									data-cap='butt'
 									x1='31'
 									y1='11'
 									x2='1'
@@ -292,11 +292,11 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<polyline
-									dataCap='butt'
+									data-cap='butt'
 									points='12.546,23 7,23 2,31 30,31 25,23 19.454,23 '
 									strokeLinecap='butt'
 									stroke='#ffffff'
@@ -333,7 +333,7 @@ const QuickLinks = () => {
 								fill='none'
 								stroke='#ffffff'
 								strokeLinejoin='miter'
-								class='nc-icon-wrapper'
+								className='nc-icon-wrapper'
 								strokeMiterlimit='10'
 							>
 								<polyline
