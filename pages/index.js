@@ -74,6 +74,18 @@ export async function getStaticProps(context) {
 						}
 					}
 				}
+
+				categories(where: { parent: 0 }) {
+					nodes {
+						id
+						name
+						children {
+							nodes {
+								name
+							}
+						}
+					}
+				}
 			}
 		`,
 	});

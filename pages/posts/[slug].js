@@ -1,15 +1,21 @@
-import LayoutMain from "../components/Layout/layout";
-import styles from "../styles/Home.module.scss";
+import LayoutMain from "../../components/Layout/layout";
+import styles from "../styles/post.module.scss";
 import { gql } from "@apollo/client";
-import client from "../apollo-client";
+import client from "../../apollo-client";
 
 import React, { useLayoutEffect, useState, useEffect } from "react";
+import Sidebar from "../../components/Layout/sidebar/sidebar";
 
 export default function Home({ post, items }) {
 	return (
 		<LayoutMain items={items}>
-			<h1 className={styles.title}>{post.title}</h1>
-			<div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+			<div className={styles.main}>
+				<h1 className={styles.title}>{post.title}</h1>
+				<div className={styles.contentandSidebar}>
+					<div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+					<Sidebar />
+				</div>
+			</div>
 		</LayoutMain>
 	);
 }

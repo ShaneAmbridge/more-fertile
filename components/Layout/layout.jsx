@@ -6,6 +6,7 @@ import Nav from "./nav/nav";
 import TopBar from "./top-bar/top-bar";
 const LayoutMain = ({ active, children, items }) => {
 	const [bigmenuOpen, setBigmenuopen] = useState(false);
+	console.log(items?.categories);
 	return (
 		<div className={styles.main}>
 			<TopBar />
@@ -17,7 +18,7 @@ const LayoutMain = ({ active, children, items }) => {
 			<div className={styles.border}>
 				{bigmenuOpen && <div className={styles.line}></div>}
 			</div>
-			{bigmenuOpen && <BigMenu />}
+			{bigmenuOpen && <BigMenu categories={items?.categories} />}
 			{children}
 			<Footer />
 		</div>
