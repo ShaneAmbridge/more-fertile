@@ -22,7 +22,7 @@ export default function Home({ post, items }) {
 export async function getStaticProps(context) {
 	const { data } = await client.query({
 		query: gql`
-			query menuItems {
+			query post {
 				posts(where: { title: "Male Hot" }) {
 					nodes {
 						title
@@ -31,10 +31,6 @@ export async function getStaticProps(context) {
 					}
 				}
 			}
-		`,
-	});
-	const res = await client.query({
-		query: gql`
 			query menuItems {
 				menuItems(where: { parentId: "", location: PRIMARY }) {
 					nodes {
@@ -54,7 +50,7 @@ export async function getStaticProps(context) {
 	});
 
 	return {
-		props: { post: data?.posts?.nodes[0], items: res.data },
+		props: { post: data?.post?.nodes[0], items: res.data },
 		revalidate: 1,
 	};
 }

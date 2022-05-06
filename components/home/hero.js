@@ -1,29 +1,51 @@
 import styles from "./hero.module.scss";
 import Image from "next/image";
-const Hero = ({ ww }) => {
+import { useState, useEffect } from "react";
+import { useLayoutEffect } from "react";
+const Hero = () => {
+	const [size, setSize] = useState(0);
+	const [ww, setWw] = useState(0);
+	useLayoutEffect(() => {
+		function updateSize() {
+			setSize(window.innerWidth);
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+	useEffect(() => {
+		setWw(size);
+	}, [size]);
+	useLayoutEffect;
 	return (
 		<div className={styles.main}>
-			{ww < 601 && (
-				<Image layout='fill' src='/images/morefertile-mainSmall.png' />
-			)}
-			{ww > 600 && <Image layout='fill' src='/images/morefertile-main.png' />}
+			<div className={styles.image}>
+				{ww < 601 && (
+					<Image layout='fill' src='/images/morefertile-mainSmall.png' />
+				)}
+				{ww > 600 && (
+					<Image
+						style={{ width: "100%", height: "100%" }}
+						layout='fill'
+						src='/images/morefertile-main.png'
+					/>
+				)}
+			</div>
 			<div className={styles.containerwrapper}>
 				<div className={styles.container}>
-					<p className={styles.siteName}>morefertile®</p>
 					<div className={styles.title}>
-						Natural, <span>ground-breaking</span> fertility support
+						Natural,
+						<br /> ground-breaking <span>fertility support</span>
 					</div>
 					<p className={styles.discription}>
 						Comprehensive fertility information and products
 					</p>
-					<button className={styles.button}>
-						<img
-							width='16px'
-							height='13px'
-							src={"/images/user-edit-solid.svg"}
-						/>
-						Build your fertility profile
-					</button>
+					<div className={styles.buttons}>
+						<button className={styles.button}>
+							Start your fertility journey
+						</button>
+						<button className={styles.buttonOutlined}>Find out more</button>
+					</div>
 				</div>
 			</div>
 		</div>

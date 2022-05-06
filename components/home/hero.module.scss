@@ -1,11 +1,23 @@
 .main {
 	width: 100%;
-	height: 460px;
+	height: 550px;
 
 	position: relative;
+
+	.image {
+		width: 90%;
+		max-width: 1360px;
+		height: 550px;
+
+		img {
+			width: 90% !important;
+			height: 550px;
+			border-radius: 40px;
+		}
+	}
 	.containerwrapper {
 		width: 100%;
-		height: 460px;
+		height: 550px;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -29,40 +41,77 @@
 				margin-bottom: 18px;
 			}
 			.title {
-				max-width: 540px;
+				width: 382px;
+				height: 150px;
 
-				font-family: "Lexend", Sans-serif;
-				font-size: 40px;
-				font-weight: 600;
-				line-height: 50px;
-				color: #2a2a2a;
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 45px;
+				line-height: 111%;
+
+				letter-spacing: -0.02em;
+				color: #7f2f75;
 
 				span {
-					color: #8a2678;
+					font-weight: 700;
+					font-size: 45px;
+
+					color: #7f2f75;
 				}
 			}
 			.discription {
-				max-width: 350px;
-				font-family: "Lexend", Sans-serif;
-				font-size: 18px;
+				width: 280px;
+				height: 48px;
+
+				font-family: "Inter";
+				font-style: normal;
 				font-weight: 500;
+				font-size: 20px;
+				line-height: 24px;
+
+				color: #525252;
 
 				margin-top: 20px;
-				margin-bottom: 40px;
-				overflow-wrap: break-word;
-				box-sizing: border-box;
+				margin-bottom: 44px;
 			}
-			.button {
-				width: 197px;
-				text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
-				fill: #ffffff;
-				color: #ffffff;
-				background-color: #d189b1;
-				border-radius: 20px 20px 20px 20px;
-				padding: 12px 12px 12px 12px;
-				border: none;
-				img {
-					margin-right: 5px;
+			.buttons {
+				display: flex;
+				gap: 20px;
+				.button {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 248px;
+					height: 50px;
+
+					background: #ffffff;
+					border-radius: 10px;
+					border: none;
+					font-family: "Inter";
+					font-style: normal;
+					font-weight: 700;
+					font-size: 14px;
+					line-height: 17px;
+
+					text-align: center;
+
+					color: #7f2f75;
+				}
+				.buttonOutlined {
+					width: 154px;
+					height: 50px;
+					border: 1px solid rgba(127, 47, 117, 1);
+					font-family: "Inter";
+					font-style: normal;
+					font-weight: 700;
+					font-size: 14px;
+					line-height: 17px;
+					/* identical to box height */
+
+					text-align: center;
+					border-radius: 10px;
+					color: #7f2f75;
 				}
 			}
 		}
