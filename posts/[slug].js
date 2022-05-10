@@ -1,10 +1,10 @@
-import LayoutMain from "../../components/Layout/layout";
-import styles from "../styles/post.module.scss";
+import LayoutMain from "../components/Layout/layout";
+import styles from "../../styles/post.module.scss";
 import { gql } from "@apollo/client";
-import client from "../../apollo-client";
+import client from "../apollo-client";
 
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import Sidebar from "../../components/Layout/sidebar/sidebar";
+import Sidebar from "../components/Layout/sidebar/sidebar";
 
 export default function Home({ post, items }) {
 	return (
