@@ -32,6 +32,7 @@
 			opacity: 1;
 			transition: 0.8s all ease-in-out;
 			transition-delay: 0.3s;
+
 			.card1 {
 				width: 320px;
 				height: 467px;
@@ -447,6 +448,16 @@
 						cursor: pointer;
 					}
 				}
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.main {
+		.container {
+			.cards {
+				display: none;
 			}
 		}
 	}

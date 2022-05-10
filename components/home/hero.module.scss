@@ -41,7 +41,7 @@
 				margin-bottom: 18px;
 			}
 			.title {
-				width: 382px;
+				max-width: 382px;
 				height: 150px;
 
 				font-family: "Inter";
@@ -123,6 +123,61 @@
 			.container {
 				.title {
 					font-size: 30px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: "600px") {
+	.main {
+		height: 326px;
+		.image {
+			width: 334px;
+			height: 326px;
+		}
+		.containerwrapper {
+			height: 326px;
+			.container {
+				justify-content: flex-start;
+				padding-top: 28px;
+				.title {
+					width: 285px;
+					height: 54px;
+					font-style: normal;
+					font-weight: 700;
+					font-size: 22px;
+					br {
+						display: none;
+					}
+					span {
+						font-style: normal;
+						font-weight: 700;
+						font-size: 22px;
+					}
+				}
+				.discription {
+					width: 224px;
+					height: 38px;
+
+					font-style: normal;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 19px;
+
+					color: #525252;
+					margin-top: 10px;
+					margin-bottom: 58px;
+				}
+				.buttons {
+					flex-direction: column;
+					align-items: center;
+					.button {
+						width: 100%;
+					}
+					.buttonOutlined {
+						width: 100%;
+						background: none;
+					}
 				}
 			}
 		}

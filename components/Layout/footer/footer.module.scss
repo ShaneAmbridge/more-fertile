@@ -1,27 +1,113 @@
 .main {
 	width: 100%;
 
-	background-color: #8a2678;
-	.flex {
+	.menu {
+		width: 100%;
+		padding: 75px 40px;
+		background: #f3f4f7;
 		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 20px;
-		.copyright {
-			font-size: 18px;
-			color: #fff !important;
-			font-weight: 900 !important;
-		}
-		.links {
-			display: flex;
-			gap: 20px;
-			flex-wrap: wrap;
+		justify-content: center;
+		.container {
+			width: 100%;
+			max-width: 1024px;
+			.logoAndSocial {
+				margin-bottom: 26px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.logo {
+					display: flex;
+					align-items: center;
+					gap: 14px;
+				}
+				.socials {
+					display: flex;
+					gap: 14px;
+				}
+			}
+			.itemcontainer {
+				width: 100%;
+				display: flex;
+				gap: 100px;
+				flex-wrap: wrap;
+				.items {
+					h3 {
+						font-family: "Inter";
+						font-style: normal;
+						font-weight: 700;
+						font-size: 25px;
+						line-height: 30px;
+						color: #7f2f75;
+						margin: 0;
+						margin: 17px 0px;
+					}
+					.link {
+						font-family: "Inter";
+						font-style: normal;
+						font-weight: 400;
+						font-size: 20px;
+						line-height: 24px;
 
-			.link {
+						color: #525252;
+						margin: 9px 0px;
+					}
+				}
+			}
+		}
+	}
+	.bottom {
+		width: 100%;
+		padding: 14px 22px;
+		background: #c78daf;
+		display: flex;
+		justify-content: center;
+		.container {
+			width: 100%;
+			max-width: 1024px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 20px;
+			p {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 500;
 				font-size: 18px;
-				color: #fff !important;
-				cursor: pointer;
-				font-weight: 400 !important;
+				line-height: 22px;
+
+				color: #ffffff;
+			}
+			.button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 150px;
+				height: 50px;
+				background: #ffffff;
+				border-radius: 10px;
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 17px;
+
+				text-align: center;
+
+				color: #7f2f75;
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.main {
+		.menu {
+			.container {
+				.logoAndSocial {
+					.socials {
+						display: none;
+					}
+				}
 			}
 		}
 	}

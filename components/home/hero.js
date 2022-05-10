@@ -21,7 +21,11 @@ const Hero = () => {
 		<div className={styles.main}>
 			<div className={styles.image}>
 				{ww < 601 && (
-					<Image layout='fill' src='/images/morefertile-mainSmall.png' />
+					<Image
+						style={{ width: "100%", height: "100%" }}
+						layout='fill'
+						src='/images/new/homeHeroMobaile.png'
+					/>
 				)}
 				{ww > 600 && (
 					<Image
