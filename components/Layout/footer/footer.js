@@ -11,7 +11,7 @@ const Footer = () => {
 							<Image
 								width='119px'
 								height='18px'
-								src='/images/new/morefertile.svg'
+								src='/images/new/Morefertile.svg'
 							/>
 						</div>
 						<div className={styles.socials}>
