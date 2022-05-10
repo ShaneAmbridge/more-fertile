@@ -16,7 +16,7 @@ const Hero = () => {
 	useEffect(() => {
 		setWw(size);
 	}, [size]);
-	useLayoutEffect;
+
 	return (
 		<div className={styles.main}>
 			<div className={styles.image}>
@@ -27,7 +27,7 @@ const Hero = () => {
 					<Image
 						style={{ width: "100%", height: "100%" }}
 						layout='fill'
-						src='/images/morefertile-main.png'
+						src='/images/new/homeHome.png'
 					/>
 				)}
 			</div>

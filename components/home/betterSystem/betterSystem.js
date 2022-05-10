@@ -1,8 +1,8 @@
-import styles from "./moreFertility.module.scss";
+import styles from "./betterSystem.module.scss";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
-const MoreFertility = () => {
-	const domRef = useRef();
+const BetterSystem = () => {
+	const imageRef = useRef();
 
 	const [isImgVisible, setVisible] = useState(false);
 
@@ -11,13 +11,13 @@ const MoreFertility = () => {
 			if (entries[0].isIntersecting) {
 				setVisible(true);
 
-				observer.unobserve(domRef.current);
+				observer.unobserve(imageRef.current);
 			}
 		});
 
-		observer.observe(domRef.current);
+		observer.observe(imageRef.current);
 
-		return () => observer.unobserve(domRef.current);
+		return () => observer.unobserve(imageRef.current);
 	}, []);
 
 	return (
@@ -26,30 +26,31 @@ const MoreFertility = () => {
 				<div className={styles.titleAndAction}>
 					<div className={styles.titles}>
 						<h2 className={styles.title}>
-							More <span>Natural.</span>
+							Better <span>System.</span>
 						</h2>
 						<h2 className={styles.title}>
-							More <span style={{ color: "#7F2F75" }}>Fertile.</span>
+							Better <span style={{ color: "#563CA5" }}>Balance.</span>
 						</h2>
 						<h2 className={styles.title}>
-							More <span>You.</span>
+							Better <span>Health.</span>
 						</h2>
 					</div>
 					<div className={styles.description}>
-						We provide ground-breaking, natural solutions to help you navigate
-						your Fertility Journey successfully. ​
+						Systems biology uses algorithms to measure body system balance in a
+						holistic “real-life” forecast. We measure six Systems key to
+						fertility health.​
 					</div>
 					<button className={styles.button}>Find out more</button>
 				</div>
 				<div className={styles.imageContainer}>
 					<div
-						ref={domRef}
+						ref={imageRef}
 						className={isImgVisible ? styles.imageToTop : styles.image}
 					>
 						<Image
 							width='624px'
 							height='404px'
-							src='/images/new/moreNatural.png'
+							src='/images/new/betterSystem.png'
 						/>
 					</div>
 				</div>
@@ -58,4 +59,4 @@ const MoreFertility = () => {
 	);
 };
 
-export default MoreFertility;
+export default BetterSystem;

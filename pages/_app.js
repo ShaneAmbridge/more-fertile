@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
 					crossOrigin='true'
 				/>
 				<link
-					href='https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap'
+					href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Merriweather:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500;1,600;1,900&family=Roboto:wght@500&display=swap'
 					rel='stylesheet'
 				/>
 			</Head>

@@ -31,6 +31,7 @@
 			transform: translateY(0);
 			opacity: 1;
 			transition: 0.8s all ease-in-out;
+			transition-delay: 0.3s;
 			.card1 {
 				width: 320px;
 				height: 467px;
@@ -39,7 +40,9 @@
 				background: #ffffff;
 
 				filter: drop-shadow(0px 4px 15px rgba(86, 60, 165, 0.15));
-
+				img {
+					border-radius: 20px 20px 0px 0px;
+				}
 				.infos {
 					width: 320px;
 					height: 274px;
@@ -106,7 +109,9 @@
 				background: #ffffff;
 
 				filter: drop-shadow(0px 4px 15px rgba(86, 60, 165, 0.15));
-
+				img {
+					border-radius: 20px 20px 0px 0px;
+				}
 				.infos {
 					width: 320px;
 					height: 274px;
@@ -173,7 +178,9 @@
 				background: #ffffff;
 
 				filter: drop-shadow(0px 4px 15px rgba(86, 60, 165, 0.15));
-
+				img {
+					border-radius: 20px 20px 0px 0px;
+				}
 				.infos {
 					width: 320px;
 					height: 274px;

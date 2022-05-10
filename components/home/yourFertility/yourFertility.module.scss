@@ -1,10 +1,8 @@
 .main {
 	width: 100%;
-
 	display: flex;
 	justify-content: center;
 	margin: 119px 0px;
-
 	.container {
 		display: flex;
 		justify-content: space-between;
@@ -24,7 +22,7 @@
 					line-height: 48px;
 					letter-spacing: -0.04em;
 
-					color: #efc8ce;
+					color: #b5e7d8;
 					margin: 0;
 					span {
 						font-weight: 700;
@@ -33,13 +31,15 @@
 				}
 			}
 			.description {
-				width: 323px;
+				width: 325px;
 				height: 69px;
 				font-family: "Inter";
 				font-style: normal;
 				font-weight: 600;
 				font-size: 16px;
 				line-height: 141.02%;
+				/* or 23px */
+
 				color: #848484;
 				margin: 13px 0px 40px 0px;
 			}
@@ -49,7 +49,7 @@
 				left: 208px;
 				top: 1044px;
 
-				background: #efc8ce;
+				background: #b5e7d8;
 				border-radius: 10px;
 
 				font-family: "Inter";
@@ -60,7 +60,7 @@
 
 				text-align: center;
 
-				color: #7f2f75;
+				color: #357989;
 				border: none;
 			}
 		}
@@ -68,13 +68,13 @@
 			width: 624px;
 			height: 404px;
 
-			background: #f5dfe2;
+			background: #b5e7d8;
 			border-radius: 20px;
 			.image {
 				transform: translate(0, 0);
 			}
 			.imageToTop {
-				transform: translate(29px, -35px);
+				transform: translate(29px, 30px);
 				transition: 0.8s all ease-in-out;
 				transition-delay: 0.3s;
 			}

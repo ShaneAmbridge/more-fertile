@@ -1,10 +1,8 @@
 .main {
 	width: 100%;
-
 	display: flex;
 	justify-content: center;
 	margin: 119px 0px;
-
 	.container {
 		display: flex;
 		justify-content: space-between;
@@ -24,7 +22,7 @@
 					line-height: 48px;
 					letter-spacing: -0.04em;
 
-					color: #efc8ce;
+					color: #b59dff;
 					margin: 0;
 					span {
 						font-weight: 700;
@@ -49,7 +47,7 @@
 				left: 208px;
 				top: 1044px;
 
-				background: #efc8ce;
+				background: #b59dff;
 				border-radius: 10px;
 
 				font-family: "Inter";
@@ -68,7 +66,7 @@
 			width: 624px;
 			height: 404px;
 
-			background: #f5dfe2;
+			background: #b59dff;
 			border-radius: 20px;
 			.image {
 				transform: translate(0, 0);

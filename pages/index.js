@@ -8,6 +8,8 @@ import Container from "../components/container/container";
 import React from "react";
 import MoreFertility from "../components/home/moreFertility/moreFertility";
 import PremiumTestsAndProducts from "../components/home/premiumTestsAndProducts/premiumTestsAndProducts";
+import YourFertility from "../components/home/yourFertility/YourFertility";
+import BetterSystem from "../components/home/betterSystem/betterSystem";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home({ items }) {
@@ -17,6 +19,8 @@ export default function Home({ items }) {
 				<Hero />
 			</Container>
 			<MoreFertility />
+			<YourFertility />
+			<BetterSystem />
 			<PremiumTestsAndProducts />
 		</LayoutMain>
 	);

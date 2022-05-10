@@ -32,7 +32,7 @@ const PremiumTestsAndProducts = () => {
 					className={isVisible ? styles.cards : styles.cardsHidden}
 				>
 					<div className={styles.card1}>
-						<Image width='320px' height='193px' src='/' />
+						<Image width='320px' height='193px' src='/images/new/card1.png' />
 						<div className={styles.infos}>
 							<div className={styles.titleAndDescription}>
 								{" "}
@@ -48,7 +48,7 @@ const PremiumTestsAndProducts = () => {
 						</div>
 					</div>
 					<div className={styles.card2}>
-						<Image width='320px' height='193px' src='/' />
+						<Image width='320px' height='193px' src='/images/new/card2.png' />
 						<div className={styles.infos}>
 							<div className={styles.titleAndDescription}>
 								<h3>
@@ -64,7 +64,7 @@ const PremiumTestsAndProducts = () => {
 						</div>
 					</div>
 					<div className={styles.card3}>
-						<Image width='320px' height='193px' src='/' />
+						<Image width='320px' height='193px' src='/images/new/card3.png' />
 						<div className={styles.infos}>
 							<div className={styles.titleAndDescription}>
 								<h3>
