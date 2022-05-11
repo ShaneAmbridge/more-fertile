@@ -9,6 +9,7 @@
 		flex-wrap: wrap;
 		width: 90%;
 		max-width: 1024px;
+		gap: 60px;
 		.titleAndAction {
 			display: flex;
 			flex-direction: column;
@@ -62,6 +63,11 @@
 
 				color: #357989;
 				border: none;
+				cursor: pointer;
+				&:hover {
+					background: #357989;
+					color: #b5e7d8;
+				}
 			}
 		}
 		.imageContainer {
@@ -82,10 +88,22 @@
 }
 @media (max-width: 700px) {
 	.main {
-		.imageContainer {
-			.imageToTop {
-				transition: none;
-				transition-delay: none;
+		margin-top: 60px;
+		margin-bottom: 0px;
+		.container {
+			gap: 40px;
+			justify-content: center;
+			.imageContainer {
+				.imageToTop {
+					transform: translate(12px, 12px);
+					transition: all 0s !important;
+					transition-delay: 0s !important;
+				}
+			}
+			.titleAndAction {
+				.description {
+					margin-bottom: 20px !important;
+				}
 			}
 		}
 	}

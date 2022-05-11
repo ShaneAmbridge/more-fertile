@@ -3,6 +3,7 @@
 	height: 74px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 35px;
 
 	z-index: 999;
@@ -107,13 +108,37 @@
 				}
 			}
 		}
+		.mobileMenu {
+			display: none;
+
+			.menuIcon {
+				width: 42px;
+				height: 42px;
+				border-radius: 50%;
+				background: #f4eded;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+			}
+		}
 	}
 }
 
 @media (max-width: "900px") {
 	.main {
-		.menu {
-			display: none;
+		padding: 0px 20px;
+		.container {
+			justify-content: space-between;
+			.menu {
+				display: none;
+			}
+			.actionButtons {
+				display: none;
+			}
+			.mobileMenu {
+				display: block;
+			}
 		}
 	}
 }

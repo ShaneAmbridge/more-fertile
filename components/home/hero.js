@@ -2,27 +2,13 @@ import styles from "./hero.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useLayoutEffect } from "react";
-const Hero = () => {
-	const [size, setSize] = useState(0);
-	const [ww, setWw] = useState(0);
-	useLayoutEffect(() => {
-		function updateSize() {
-			setSize(window.innerWidth);
-		}
-		window.addEventListener("resize", updateSize);
-		updateSize();
-		return () => window.removeEventListener("resize", updateSize);
-	}, []);
-	useEffect(() => {
-		setWw(size);
-	}, [size]);
-
+const Hero = ({ ww }) => {
 	return (
 		<div className={styles.main}>
 			<div className={styles.image}>
 				{ww < 601 && (
 					<Image
-						style={{ width: "100%", height: "100%" }}
+						style={{ width: "95vw", height: "100%" }}
 						layout='fill'
 						src='/images/new/homeHeroMobaile.png'
 					/>

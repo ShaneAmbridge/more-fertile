@@ -1,17 +1,21 @@
 import styles from "./yourFertility.module.scss";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
-const YourFertility = () => {
+const YourFertility = ({ ww }) => {
 	const imgRef = useRef();
 
 	const [isImgVisible, setVisible] = useState(false);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) {
-				setVisible(true);
+			if (ww < 800) {
+				if (entries[0].isIntersecting) {
+					setVisible(true);
 
-				observer.unobserve(imgRef.current);
+					observer.unobserve(imgRef.current);
+				}
+			} else {
+				setVisible(true);
 			}
 		});
 
@@ -19,7 +23,6 @@ const YourFertility = () => {
 
 		return () => observer.unobserve(imgRef.current);
 	}, []);
-
 	return (
 		<div className={styles.main}>
 			<div className={styles.container}>

@@ -35,6 +35,11 @@ const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
 						For Professionals
 					</div>
 				</div>
+				<div className={styles.mobileMenu}>
+					<div className={styles.menuIcon}>
+						<img src='/images/new/mobileMenuIcon.svg' />
+					</div>
+				</div>
 			</div>
 		</nav>
 	);
