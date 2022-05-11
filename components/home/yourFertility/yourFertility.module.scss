@@ -80,3 +80,13 @@
 		}
 	}
 }
+@media (max-width: 700px) {
+	.main {
+		.imageContainer {
+			.imageToTop {
+				transition: none;
+				transition-delay: none;
+			}
+		}
+	}
+}

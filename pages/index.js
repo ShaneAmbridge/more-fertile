@@ -12,9 +12,9 @@ import YourFertility from "../components/home/yourFertility/YourFertility";
 import BetterSystem from "../components/home/betterSystem/betterSystem";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
-export default function Home({ items }) {
+export default function Home() {
 	return (
-		<LayoutMain items={items}>
+		<LayoutMain>
 			<Container>
 				<Hero />
 			</Container>
@@ -25,40 +25,40 @@ export default function Home({ items }) {
 		</LayoutMain>
 	);
 }
-export async function getStaticProps(context) {
-	const { data } = await client.query({
-		query: gql`
-			query menuItems {
-				menuItems(where: { parentId: "", location: PRIMARY }) {
-					nodes {
-						locations
-						label
-						parentId
-						childItems {
-							nodes {
-								label
-								path
-							}
-						}
-					}
-				}
+// export async function getStaticProps(context) {
+// 	const { data } = await client.query({
+// 		query: gql`
+// 			query menuItems {
+// 				menuItems(where: { parentId: "", location: PRIMARY }) {
+// 					nodes {
+// 						locations
+// 						label
+// 						parentId
+// 						childItems {
+// 							nodes {
+// 								label
+// 								path
+// 							}
+// 						}
+// 					}
+// 				}
 
-				categories(where: { parent: 0 }) {
-					nodes {
-						id
-						name
-						children {
-							nodes {
-								name
-							}
-						}
-					}
-				}
-			}
-		`,
-	});
+// 				categories(where: { parent: 0 }) {
+// 					nodes {
+// 						id
+// 						name
+// 						children {
+// 							nodes {
+// 								name
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		`,
+// 	});
 
-	return {
-		props: { items: data },
-	};
-}
+// 	return {
+// 		props: { items: data },
+// 	};
+// }

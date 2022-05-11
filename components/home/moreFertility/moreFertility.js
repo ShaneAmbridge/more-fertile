@@ -1,11 +1,23 @@
 import styles from "./moreFertility.module.scss";
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useLayoutEffect } from "react";
 const MoreFertility = () => {
 	const domRef = useRef();
 
 	const [isImgVisible, setVisible] = useState(false);
-
+	const [size, setSize] = useState(0);
+	const [ww, setWw] = useState(0);
+	useLayoutEffect(() => {
+		function updateSize() {
+			setSize(window.innerWidth);
+		}
+		window.addEventListener("resize", updateSize);
+		updateSize();
+		return () => window.removeEventListener("resize", updateSize);
+	}, []);
+	useEffect(() => {
+		setWw(size);
+	}, [size]);
 	useEffect(() => {
 		const observer = new IntersectionObserver((entries) => {
 			if (entries[0].isIntersecting) {
