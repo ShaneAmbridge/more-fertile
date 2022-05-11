@@ -44,7 +44,6 @@ const BetterSystem = ({ ww }) => {
 						holistic “real-life” forecast. We measure six Systems key to
 						fertility health.​
 					</div>
-					<button className={styles.button}>Find out more</button>
 				</div>
 				<div className={styles.imageContainer}>
 					<div

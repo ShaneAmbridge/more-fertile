@@ -47,7 +47,7 @@
 						font-weight: 400;
 						font-size: 20px;
 						line-height: 24px;
-
+						cursor: pointer;
 						color: #525252;
 						margin: 9px 0px;
 					}
@@ -92,8 +92,12 @@
 				line-height: 17px;
 
 				text-align: center;
-
+				cursor: pointer;
 				color: #7f2f75;
+				&:hover {
+					color: #ffffff;
+					background: #7f2f75;
+				}
 			}
 		}
 	}
