@@ -30,11 +30,11 @@ export default function Home() {
 		<LayoutMain>
 			<Container>
 				<Hero ww={ww} />
-				<MoreFertility ww={ww} />
-				<YourFertility ww={ww} />
-				<BetterSystem ww={ww} />
-				<PremiumTestsAndProducts ww={ww} />
 			</Container>
+			<MoreFertility ww={ww} />
+			<YourFertility ww={ww} />
+			<BetterSystem ww={ww} />
+			<PremiumTestsAndProducts ww={ww} />
 		</LayoutMain>
 	);
 }

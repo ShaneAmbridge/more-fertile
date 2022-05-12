@@ -85,10 +85,11 @@
 		}
 	}
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 	.main {
 		margin-top: 60px;
 		.container {
+			width: 334px;
 			gap: 20px;
 			justify-content: center;
 			.imageContainer {

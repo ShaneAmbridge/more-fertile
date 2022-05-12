@@ -7,7 +7,7 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		width: 90%;
+		width: 92%;
 		max-width: 1024px;
 		.title {
 			font-family: "Inter";
@@ -18,6 +18,7 @@
 			letter-spacing: -0.04em;
 			color: #efc8cd;
 			margin: 0;
+			margin-bottom: 30px;
 			span {
 				font-weight: 700;
 				color: #7f2f75;
