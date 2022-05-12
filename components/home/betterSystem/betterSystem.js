@@ -1,6 +1,7 @@
 import styles from "./betterSystem.module.scss";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
+import Services from "./services/services";
 const BetterSystem = ({ ww }) => {
 	const imageRef = useRef();
 
@@ -44,6 +45,7 @@ const BetterSystem = ({ ww }) => {
 						holistic “real-life” forecast. We measure six Systems key to
 						fertility health.​
 					</div>
+					<Services />
 				</div>
 				<div className={styles.imageContainer}>
 					<div
