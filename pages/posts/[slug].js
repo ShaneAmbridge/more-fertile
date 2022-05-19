@@ -2,6 +2,7 @@ import LayoutMain from "../../components/Layout/layout";
 import styles from "./posts.module.scss";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
+import Image from "next/image";
 
 import React, { useLayoutEffect, useState, useEffect } from "react";
 import Sidebar from "../../components/Layout/sidebar/sidebar";
@@ -13,6 +14,16 @@ export default function Home({ post, items }) {
       <div className={styles.main}>
         <div className={styles.container}>
           <h1 className={styles.title}>{post?.title}</h1>
+          {!post?.featuredImage && (
+            <div className={styles.heroImageContainer}>
+              <Image
+                src="/demo.png"
+                layout="responsive"
+                width={1024}
+                height={487}
+              />
+            </div>
+          )}
           <div className={styles.contentandSidebar}>
             <div
               dangerouslySetInnerHTML={{ __html: post?.content }}
@@ -39,6 +50,12 @@ export async function getStaticProps({ params }) {
         postBy(slug: $slug) {
           content
           title
+
+          featuredImage {
+            node {
+              link
+            }
+          }
         }
       }
     `,
