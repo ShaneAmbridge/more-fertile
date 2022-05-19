@@ -1,72 +1,71 @@
 .main {
-	width: 100%;
+  width: 100%;
+  padding-top: 213px;
+  padding-bottom: 45px;
+  background-color: white;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 90%;
+    .columns {
+      width: 100%;
+      display: flex;
+      gap: 80px;
+      animation: slowshow 0.3s ease-in;
 
-	padding-top: 213px;
-	padding-bottom: 45px;
-	background-color: white;
-	z-index: 9;
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: flex;
-	justify-content: center;
-	.container {
-		width: 90%;
-		.columns {
-			width: 100%;
-			display: flex;
-			gap: 80px;
-			animation: slowshow 0.3s ease-in;
-
-			.column {
-				width: fit-content;
-				h5 {
-					margin: 0;
-					font-size: 14px;
-					text-transform: uppercase;
-					color: #2a2a2a;
-					font-weight: 400;
-					position: relative;
-					background-size: 0 100%;
-					background-repeat: no-repeat;
-					background-image: linear-gradient(180deg, transparent 96%, #d189b1 0);
-					cursor: pointer;
-					transition: all 0.2s ease-in-out 0s;
-					&:hover {
-						background-size: 100% 100%;
-					}
-				}
-				.items {
-					.item {
-						width: fit-content;
-						margin: 15px 0 0 0;
-						background-size: 0 100%;
-						background-repeat: no-repeat;
-						background-image: linear-gradient(
-							180deg,
-							transparent 96%,
-							#d189b1 0
-						);
-						cursor: pointer;
-						transition: all 0.2s ease-in-out 0s;
-						color: #8a2678;
-						font-size: 14px;
-						font-weight: 400;
-						&:hover {
-							background-size: 100% 100%;
-						}
-					}
-				}
-			}
-		}
-	}
+      .column {
+        width: fit-content;
+        h5 {
+          margin: 0;
+          font-size: 14px;
+          text-transform: uppercase;
+          color: #2a2a2a;
+          font-weight: 400;
+          position: relative;
+          background-size: 0 100%;
+          background-repeat: no-repeat;
+          background-image: linear-gradient(180deg, transparent 96%, #d189b1 0);
+          cursor: pointer;
+          transition: all 0.2s ease-in-out 0s;
+          &:hover {
+            background-size: 100% 100%;
+          }
+        }
+        .items {
+          .item {
+            width: fit-content;
+            margin: 15px 0 0 0;
+            background-size: 0 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(
+              180deg,
+              transparent 96%,
+              #d189b1 0
+            );
+            cursor: pointer;
+            transition: all 0.2s ease-in-out 0s;
+            color: #8a2678;
+            font-size: 14px;
+            font-weight: 400;
+            &:hover {
+              background-size: 100% 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @keyframes slowshow {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

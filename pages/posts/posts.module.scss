@@ -1,0 +1,37 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 90%;
+    max-width: 1024px;
+
+    .title {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 55px;
+      line-height: 111%;
+      /* identical to box height, or 61px */
+
+      letter-spacing: -0.02em;
+
+      color: #8a2678;
+    }
+    .contentandSidebar {
+      display: flex;
+
+      gap: 95px;
+      width: 100%;
+      .content {
+        width: 60%;
+        max-width: 679px;
+
+        img {
+          width: 100%;
+          max-width: 679px;
+        }
+      }
+    }
+  }
+}

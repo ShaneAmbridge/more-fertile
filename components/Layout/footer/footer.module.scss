@@ -1,118 +1,122 @@
 .main {
-	width: 100%;
+  width: 100%;
+  margin-top: 218px;
 
-	.menu {
-		width: 100%;
-		padding: 75px 40px;
-		background: #f3f4f7;
-		display: flex;
-		justify-content: center;
-		.container {
-			width: 100%;
-			max-width: 1024px;
-			.logoAndSocial {
-				margin-bottom: 26px;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				.logo {
-					display: flex;
-					align-items: center;
-					gap: 14px;
-				}
-				.socials {
-					display: flex;
-					gap: 14px;
-				}
-			}
-			.itemcontainer {
-				width: 100%;
-				display: flex;
-				gap: 100px;
-				flex-wrap: wrap;
-				.items {
-					h3 {
-						font-family: "Inter";
-						font-style: normal;
-						font-weight: 700;
-						font-size: 25px;
-						line-height: 30px;
-						color: #7f2f75;
-						margin: 0;
-						margin: 17px 0px;
-					}
-					.link {
-						font-family: "Inter";
-						font-style: normal;
-						font-weight: 400;
-						font-size: 20px;
-						line-height: 24px;
-						cursor: pointer;
-						color: #525252;
-						margin: 9px 0px;
-					}
-				}
-			}
-		}
-	}
-	.bottom {
-		width: 100%;
-		padding: 14px 22px;
-		background: #c78daf;
-		display: flex;
-		justify-content: center;
-		.container {
-			width: 100%;
-			max-width: 1024px;
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
-			gap: 20px;
-			p {
-				font-family: "Inter";
-				font-style: normal;
-				font-weight: 500;
-				font-size: 18px;
-				line-height: 22px;
+  .menu {
+    width: 100%;
+    padding: 75px 40px;
+    background: #f3f4f7;
+    padding-bottom: 150px;
+    display: flex;
+    justify-content: center;
+    .container {
+      width: 100%;
+      max-width: 1024px;
+      .logoAndSocial {
+        margin-bottom: 26px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+        .socials {
+          display: flex;
+          gap: 14px;
+        }
+      }
+      .itemcontainer {
+        width: 100%;
+        display: flex;
+        gap: 100px;
+        flex-wrap: wrap;
+        .items {
+          h3 {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 30px;
+            color: #7f2f75;
+            margin: 0;
+            margin: 17px 0px;
+          }
+          .link {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            cursor: pointer;
+            color: #525252;
+            margin: 9px 0px;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 14px 22px;
+    background: #c78daf;
+    display: flex;
+    justify-content: center;
+    .container {
+      width: 100%;
+      max-width: 1024px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      p {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
 
-				color: #ffffff;
-			}
-			.button {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 150px;
-				height: 50px;
-				background: #ffffff;
-				border-radius: 10px;
-				font-family: "Inter";
-				font-style: normal;
-				font-weight: 700;
-				font-size: 14px;
-				line-height: 17px;
+        color: #ffffff;
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 50px;
+        background: #ffffff;
+        border-radius: 10px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
 
-				text-align: center;
-				cursor: pointer;
-				color: #7f2f75;
-				&:hover {
-					color: #ffffff;
-					background: #7f2f75;
-				}
-			}
-		}
-	}
+        text-align: center;
+        cursor: pointer;
+        color: #7f2f75;
+        &:hover {
+          color: #ffffff;
+          background: #7f2f75;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 600px) {
-	.main {
-		.menu {
-			.container {
-				.logoAndSocial {
-					.socials {
-						display: none;
-					}
-				}
-			}
-		}
-	}
+  .main {
+    .menu {
+      .container {
+        .logoAndSocial {
+          .socials {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
