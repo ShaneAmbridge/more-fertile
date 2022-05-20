@@ -13,30 +13,30 @@ import BetterSystem from "../components/home/betterSystem/betterSystem";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home() {
-	const [size, setSize] = useState(0);
-	const [ww, setWw] = useState(0);
-	useLayoutEffect(() => {
-		function updateSize() {
-			setSize(window.innerWidth);
-		}
-		window.addEventListener("resize", updateSize);
-		updateSize();
-		return () => window.removeEventListener("resize", updateSize);
-	}, []);
-	useEffect(() => {
-		setWw(size);
-	}, [size]);
-	return (
-		<LayoutMain>
-			<Container>
-				<Hero ww={ww} />
-			</Container>
-			<MoreFertility ww={ww} />
-			<YourFertility ww={ww} />
-			<BetterSystem ww={ww} />
-			<PremiumTestsAndProducts ww={ww} />
-		</LayoutMain>
-	);
+  const [size, setSize] = useState(0);
+  const [ww, setWw] = useState(0);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize(window.innerWidth);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  useEffect(() => {
+    setWw(size);
+  }, [size]);
+  return (
+    <LayoutMain>
+      <Container>
+        <Hero ww={ww} />
+      </Container>
+      <MoreFertility ww={ww} />
+      <YourFertility ww={ww} />
+      <BetterSystem ww={ww} />
+      {/* <PremiumTestsAndProducts ww={ww} /> */}
+    </LayoutMain>
+  );
 }
 // export async function getStaticProps(context) {
 // 	const { data } = await client.query({

@@ -1,12 +1,26 @@
 import styles from "./footer.module.scss";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 const Footer = () => {
   const [toggle, setToggle] = useState(true);
   const toggleRef = useRef();
 
+  const [size, setSize] = useState(0);
+  const [ww, setWw] = useState(0);
+  useLayoutEffect(() => {
+    setSize(window.innerWidth);
+    console.log(window.innerWidth);
+  }, []);
+  useEffect(() => {
+    setWw(size);
+  }, [size]);
+
   useEffect(() => {
     if (toggle) {
+      if (ww < 901) {
+        console.log(ww);
+        toggleRef.current.style.height = "90px";
+      }
       toggleRef.current.style.height = "78px";
       toggleRef.current.style.paddingX = "15px";
       toggleRef.current.style.paddingY = "22px";
