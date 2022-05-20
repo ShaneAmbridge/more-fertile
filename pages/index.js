@@ -7,9 +7,10 @@ import Container from "../components/container/container";
 import { useEffect, useState, useLayoutEffect } from "react";
 import React from "react";
 import MoreFertility from "../components/home/moreFertility/moreFertility";
-import PremiumTestsAndProducts from "../components/home/premiumTestsAndProducts/premiumTestsAndProducts";
 import YourFertility from "../components/home/yourFertility/YourFertility";
 import BetterSystem from "../components/home/betterSystem/betterSystem";
+import Products from "../components/home/mobileCarousel/products";
+import MobileCarousel from "../components/home/mobileCarousel/mobileCarousel";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home() {
@@ -34,7 +35,8 @@ export default function Home() {
       <MoreFertility ww={ww} />
       <YourFertility ww={ww} />
       <BetterSystem ww={ww} />
-      {/* <PremiumTestsAndProducts ww={ww} /> */}
+
+      {ww >= 900 ? <Products /> : <MobileCarousel />}
     </LayoutMain>
   );
 }
