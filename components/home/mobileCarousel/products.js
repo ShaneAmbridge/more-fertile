@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./products.module.scss";
 import Image from "next/image";
 const Products = () => {
+  const domRef = useRef();
+
+  const [isVisible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setVisible(true);
+
+        observer.unobserve(domRef.current);
+      }
+    });
+
+    observer.observe(domRef.current);
+
+    return () => observer.unobserve(domRef.current);
+  }, []);
   return (
     <div className={styles.main}>
       <div className={styles.container}>
@@ -10,7 +27,10 @@ const Products = () => {
           <br /> Tests & Products
         </h1>
 
-        <div className={styles.cards}>
+        <div
+          ref={domRef}
+          className={isVisible ? styles.cards : styles.cardsHidden}
+        >
           <div className={styles.card1}>
             <Image width="320px" height="193px" src="/images/new/test.jpg" />
             <div className={styles.infos}>

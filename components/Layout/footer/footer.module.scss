@@ -76,8 +76,8 @@
       position: relative;
       .toggleShow {
         position: absolute;
-        top: 5px;
-        right: 5px;
+        top: 4px;
+        right: 4px;
         background-color: #fff;
         border-radius: 50%;
         width: 20px;
@@ -157,7 +157,7 @@
     .toggleRemove {
       position: fixed;
       bottom: 5px;
-      z-index: 22;
+      z-index: 999;
       right: 20px;
       animation: topUpAnimation 0.5s ease-in-out;
       transform: rotate(180deg);
@@ -191,6 +191,24 @@
         .logoAndSocial {
           .socials {
             display: none;
+          }
+        }
+      }
+    }
+    .toggleContainer {
+      .wrapperRelative {
+        .bottom {
+          .container {
+            gap: 10px;
+            padding: 0 25px;
+            p {
+              font-size: 14px;
+            }
+
+            .button {
+              font-size: 12px;
+              height: 45px;
+            }
           }
         }
       }
