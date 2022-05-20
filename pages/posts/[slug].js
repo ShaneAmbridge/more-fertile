@@ -1,5 +1,5 @@
 import LayoutMain from "../../components/Layout/layout";
-import styles from "./posts.module.scss";
+import styles from "../../styles/posts.module.scss";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import Image from "next/image";
