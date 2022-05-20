@@ -57,53 +57,130 @@
       }
     }
   }
-  .bottom {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 14px 22px;
-    background: #c78daf;
-    display: flex;
-    justify-content: center;
-    .container {
-      width: 100%;
-      max-width: 1024px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 20px;
-      p {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
 
-        color: #ffffff;
+  .toggleContainer {
+    position: fixed;
+    height: auto;
+    width: 100%;
+    bottom: 0;
+    z-index: 1; /* Stay on top */
+
+    left: 0;
+
+    overflow-y: hidden; /* Disable horizontal scroll */
+
+    transition: all 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidebar */
+
+    .wrapperRelative {
+      width: 100%;
+      position: relative;
+      .toggleShow {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #fff;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
       }
-      .button {
+      .bottom {
+        transition: all 0.5s ease-in-out;
+        // position: fixed;
+        // bottom: 0;
+        width: 100%;
+
+        background: #c78daf;
         display: flex;
         justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 50px;
-        background: #ffffff;
-        border-radius: 10px;
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
+        // position: sticky;
 
-        text-align: center;
-        cursor: pointer;
-        color: #7f2f75;
-        &:hover {
-          color: #ffffff;
-          background: #7f2f75;
+        .toggleButton {
+          // position: absolute;
+          top: 5px;
+          right: 5px;
+          background-color: #fff;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        .container {
+          width: 100%;
+          max-width: 1024px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 20px;
+          p {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+
+            color: #ffffff;
+          }
+          .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 50px;
+            background: #ffffff;
+            border-radius: 10px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+
+            text-align: center;
+            cursor: pointer;
+            color: #7f2f75;
+            &:hover {
+              color: #ffffff;
+              background: #7f2f75;
+            }
+          }
         }
       }
     }
+
+    .toggleRemove {
+      position: fixed;
+      bottom: 5px;
+      z-index: 22;
+      right: 20px;
+      animation: topUpAnimation 0.5s ease-in-out;
+      transform: rotate(180deg);
+      cursor: pointer;
+      .arrow {
+        width: 40px;
+        height: 40px;
+        background-color: #efc8ce;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@keyframes topUpAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
