@@ -16,38 +16,35 @@ const Posts = ({ items, post }) => {
           <div className={styles.content}>
             <div className={styles.contentCards}>
               <div className={styles.cards}>
-                {post?.nodes.map((item, index) => (
-                  <div key={index} className={styles.card}>
-                    <Image
-                      width="320px"
-                      height="193px"
-                      src={
-                        item?.featuredImage
-                          ? item?.featuredImage
-                          : "/images/new/test.jpg"
-                      }
-                      alt=""
-                    />
-                    <div className={styles.infos}>
-                      <div className={styles.titleAndDescription}>
-                        {" "}
-                        <h3>{item.title}</h3>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: item?.excerpt.slice(0, 200),
-                          }}
-                          className={styles.content}
-                        ></div>
-                      </div>
+                {post?.nodes.map((item, index) => {
+                  const source =
+                    typeof item.featuredImage === "string"
+                      ? item.featuredImage
+                      : "/demo.png";
+                  return (
+                    <div key={index} className={styles.card}>
+                      <Image width="320px" height="193px" src={source} alt="" />
+                      <div className={styles.infos}>
+                        <div className={styles.titleAndDescription}>
+                          {" "}
+                          <h3>{item.title}</h3>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: item?.excerpt.slice(0, 200),
+                            }}
+                            className={styles.content}
+                          ></div>
+                        </div>
 
-                      <div className={styles.button}>
-                        <Link href={`/post/${item?.slug}`} passHref>
-                          <button>Read more</button>
-                        </Link>
+                        <div className={styles.button}>
+                          <Link href={`/post/${item?.slug}`} passHref>
+                            <button>Read more</button>
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -74,7 +71,7 @@ export async function getStaticProps({ params }) {
   const { data } = await client.query({
     query: gql`
       query allPosts {
-        posts(where: { categoryName: "" }) {
+        posts(first: 100) {
           nodes {
             excerpt
             link
