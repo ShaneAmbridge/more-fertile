@@ -1,12 +1,30 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./nav.module.scss";
 
 const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
   const [searchbox, setSearchBox] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const shrinkHeader = () => {
+      if (
+        document.body.scrollTop > 70 ||
+        document.documentElement.scrollTop > 70
+      ) {
+        headerRef.current.classList.add("scroll-header");
+      } else {
+        headerRef.current.classList.remove("scroll-header");
+      }
+    };
+    window.addEventListener("scroll", shrinkHeader);
+    return () => {
+      window.removeEventListener("scroll", shrinkHeader);
+    };
+  }, []);
 
   return (
-    <nav className={styles.main}>
+    <nav className={styles.main} ref={headerRef}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Image
