@@ -5,22 +5,26 @@ const Products = () => {
   const domRef = useRef();
 
   const [isVisible, setVisible] = useState(false);
+  const [isObserveing, setIsOberveing] = useState(false);
 
   useEffect(() => {
-    console.log(domRef, "domref");
-    if (typeof domRef.current === "element") {
+    if (typeof domRef.current === "object") {
       const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           setVisible(true);
 
           observer.unobserve(domRef.current);
+          setIsOberveing(false);
         }
       });
 
       observer.observe(domRef.current);
+      setIsOberveing(true);
     }
+
     return () => {
-      if (observer) observer.unobserve(domRef.current);
+      if (typeof domRef.current !== undefined)
+        isObserveing && observer.unobserve(domRef.current);
     };
   }, []);
   return (

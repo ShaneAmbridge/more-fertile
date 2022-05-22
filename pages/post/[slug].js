@@ -1,5 +1,5 @@
 import LayoutMain from "../../components/Layout/layout";
-import styles from "../../styles/posts.module.scss";
+import styles from "../../styles/post.module.scss";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import Image from "next/image";
@@ -9,18 +9,31 @@ import Sidebar from "../../components/Layout/sidebar/sidebar";
 
 export default function Home({ post, items }) {
   console.log(post);
+
   return (
     <LayoutMain items={items}>
       <div className={styles.main}>
         <div className={styles.container}>
+          <p className={styles.breadcrumb}>{post?.uri.split("/")}</p>
           <h1 className={styles.title}>{post?.title}</h1>
-          {!post?.featuredImage && (
+          {post?.featuredImage ? (
+            <div className={styles.heroImageContainer}>
+              <Image
+                src={post?.featuredImage}
+                layout="responsive"
+                width={1024}
+                height={487}
+                alt=""
+              />
+            </div>
+          ) : (
             <div className={styles.heroImageContainer}>
               <Image
                 src="/demo.png"
                 layout="responsive"
                 width={1024}
                 height={487}
+                alt=""
               />
             </div>
           )}
@@ -44,13 +57,14 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
+  console.log(params.slug);
   const { data } = await client.query({
     query: gql`
       query post($slug: String) {
         postBy(slug: $slug) {
           content
           title
-
+          uri
           featuredImage {
             node {
               link
