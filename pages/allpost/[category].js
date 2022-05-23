@@ -5,9 +5,11 @@ import Image from "next/image";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import LayoutMain from "../../components/Layout/layout";
+import CategorySidebar from "../../components/Layout/categorySidebar/categorySidebar";
 
-const CategoryPost = ({ items, posts }) => {
-  console.log(posts, "data");
+const CategoryPost = ({ items, data }) => {
+  console.log(data?.posts, "data");
+
   return (
     <LayoutMain items={items}>
       <div className={styles.main}>
@@ -17,59 +19,51 @@ const CategoryPost = ({ items, posts }) => {
           <div className={styles.content}>
             <div className={styles.contentCards}>
               <div className={styles.cards}>
-                {posts?.nodes.map((post, index) => (
-                  <div key={index} className={styles.card}>
-                    <Image
-                      width="320px"
-                      height="193px"
-                      src={
-                        post?.featuredImage
-                          ? post?.featuredImage
-                          : "/images/new/test.jpg"
-                      }
-                      alt=""
-                    />
-                    <div className={styles.infos}>
-                      <div className={styles.titleAndDescription}>
-                        {" "}
-                        <h3>{post.title}</h3>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: post?.excerpt.slice(0, 200),
-                          }}
-                          className={styles.content}
-                        ></div>
-                      </div>
+                {data.posts &&
+                  data?.posts?.nodes.map((post, index) => {
+                    console.log(post, "post");
+                    return (
+                      <div key={index} className={styles.card}>
+                        {post.featuredImage !== null ? (
+                          <Image
+                            width="320px"
+                            height="193px"
+                            src={post.featuredImage.node.mediaItemUrl}
+                            alt=""
+                          />
+                        ) : (
+                          <Image
+                            width="320px"
+                            height="193px"
+                            src="/images/morefertile-logo.png"
+                            alt=""
+                          />
+                        )}
+                        <div className={styles.infos}>
+                          <div className={styles.titleAndDescription}>
+                            {" "}
+                            <h3>{post.title}</h3>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: post.excerpt.slice(0, 200),
+                              }}
+                              className={styles.content}
+                            ></div>
+                          </div>
 
-                      <div className={styles.button}>
-                        <Link href={`/post/${post?.slug}`} passHref>
-                          <button>Read more</button>
-                        </Link>
+                          <div className={styles.button}>
+                            <Link href={`/post/${post.slug}`} passHref>
+                              <button>Read more</button>
+                            </Link>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    );
+                  })}
               </div>
             </div>
 
-            <div className={styles.sidebar}>
-              <aside>
-                <h4>All Categories</h4>
-
-                <ul>
-                  {posts?.nodes.map((post) => (
-                    <>
-                      <Link
-                        href={`/allpost/${post?.uri.split("/")[0]}`}
-                        passHref
-                      >
-                        <li>{post?.slug}</li>
-                      </Link>
-                    </>
-                  ))}
-                </ul>
-              </aside>
-            </div>
+            <CategorySidebar categories={data?.categories} />
           </div>
         </div>
       </div>
@@ -80,7 +74,7 @@ const CategoryPost = ({ items, posts }) => {
 export async function getStaticPaths() {
   return {
     paths: [{ params: { category: "1" } }, { params: { category: "2" } }],
-    fallback: true, // false or 'blocking'
+    fallback: "blocking", // false or 'blocking'
   };
 }
 
@@ -105,7 +99,26 @@ export async function getStaticProps({ params }) {
             featuredImage {
               node {
                 altText
-                link
+                mediaItemUrl
+              }
+            }
+          }
+        }
+
+        categories(first: 50) {
+          nodes {
+            slug
+            name
+            children {
+              nodes {
+                slug
+                name
+                children {
+                  nodes {
+                    slug
+                    name
+                  }
+                }
               }
             }
           }
@@ -116,9 +129,9 @@ export async function getStaticProps({ params }) {
       category: params?.category,
     },
   });
-  console.log(data);
+  console.log(data, "category data");
   return {
-    props: { posts: data?.posts },
+    props: { data },
     revalidate: 1,
   };
 }

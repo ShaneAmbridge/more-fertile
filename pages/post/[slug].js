@@ -12,97 +12,144 @@ export default function Home({ post, items }) {
 
   return (
     <LayoutMain items={items}>
-      <div classsName={styles.timelineContainer}>
-        <h1 classsName={(styles.levelOne, styles.rectangle)}>
+      <div className={styles.timelineContainer}>
+        <h1 className={`${styles.levelOne} ${styles.rectangle}`}>
           Fertility Health
         </h1>
-        <ol classsName={styles.levelTwoWrapper}>
+        <ol className={styles.levelTwoWrapper}>
           <li>
-            <h2 classsName={(styles.levelTwo, styles.rectangle)}>Lifestyle</h2>
-            <ol classsName={styles.levelThreeWrapper}>
+            <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
+              Lifestyle
+            </h2>
+            <ol className={styles.levelThreeWrapper}>
               <li>
-                <h3 classsName={(styles.levelThree, styles.rectangle)}>
+                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
                   Factors
                 </h3>
-                <ol classsName={styles.levelFourWrapper}>
+                <ol className={styles.levelFourWrapper}>
                   <li>
-                    <h4 classsName={(styles.levelFour, styles.rectangle)}>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
                       Age and Fertility
                     </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle"> Emotions</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      {" "}
+                      Emotions
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle"> Exercise</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      {" "}
+                      Exercise
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Microbiome</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Microbiome
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Weight</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Weight
+                    </h4>
                   </li>
                 </ol>
               </li>
               <li>
-                <h3 classsName="level-3 rectangle">Substances</h3>
-                <ol classsName="level-4-wrapper">
+                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                  Substances
+                </h3>
+                <ol className={styles.levelFourWrapper}>
                   <li>
-                    <h4 classsName="level-4 rectangle">Alcohol</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Alcohol
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Caffeine</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Caffeine
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Diet and Fertility</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Diet and Fertility
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Drugs</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Drugs
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Smoking</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Smoking
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle"> Supplements</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      {" "}
+                      Supplements
+                    </h4>
                   </li>
                 </ol>
               </li>
             </ol>
           </li>
           <li>
-            <h2 classsName="level-2 rectangle">Health</h2>
-            <ol classsName="level-3-wrapper">
+            <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>Health</h2>
+            <ol className={styles.levelThreeWrapper}>
               <li>
-                <h3 classsName="level-3 rectangle">Female</h3>
-                <ol classsName="level-4-wrapper">
+                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                  Female
+                </h3>
+                <ol className={styles.levelFourWrapper}>
                   <li>
-                    <h4 classsName="level-4 rectangle">Eggs & Organs</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Eggs & Organs
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Hormones</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Hormones
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Get Pregnant</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Get Pregnant
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Pregnancy</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Pregnancy
+                    </h4>
                   </li>
                 </ol>
               </li>
               <li>
-                <h3 classsName="level-3 rectangle">Male</h3>
-                <ol classsName="level-4-wrapper">
+                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                  Male
+                </h3>
+                <ol className={styles.levelFourWrapper}>
                   <li>
-                    <h4 classsName="level-4 rectangle">Semen & Organs</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Semen & Organs
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Changing Fertility</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Changing Fertility
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Semen Sampling</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Semen Sampling
+                    </h4>
                   </li>
                   <li>
-                    <h4 classsName="level-4 rectangle">Sperm Tests</h4>
+                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
+                      Sperm Tests
+                    </h4>
                   </li>
                 </ol>
               </li>

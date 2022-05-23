@@ -4,9 +4,10 @@ import LayoutMain from "../../components/Layout/layout";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 import Link from "next/link";
+import CategorySidebar from "../../components/Layout/categorySidebar/categorySidebar";
 
-const Posts = ({ items, post }) => {
-  console.log(post?.nodes, "data");
+const Posts = ({ items, data }) => {
+  // console.log(post?.nodes, "data");
   return (
     <LayoutMain items={items}>
       <div className={styles.main}>
@@ -16,7 +17,7 @@ const Posts = ({ items, post }) => {
           <div className={styles.content}>
             <div className={styles.contentCards}>
               <div className={styles.cards}>
-                {post?.nodes.map((item, index) => {
+                {data?.posts?.nodes.map((item, index) => {
                   const source =
                     typeof item.featuredImage === "string"
                       ? item.featuredImage
@@ -48,18 +49,7 @@ const Posts = ({ items, post }) => {
               </div>
             </div>
 
-            <div className={styles.sidebar}>
-              <aside>
-                <h4>All Categories</h4>
-
-                <ul>
-                  <li>Man Hot</li>
-                  <li>Endometriosis</li>
-                  <li>Female Age</li>
-                  <li>Fallopian Tube Blockages</li>
-                </ul>
-              </aside>
-            </div>
+            <CategorySidebar categories={data?.categories} />
           </div>
         </div>
       </div>
@@ -71,7 +61,7 @@ export async function getStaticProps({ params }) {
   const { data } = await client.query({
     query: gql`
       query allPosts {
-        posts(first: 100) {
+        posts(first: 20) {
           nodes {
             excerpt
             link
@@ -86,12 +76,32 @@ export async function getStaticProps({ params }) {
             }
           }
         }
+
+        categories(first: 50) {
+          nodes {
+            slug
+            name
+            children {
+              nodes {
+                slug
+                name
+                children {
+                  nodes {
+                    slug
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     `,
   });
+  // console.log(data.categories);
 
   return {
-    props: { post: data?.posts },
+    props: { data },
     revalidate: 1,
   };
 }
