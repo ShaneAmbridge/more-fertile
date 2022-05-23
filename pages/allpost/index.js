@@ -18,13 +18,23 @@ const Posts = ({ items, data }) => {
             <div className={styles.contentCards}>
               <div className={styles.cards}>
                 {data?.posts?.nodes.map((item, index) => {
-                  const source =
-                    typeof item.featuredImage === "string"
-                      ? item.featuredImage
-                      : "/demo.png";
                   return (
                     <div key={index} className={styles.card}>
-                      <Image width="320px" height="193px" src={source} alt="" />
+                      {item.featuredImage !== null ? (
+                        <Image
+                          width="320px"
+                          height="193px"
+                          src={item.featuredImage.node.mediaItemUrl}
+                          alt=""
+                        />
+                      ) : (
+                        <Image
+                          width="320px"
+                          height="193px"
+                          src="/images/morefertile-logo.png"
+                          alt=""
+                        />
+                      )}
                       <div className={styles.infos}>
                         <div className={styles.titleAndDescription}>
                           {" "}
@@ -61,7 +71,7 @@ export async function getStaticProps({ params }) {
   const { data } = await client.query({
     query: gql`
       query allPosts {
-        posts(first: 20) {
+        posts(first: 50) {
           nodes {
             excerpt
             link
@@ -71,7 +81,7 @@ export async function getStaticProps({ params }) {
             featuredImage {
               node {
                 altText
-                link
+                mediaItemUrl
               }
             }
           }
