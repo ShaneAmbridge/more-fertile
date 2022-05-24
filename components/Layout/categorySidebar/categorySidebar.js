@@ -13,7 +13,7 @@ const CategorySidebar = ({ categories }) => {
           {categories?.nodes?.map((category, i) => {
             return (
               <li key={i} className={styles.mainCategory}>
-                <Link href={`/allpost/${category.slug}`} passHref>
+                <Link href={`/categories/${category.uri}`} passHref>
                   <span className={styles.categories}>{category.name}</span>
                 </Link>
                 <ul
@@ -26,7 +26,7 @@ const CategorySidebar = ({ categories }) => {
                   {category?.children?.nodes.map((item, i) => {
                     return (
                       <li key={i}>
-                        <Link href={`/allpost/${item.slug}`} passHref>
+                        <Link href={`/categories/${item.uri}`} passHref>
                           <span className={styles.category}>{item.name}</span>
                         </Link>
 
@@ -41,7 +41,7 @@ const CategorySidebar = ({ categories }) => {
                             return (
                               <li key={i}>
                                 <Link
-                                  href={`/allpost/${subcategory.slug}`}
+                                  href={`/categories/${subcategory.uri}`}
                                   passHref
                                 >
                                   <span className={styles.subSmCategory}>

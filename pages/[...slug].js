@@ -1,18 +1,18 @@
-import LayoutMain from "../../components/Layout/layout";
-import styles from "../../styles/post.module.scss";
+import LayoutMain from "../components/Layout/layout";
+import styles from "../styles/post.module.scss";
 import { gql } from "@apollo/client";
-import client from "../../apollo-client";
+import client from "../apollo-client";
 import Image from "next/image";
 
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import Sidebar from "../../components/Layout/sidebar/sidebar";
+import Sidebar from "../components/Layout/sidebar/sidebar";
 
 export default function Home({ post, items }) {
-  console.log(post);
+  console.log(post, "post");
 
   return (
     <LayoutMain items={items}>
-      <div className={styles.timelineContainer}>
+      {/* <div className={styles.timelineContainer}>
         <h1 className={`${styles.levelOne} ${styles.rectangle}`}>
           Fertility Health
         </h1>
@@ -156,7 +156,7 @@ export default function Home({ post, items }) {
             </ol>
           </li>
         </ol>
-      </div>
+      </div> */}
 
       <div className={styles.main}>
         <div className={styles.container}>
@@ -198,34 +198,40 @@ export default function Home({ post, items }) {
 }
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { slug: "1" } }, { params: { slug: "2" } }],
+    paths: [
+      { params: { slug: ["4", "5", "6"] } },
+      { params: { slug: ["1", "2", "3"] } },
+    ],
     fallback: true, // false or 'blocking'
   };
 }
 export async function getStaticProps({ params }) {
-  console.log(params.slug);
+  const name = params.slug[params.slug.length - 1];
+  console.log(name, "name single post");
   const { data } = await client.query({
     query: gql`
-      query post($slug: String) {
-        postBy(slug: $slug) {
-          content
-          title
-          uri
-          featuredImage {
-            node {
-              link
+      query post($name: String) {
+        posts(where: { name: $name }) {
+          nodes {
+            content
+            title
+            uri
+            featuredImage {
+              node {
+                link
+              }
             }
           }
         }
       }
     `,
     variables: {
-      slug: params?.slug,
+      name: name,
     },
   });
   console.log(data);
   return {
-    props: { post: data?.postBy },
+    props: { post: data?.posts.nodes[0] },
     revalidate: 1,
   };
 }

@@ -1,106 +1,110 @@
 .main {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	margin: 119px 0px;
-	.container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: 60px;
-		width: 90%;
-		max-width: 1024px;
-		.titleAndAction {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			.titles {
-				.title {
-					font-family: "Inter";
-					font-style: normal;
-					font-weight: 400;
-					font-size: 45px;
-					line-height: 48px;
-					letter-spacing: -0.04em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 119px 0px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    width: 90%;
+    max-width: 1024px;
+    .titleAndAction {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .titles {
+        .title {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 45px;
+          line-height: 48px;
+          letter-spacing: -0.04em;
 
-					color: #b59dff;
-					margin: 0;
-					span {
-						font-weight: 700;
-						font-size: 45px;
-					}
-				}
-			}
-			.description {
-				width: 323px;
-				height: 69px;
-				font-family: "Inter";
-				font-style: normal;
-				font-weight: 600;
-				font-size: 16px;
-				line-height: 141.02%;
-				color: #848484;
-				margin: 13px 0px 40px 0px;
-			}
-			.button {
-				width: 314px;
-				height: 50px;
-				left: 208px;
-				top: 1044px;
+          color: #b59dff;
+          margin: 0;
+          span {
+            font-weight: 700;
+            font-size: 45px;
+          }
+        }
+      }
+      .description {
+        width: 323px;
+        height: 69px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 141.02%;
+        color: #848484;
+        margin: 13px 0px 40px 0px;
+      }
+      .button {
+        width: 314px;
+        height: 50px;
+        left: 208px;
+        top: 1044px;
 
-				background: #b59dff;
-				border-radius: 10px;
+        background: #ded3ff;
+        border-radius: 10px;
 
-				font-family: "Inter";
-				font-style: normal;
-				font-weight: 700;
-				font-size: 14px;
-				line-height: 17px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
 
-				text-align: center;
-
-				color: #7f2f75;
-				border: none;
-			}
-		}
-		.imageContainer {
-			width: 624px;
-			height: 404px;
-			background: #b59dff;
-			border-radius: 20px;
-			.image {
-				transform: translate(0, 0);
-			}
-			.imageToTop {
-				transform: translate(29px, -35px);
-				transition: 0.8s all ease-in-out;
-				transition-delay: 0.3s;
-			}
-		}
-	}
+        text-align: center;
+        cursor: pointer;
+        color: #563ca5;
+        border: none;
+        &:hover {
+          background: #7f2f75;
+          color: #efc8ce;
+        }
+      }
+    }
+    .imageContainer {
+      width: 624px;
+      height: 404px;
+      background: #b59dff;
+      border-radius: 20px;
+      .image {
+        transform: translate(0, 0);
+      }
+      .imageToTop {
+        transform: translate(29px, -35px);
+        transition: 0.8s all ease-in-out;
+        transition-delay: 0.3s;
+      }
+    }
+  }
 }
 @media (max-width: 900px) {
-	.main {
-		margin-top: 60px;
+  .main {
+    margin-top: 60px;
 
-		.container {
-			width: 334px;
-			gap: 20px;
-			justify-content: center;
-			.imageContainer {
-				height: 215px;
-				order: 1;
-				.imageToTop {
-					transform: translate(12px, -12px);
-					transition: all 0s !important;
-					transition-delay: 0s !important;
-				}
-			}
-		}
-		.titleAndAction {
-			width: 100%;
-			order: 2;
-		}
-	}
+    .container {
+      width: 334px;
+      gap: 20px;
+      justify-content: center;
+      .imageContainer {
+        height: 215px;
+        order: 1;
+        .imageToTop {
+          transform: translate(12px, -12px);
+          transition: all 0s !important;
+          transition-delay: 0s !important;
+        }
+      }
+    }
+    .titleAndAction {
+      width: 100%;
+      order: 2;
+    }
+  }
 }

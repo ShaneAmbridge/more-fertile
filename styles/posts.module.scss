@@ -72,7 +72,7 @@
               font-family: "Inter";
               font-style: normal;
               font-weight: 700;
-              font-size: 18px;
+              font-size: 25px;
               line-height: 106.02%;
               /* or 27px */
 
@@ -94,33 +94,29 @@
             }
           }
 
-          .button {
-            display: flex;
-            justify-content: flex-end;
+          button {
+            height: 50px;
+            width: 270px;
+            left: 233px;
+            top: 2986px;
+            border-radius: 10px;
+            border: none;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            /* identical to box height */
 
-            button {
-              height: 50px;
-              width: 150px;
-              left: 233px;
-              top: 2986px;
-              border-radius: 10px;
-              border: none;
-              font-family: "Inter";
-              font-style: normal;
-              font-weight: 700;
-              font-size: 14px;
-              line-height: 17px;
-              /* identical to box height */
+            text-align: center;
 
-              text-align: center;
+            color: #7f2f75;
+            background-color: #efc8cd;
+            cursor: pointer;
 
-              color: #7f2f75;
-              background-color: #efc8cd;
-              cursor: pointer;
-              &:hover {
-                color: #efc8cd;
-                background-color: #7f2f75;
-              }
+            &:hover {
+              color: #efc8cd;
+              background-color: #7f2f75;
             }
           }
         }

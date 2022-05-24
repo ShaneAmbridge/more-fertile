@@ -8,7 +8,7 @@ import LayoutMain from "../../components/Layout/layout";
 import CategorySidebar from "../../components/Layout/categorySidebar/categorySidebar";
 
 const CategoryPost = ({ items, data }) => {
-  console.log(data?.posts, "data");
+  // console.log(data?.posts, "data");
 
   return (
     <LayoutMain items={items}>
@@ -21,7 +21,7 @@ const CategoryPost = ({ items, data }) => {
               <div className={styles.cards}>
                 {data.posts &&
                   data?.posts?.nodes.map((post, index) => {
-                    console.log(post, "post");
+                    // console.log(post, "post");
                     return (
                       <div key={index} className={styles.card}>
                         {post.featuredImage !== null ? (
@@ -45,14 +45,14 @@ const CategoryPost = ({ items, data }) => {
                             <h3>{post.title}</h3>
                             <div
                               dangerouslySetInnerHTML={{
-                                __html: post.excerpt.slice(0, 200),
+                                __html: post.excerpt.slice(0, 150) + "...",
                               }}
                               className={styles.content}
                             ></div>
                           </div>
 
                           <div className={styles.button}>
-                            <Link href={`/post/${post.slug}`} passHref>
+                            <Link href={`/${post.uri}`} passHref>
                               <button>Read more</button>
                             </Link>
                           </div>
@@ -73,12 +73,13 @@ const CategoryPost = ({ items, data }) => {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { category: "1" } }, { params: { category: "2" } }],
+    paths: [{ params: { category: ["1"] } }, { params: { category: ["2"] } }],
     fallback: "blocking", // false or 'blocking'
   };
 }
 
 export async function getStaticProps({ params }) {
+  const category = params.category.join("/");
   const { data } = await client.query({
     query: gql`
       query allPosts($category: String) {
@@ -107,15 +108,15 @@ export async function getStaticProps({ params }) {
 
         categories(first: 50) {
           nodes {
-            slug
+            uri
             name
             children {
               nodes {
-                slug
+                uri
                 name
                 children {
                   nodes {
-                    slug
+                    uri
                     name
                   }
                 }
@@ -126,7 +127,7 @@ export async function getStaticProps({ params }) {
       }
     `,
     variables: {
-      category: params?.category,
+      category: category,
     },
   });
   console.log(data, "category data");

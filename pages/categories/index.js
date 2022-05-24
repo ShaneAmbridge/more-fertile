@@ -7,7 +7,7 @@ import Link from "next/link";
 import CategorySidebar from "../../components/Layout/categorySidebar/categorySidebar";
 
 const Posts = ({ items, data }) => {
-  // console.log(post?.nodes, "data");
+  console.log(data?.posts, "data");
   return (
     <LayoutMain items={items}>
       <div className={styles.main}>
@@ -41,17 +41,15 @@ const Posts = ({ items, data }) => {
                           <h3>{item.title}</h3>
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: item?.excerpt.slice(0, 200),
+                              __html: item?.excerpt.slice(0, 150),
                             }}
                             className={styles.content}
                           ></div>
                         </div>
 
-                        <div className={styles.button}>
-                          <Link href={`/post/${item?.slug}`} passHref>
-                            <button>Read more</button>
-                          </Link>
-                        </div>
+                        <Link href={`/${item?.uri}`} passHref>
+                          <button>Read more</button>
+                        </Link>
                       </div>
                     </div>
                   );
@@ -89,15 +87,15 @@ export async function getStaticProps({ params }) {
 
         categories(first: 50) {
           nodes {
-            slug
             name
+            uri
             children {
               nodes {
-                slug
+                uri
                 name
                 children {
                   nodes {
-                    slug
+                    uri
                     name
                   }
                 }
