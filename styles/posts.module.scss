@@ -12,9 +12,15 @@
       // justify-content: space-between;
       flex-wrap: wrap;
       gap: 25px;
+      justify-content: center;
 
       .contentCards {
-        flex: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @media (min-width: "900px") {
+          flex: 2;
+        }
       }
     }
 
@@ -45,7 +51,7 @@
       opacity: 1;
       transition: 0.8s all ease-in-out;
       transition-delay: 0.3s;
-
+      justify-content: center;
       .card {
         width: 320px;
         height: 467px;
@@ -132,9 +138,9 @@
         font-weight: 700;
         font-size: 45px;
       }
-      .cards {
-        display: none;
-      }
+      // .cards {
+      //   display: none;
+      // }
       .caroselcontainer {
         max-width: 320px;
         display: flex;

@@ -1,12 +1,17 @@
 import styles from "./resourcesBigMenu.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 const ResourcesBigMenu = () => {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <div className={styles.columns}>
           <div className={styles.items}>
-            <h4>Fertility Health</h4>
+            <h4>
+              <Link href="/Fertility Health" passHref>
+                <a>Fertility Health</a>
+              </Link>
+            </h4>
             <div className={styles.container}>
               <div className={styles.item}>
                 <Image

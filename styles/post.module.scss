@@ -53,26 +53,26 @@
   .levelTwoWrapper {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     padding: 0;
 
-    @media screen and (max-width: 700px) {
-      display: block;
-      > li::before {
-        display: none;
-      }
+    // @media screen and (max-width: 700px) {
+    //   display: block;
+    //   > li::before {
+    //     display: none;
+    //   }
 
-      &::after {
-        display: block;
-      }
-    }
+    //   &::after {
+    //     display: block;
+    //   }
+    // }
 
     &::before {
       content: "";
       position: absolute;
       top: -20px;
-      left: 25%;
-      width: 50%;
+      left: 12.5%;
+      width: 75%;
       height: 2px;
       background: black;
     }
@@ -132,79 +132,79 @@
       }
     }
 
-    .levelThreeWrapper {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 20px;
-      width: 90%;
-      margin: 0 auto;
-      padding: 0;
+    // .levelThreeWrapper {
+    //   position: relative;
+    //   display: grid;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   grid-column-gap: 20px;
+    //   width: 90%;
+    //   margin: 0 auto;
+    //   padding: 0;
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: calc(25% - 5px);
-        width: calc(50% + 10px);
-        height: 2px;
-        background: black;
-      }
+    //   &::before {
+    //     content: "";
+    //     position: absolute;
+    //     top: -20px;
+    //     left: calc(25% - 5px);
+    //     width: calc(50% + 10px);
+    //     height: 2px;
+    //     background: black;
+    //   }
 
-      > li::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -100%);
-        width: 2px;
-        height: 20px;
-        background: black;
-      }
+    //   > li::before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 50%;
+    //     transform: translate(-50%, -100%);
+    //     width: 2px;
+    //     height: 20px;
+    //     background: black;
+    //   }
 
-      .levelThree {
-        margin-bottom: 20px;
-        background: #8dccad;
-        margin-top: 0;
-      }
+    //   .levelThree {
+    //     margin-bottom: 20px;
+    //     background: #8dccad;
+    //     margin-top: 0;
+    //   }
 
-      .levelFourWrapper {
-        position: relative;
-        width: 80%;
-        margin-left: auto;
-        padding: 0;
+    //   .levelFourWrapper {
+    //     position: relative;
+    //     width: 80%;
+    //     margin-left: auto;
+    //     padding: 0;
 
-        ::before {
-          content: "";
-          position: absolute;
-          top: -21px;
-          left: -20px;
-          width: 2px;
-          height: calc(100% + 22px);
-          background: black;
-        }
+    //     ::before {
+    //       content: "";
+    //       position: absolute;
+    //       top: -21px;
+    //       left: -20px;
+    //       width: 2px;
+    //       height: calc(100% + 22px);
+    //       background: black;
+    //     }
 
-        li + li {
-          margin-top: 20px;
-        }
+    //     li + li {
+    //       margin-top: 20px;
+    //     }
 
-        .levelFour {
-          font-weight: normal;
-          background: #8dccad;
+    //     .levelFour {
+    //       font-weight: normal;
+    //       background: #8dccad;
 
-          &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0%;
-            transform: translate(-100%, -50%);
-            width: 20px;
-            height: 2px;
-            background: black;
-          }
-        }
-      }
-    }
+    //       &::before {
+    //         content: "";
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 0%;
+    //         transform: translate(-100%, -50%);
+    //         width: 20px;
+    //         height: 2px;
+    //         background: black;
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
 
@@ -213,13 +213,8 @@
   display: flex;
   justify-content: center;
   .container {
-    width: 90%;
+    width: 100%;
     max-width: 1024px;
-
-    // .heroImageContainer {
-    //   width: 100%;
-    //   height: 487px;
-    // }
 
     .title {
       font-family: "Inter";
@@ -235,16 +230,49 @@
     }
     .contentandSidebar {
       display: flex;
-
       gap: 95px;
       width: 100%;
+
       .content {
         width: 60%;
         max-width: 679px;
 
         img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    margin-left: 22px;
+    margin-right: 22px;
+    .container {
+      .breadcrumb {
+        margin-top: 23px;
+      }
+
+      .title {
+        margin-top: 30px;
+        font-size: 34px;
+      }
+      .contentandSidebar {
+        display: flex;
+        gap: 0px;
+        flex-direction: column;
+
+        .content {
           width: 100%;
-          max-width: 679px;
+
+          img {
+            max-width: 100%;
+          }
+        }
+
+        .sidebar {
+          width: 100%;
         }
       }
     }
@@ -253,43 +281,43 @@
 
 /* MQ STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media screen and (max-width: 700px) {
-  // .rectangle {
-  //   padding: 20px 10px;
-  // }
+// @media screen and (max-width: 700px) {
+//   // .rectangle {
+//   //   padding: 20px 10px;
+//   // }
 
-  // .level-1,
-  // .level-2 {
-  //   width: 100%;
-  // }
+//   // .level-1,
+//   // .level-2 {
+//   //   width: 100%;
+//   // }
 
-  // .level-1 {
-  //   margin-bottom: 20px;
-  // }
+//   // .level-1 {
+//   //   margin-bottom: 20px;
+//   // }
 
-  // .level-1::before,
-  // .level-2-wrapper > li::before {
-  //   display: none;
-  // }
+//   // .level-1::before,
+//   // .level-2-wrapper > li::before {
+//   //   display: none;
+//   // }
 
-  .level-2-wrapper,
-  .level-2-wrapper::after,
-  .level-2::after {
-    display: block;
-  }
+//   .level-2-wrapper,
+//   .level-2-wrapper::after,
+//   .level-2::after {
+//     display: block;
+//   }
 
-  .level-2-wrapper {
-    width: 90%;
-    margin-left: 10%;
-  }
+//   .level-2-wrapper {
+//     width: 90%;
+//     margin-left: 10%;
+//   }
 
-  .level-2-wrapper::before {
-    left: -20px;
-    width: 2px;
-    height: calc(100% + 40px);
-  }
+//   .level-2-wrapper::before {
+//     left: -20px;
+//     width: 2px;
+//     height: calc(100% + 40px);
+//   }
 
-  .level-2-wrapper > li:not(:first-child) {
-    margin-top: 50px;
-  }
-}
+//   .level-2-wrapper > li:not(:first-child) {
+//     margin-top: 50px;
+//   }
+// }

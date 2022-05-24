@@ -5,194 +5,84 @@ import client from "../apollo-client";
 import Image from "next/image";
 
 import React, { useLayoutEffect, useState, useEffect } from "react";
-import Sidebar from "../components/Layout/sidebar/sidebar";
 
-export default function Home({ post, items }) {
-  console.log(post, "post");
+import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
+
+export default function Home({ data, items, postOrTree }) {
+  console.log(data, "data");
+  const breadcamp = data?.posts?.nodes[0]?.uri.split("/");
+  // console.log(data?.posts?.nodes[0]?.uri, "breadcamp", typeof breadcamp);
 
   return (
     <LayoutMain items={items}>
-      {/* <div className={styles.timelineContainer}>
-        <h1 className={`${styles.levelOne} ${styles.rectangle}`}>
-          Fertility Health
-        </h1>
-        <ol className={styles.levelTwoWrapper}>
-          <li>
-            <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
-              Lifestyle
-            </h2>
-            <ol className={styles.levelThreeWrapper}>
-              <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Factors
-                </h3>
-                <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Age and Fertility
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      {" "}
-                      Emotions
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      {" "}
-                      Exercise
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Microbiome
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Weight
-                    </h4>
-                  </li>
-                </ol>
-              </li>
-              <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Substances
-                </h3>
-                <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Alcohol
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Caffeine
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Diet and Fertility
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Drugs
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Smoking
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      {" "}
-                      Supplements
-                    </h4>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li>
-            <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>Health</h2>
-            <ol className={styles.levelThreeWrapper}>
-              <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Female
-                </h3>
-                <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Eggs & Organs
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Hormones
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Get Pregnant
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Pregnancy
-                    </h4>
-                  </li>
-                </ol>
-              </li>
-              <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Male
-                </h3>
-                <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Semen & Organs
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Changing Fertility
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Semen Sampling
-                    </h4>
-                  </li>
-                  <li>
-                    <h4 className={`${styles.levelFour} ${styles.rectangle}`}>
-                      Sperm Tests
-                    </h4>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-        </ol>
-      </div> */}
+      {postOrTree === "tree" && (
+        <div className={styles.timelineContainer}>
+          <h1 className={`${styles.levelOne} ${styles.rectangle}`}>
+            {data?.categories?.nodes[0].name}
+          </h1>
+          <ol className={styles.levelTwoWrapper}>
+            {data?.categories?.nodes[0].children.nodes.map((category, i) => {
+              return (
+                <li key={i + "lk,k;"}>
+                  <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
+                    1 {category.name}
+                  </h2>
+                  <ol className={styles.levelThreeWrapper}>
+                    {category.children.nodes.map((subCategory, j) => {
+                      return (
+                        <li key={j + "asdfasdfsadf"}>
+                          <h3
+                            className={`${styles.levelThree} ${styles.rectangle}`}
+                          >
+                            2 {subCategory.name}
+                          </h3>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      )}
 
-      <div className={styles.main}>
-        <div className={styles.container}>
-          <p className={styles.breadcrumb}>{post?.uri.split("/")}</p>
-          <h1 className={styles.title}>{post?.title}</h1>
-          {post?.featuredImage ? (
-            <div className={styles.heroImageContainer}>
-              <Image
-                src={post?.featuredImage}
-                layout="responsive"
-                width={1024}
-                height={487}
-                alt=""
-              />
-            </div>
-          ) : (
-            <div className={styles.heroImageContainer}>
-              <Image
-                src="/demo.png"
-                layout="responsive"
-                width={1024}
-                height={487}
-                alt=""
-              />
-            </div>
-          )}
-          <div className={styles.contentandSidebar}>
-            <div
-              dangerouslySetInnerHTML={{ __html: post?.content }}
-              className={styles.content}
-            ></div>
+      {postOrTree === "post" && (
+        <div className={styles.main}>
+          <div className={styles.container}>
+            <p className={styles.breadcrumb}>{breadcamp && breadcamp[1]}</p>
+            <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
-            <Sidebar />
+            {data?.posts?.nodes[0]?.featuredImage !== null &&
+              data?.posts?.nodes[0]?.featuredImage && (
+                <div className={styles.heroImageContainer}>
+                  <Image
+                    layout="responsive"
+                    width={1024}
+                    height={487}
+                    src={
+                      data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl
+                    }
+                    alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
+                  />
+                </div>
+              )}
+
+            <div className={styles.contentandSidebar}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data?.posts?.nodes[0]?.content,
+                }}
+                className={styles.content}
+              ></div>
+
+              <div className={styles.sidebar}>
+                <CategorySidebar categories={data?.categories} />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </LayoutMain>
   );
 }
@@ -202,36 +92,91 @@ export async function getStaticPaths() {
       { params: { slug: ["4", "5", "6"] } },
       { params: { slug: ["1", "2", "3"] } },
     ],
-    fallback: true, // false or 'blocking'
+    fallback: "blocking", // false or 'blocking'
   };
 }
 export async function getStaticProps({ params }) {
   const name = params.slug[params.slug.length - 1];
-  console.log(name, "name single post");
-  const { data } = await client.query({
-    query: gql`
-      query post($name: String) {
-        posts(where: { name: $name }) {
-          nodes {
-            content
-            title
-            uri
-            featuredImage {
-              node {
-                link
+  const parentName = params.slug[0];
+  console.log(typeof parentName);
+  const postOrTree =
+    params.slug.length > 0 && params.slug.length < 2 ? "tree" : "post";
+  const { data } =
+    params.slug.length > 0 && params.slug.length < 2
+      ? await client.query({
+          query: gql`
+            query treeData($parentName: [String]) {
+              categories(where: { parent: 0, name: $parentName }) {
+                nodes {
+                  id
+                  name
+                  uri
+                  children {
+                    nodes {
+                      name
+                      uri
+                      children {
+                        nodes {
+                          name
+                          uri
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
-          }
-        }
-      }
-    `,
-    variables: {
-      name: name,
-    },
-  });
-  console.log(data);
+          `,
+          variables: {
+            parentName: parentName,
+          },
+        })
+      : await client.query({
+          query: gql`
+            query post($name: String) {
+              posts(where: { name: $name }) {
+                nodes {
+                  content
+                  title
+                  uri
+                  featuredImage {
+                    node {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+
+              categories(first: 50) {
+                nodes {
+                  name
+                  uri
+                  children {
+                    nodes {
+                      uri
+                      name
+                      children {
+                        nodes {
+                          uri
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `,
+          variables: {
+            name: name,
+          },
+        });
+
+  // console.log(postOrTree, "postOrTree");
   return {
-    props: { post: data?.posts.nodes[0] },
+    props: { postOrTree: postOrTree, data },
+
     revalidate: 1,
   };
 }

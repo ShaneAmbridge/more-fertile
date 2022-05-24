@@ -7,7 +7,7 @@ import Link from "next/link";
 import CategorySidebar from "../../components/Layout/categorySidebar/categorySidebar";
 
 const Posts = ({ items, data }) => {
-  console.log(data?.posts, "data");
+  // console.log(data?.posts, "data");
   return (
     <LayoutMain items={items}>
       <div className={styles.main}>
@@ -25,7 +25,7 @@ const Posts = ({ items, data }) => {
                           width="320px"
                           height="193px"
                           src={item.featuredImage.node.mediaItemUrl}
-                          alt=""
+                          alt={item.featuredImage.node.altText}
                         />
                       ) : (
                         <Image
@@ -47,7 +47,7 @@ const Posts = ({ items, data }) => {
                           ></div>
                         </div>
 
-                        <Link href={`/${item?.uri}`} passHref>
+                        <Link href={`${item?.uri}`} passHref>
                           <button>Read more</button>
                         </Link>
                       </div>

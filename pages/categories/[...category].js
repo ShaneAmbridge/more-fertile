@@ -29,7 +29,7 @@ const CategoryPost = ({ items, data }) => {
                             width="320px"
                             height="193px"
                             src={post.featuredImage.node.mediaItemUrl}
-                            alt=""
+                            alt={post.featuredImage.node.altText}
                           />
                         ) : (
                           <Image
@@ -52,7 +52,7 @@ const CategoryPost = ({ items, data }) => {
                           </div>
 
                           <div className={styles.button}>
-                            <Link href={`/${post.uri}`} passHref>
+                            <Link href={`${post.uri}`} passHref>
                               <button>Read more</button>
                             </Link>
                           </div>

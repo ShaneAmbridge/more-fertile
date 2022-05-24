@@ -9,7 +9,7 @@ const Footer = () => {
   const [ww, setWw] = useState(0);
   useLayoutEffect(() => {
     setSize(window.innerWidth);
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
   }, []);
   useEffect(() => {
     setWw(size);

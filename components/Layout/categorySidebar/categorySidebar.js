@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./categorySidebar.module.scss";
 
 const CategorySidebar = ({ categories }) => {
-  console.log(categories);
+  // console.log(categories);
   return (
     <div className={styles.sidebar}>
       <aside>
@@ -13,7 +13,7 @@ const CategorySidebar = ({ categories }) => {
           {categories?.nodes?.map((category, i) => {
             return (
               <li key={i} className={styles.mainCategory}>
-                <Link href={`/categories/${category.uri}`} passHref>
+                <Link href={`/categories${category.uri}`} passHref>
                   <span className={styles.categories}>{category.name}</span>
                 </Link>
                 <ul
@@ -26,7 +26,7 @@ const CategorySidebar = ({ categories }) => {
                   {category?.children?.nodes.map((item, i) => {
                     return (
                       <li key={i}>
-                        <Link href={`/categories/${item.uri}`} passHref>
+                        <Link href={`/categories${item.uri}`} passHref>
                           <span className={styles.category}>{item.name}</span>
                         </Link>
 
@@ -41,7 +41,7 @@ const CategorySidebar = ({ categories }) => {
                             return (
                               <li key={i}>
                                 <Link
-                                  href={`/categories/${subcategory.uri}`}
+                                  href={`/categories${subcategory.uri}`}
                                   passHref
                                 >
                                   <span className={styles.subSmCategory}>

@@ -6,23 +6,30 @@ const BetterSystem = ({ ww }) => {
   const imageRef = useRef();
 
   const [isImgVisible, setVisible] = useState(false);
-
+  const [isObserving, setIsobserving] = useState(false);
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (ww < 800) {
-        if (entries[0].isIntersecting) {
+    if (typeof imageRef.current === "object") {
+      const observer = new IntersectionObserver((entries) => {
+        if (ww < 800) {
+          if (entries[0].isIntersecting) {
+            setVisible(true);
+
+            observer.unobserve(imageRef.current);
+            setIsobserving(false);
+          }
+        } else {
           setVisible(true);
-
-          observer.unobserve(imageRef.current);
         }
-      } else {
-        setVisible(true);
-      }
-    });
+      });
 
-    observer.observe(imageRef.current);
-
-    return () => observer.unobserve(imageRef.current);
+      observer.observe(imageRef.current);
+      setIsobserving(true);
+    }
+    // return () => observer.unobserve(imageRef.current);
+    return () => {
+      if (typeof imageRef.current !== undefined)
+        isObserving && observer.unobserve(imageRef.current);
+    };
   }, []);
 
   return (
