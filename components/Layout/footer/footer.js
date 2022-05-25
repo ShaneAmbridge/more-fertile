@@ -75,7 +75,7 @@ const Footer = () => {
       <div className={styles.toggleContainer}>
         <div className={styles.wrapperRelative}>
           <div className={styles.toggleShow} onClick={() => setToggle(!toggle)}>
-            <Image src="/images/close.svg" width={14} height={14} />
+            <Image src="/images/footer-close.svg" width={14} height={14} />
           </div>
           <div ref={toggleRef} className={styles.bottom}>
             {toggle && (

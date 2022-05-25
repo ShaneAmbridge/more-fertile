@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./categorySidebar.module.scss";
 
 const CategorySidebar = ({ categories }) => {
   // console.log(categories);
+  const [categoryData, setCategoryData] = useState([]);
+  console.log(categoryData, "cate data  render");
+  const [show, setShow] = useState(false);
+
   return (
     <div className={styles.sidebar}>
       <aside>
@@ -24,34 +28,52 @@ const CategorySidebar = ({ categories }) => {
                   }
                 >
                   {category?.children?.nodes.map((item, i) => {
+                    console.log(item, "check item");
                     return (
                       <li key={i}>
                         <Link href={`/categories${item.uri}`} passHref>
-                          <span className={styles.category}>{item.name}</span>
+                          <span
+                            className={styles.category}
+                            onClick={
+                              (() => setCategoryData(item?.children.nodes),
+                              () => setShow(!show))
+                            }
+                          >
+                            {item.name}
+                            <>
+                              {item?.children.nodes.length > 0 && (
+                                <span>----close</span>
+                              )}
+                            </>
+                          </span>
                         </Link>
-
-                        <ul
-                          className={
-                            item.children.nodes.length > 0
-                              ? styles.superSubCategory
-                              : ""
-                          }
-                        >
-                          {item?.children.nodes.map((subcategory, i) => {
-                            return (
-                              <li key={i}>
-                                <Link
-                                  href={`/categories${subcategory.uri}`}
-                                  passHref
-                                >
-                                  <span className={styles.subSmCategory}>
-                                    {subcategory.name}
-                                  </span>
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
+                        {show ? (
+                          <ul
+                            className={
+                              item.children.nodes.length > 0
+                                ? styles.superSubCategory
+                                : ""
+                            }
+                          >
+                            {" "}
+                            {item?.children.nodes.map((subcategory, i) => {
+                              return (
+                                <li key={i}>
+                                  <Link
+                                    href={`/categories${subcategory.uri}`}
+                                    passHref
+                                  >
+                                    <span className={styles.subSmCategory}>
+                                      {subcategory.name}
+                                    </span>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : (
+                          ""
+                        )}
                       </li>
                     );
                   })}

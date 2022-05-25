@@ -46,8 +46,18 @@ const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
           </a>
         </Link>
         <div className={styles.menu}>
-          <div className={styles.menuItem}>About Us</div>
-          <div className={styles.menuItem}>Fertility Profiles</div>
+          <div className={styles.menuItem}>
+            About Us
+            <img
+              // className={styles.arrow}
+              src="/images/down.png"
+              alt="Rescources"
+            />
+          </div>
+          <div className={styles.menuItem}>
+            Fertility Profiles
+            <img src="/images/down.png" alt="Rescources" />
+          </div>
           <div
             className={styles.menuItem}
             bigmenu={bigmenuOpen ? "yes" : "no"}

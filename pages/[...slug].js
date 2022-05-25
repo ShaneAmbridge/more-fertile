@@ -9,13 +9,13 @@ import React, { useLayoutEffect, useState, useEffect } from "react";
 import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
 
 export default function Home({ data, items, postOrTree }) {
-  console.log(data, "data");
-  const breadcamp = data?.posts?.nodes[0]?.uri.split("/");
+  const breadcamp = data?.posts?.nodes[0]?.uri.split("/").slice(1, -1);
+  // console.log(breadcamp, "breadcamp");
   // console.log(data?.posts?.nodes[0]?.uri, "breadcamp", typeof breadcamp);
 
   return (
     <LayoutMain items={items}>
-      {postOrTree === "tree" && (
+      {/* {postOrTree === "tree" && (
         <div className={styles.timelineContainer}>
           <h1 className={`${styles.levelOne} ${styles.rectangle}`}>
             {data?.categories?.nodes[0].name}
@@ -45,44 +45,50 @@ export default function Home({ data, items, postOrTree }) {
             })}
           </ol>
         </div>
-      )}
+      )} */}
 
-      {postOrTree === "post" && (
-        <div className={styles.main}>
-          <div className={styles.container}>
-            <p className={styles.breadcrumb}>{breadcamp && breadcamp[1]}</p>
-            <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
+      {/* {postOrTree === "post" && ( */}
+      <div className={styles.main}>
+        <div className={styles.container}>
+          <p className={styles.breadcrumb}>
+            {breadcamp && (
+              <>
+                {breadcamp.map((link, i) => {
+                  return <span key={i + "asdfsadf"}>{link + ">"}</span>;
+                })}
+              </>
+            )}
+          </p>
+          <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
-            {data?.posts?.nodes[0]?.featuredImage !== null &&
-              data?.posts?.nodes[0]?.featuredImage && (
-                <div className={styles.heroImageContainer}>
-                  <Image
-                    layout="responsive"
-                    width={1024}
-                    height={487}
-                    src={
-                      data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl
-                    }
-                    alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
-                  />
-                </div>
-              )}
-
-            <div className={styles.contentandSidebar}>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data?.posts?.nodes[0]?.content,
-                }}
-                className={styles.content}
-              ></div>
-
-              <div className={styles.sidebar}>
-                <CategorySidebar categories={data?.categories} />
+          {data?.posts?.nodes[0]?.featuredImage !== null &&
+            data?.posts?.nodes[0]?.featuredImage && (
+              <div className={styles.heroImageContainer}>
+                <Image
+                  layout="responsive"
+                  width={1024}
+                  height={487}
+                  src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
+                  alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
+                />
               </div>
+            )}
+
+          <div className={styles.contentandSidebar}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data?.posts?.nodes[0]?.content,
+              }}
+              className={styles.content}
+            ></div>
+
+            <div className={styles.sidebar}>
+              <CategorySidebar categories={data?.categories} />
             </div>
           </div>
         </div>
-      )}
+      </div>
+      {/* )} */}
     </LayoutMain>
   );
 }
@@ -98,7 +104,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const name = params.slug[params.slug.length - 1];
   const parentName = params.slug[0];
-  console.log(typeof parentName);
+
   const postOrTree =
     params.slug.length > 0 && params.slug.length < 2 ? "tree" : "post";
   const { data } =
