@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import styles from "./nav.module.scss";
+import Link from "next/link";
 
 const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
   const [searchbox, setSearchBox] = useState(false);
@@ -26,20 +27,24 @@ const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
   return (
     <nav className={styles.main} ref={headerRef}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <Image
-            src={"/images/flower.png"}
-            width="54px"
-            height="32px"
-            alt="logo"
-          />
-          <Image
-            src={"/images/new/Morefertile.svg"}
-            width="113px"
-            height="20px"
-            alt="logo"
-          />
-        </div>
+        <Link href="/">
+          <a>
+            <div className={styles.logo}>
+              <Image
+                src={"/images/flower.png"}
+                width="54px"
+                height="32px"
+                alt="logo"
+              />
+              <Image
+                src={"/images/new/Morefertile.svg"}
+                width="113px"
+                height="20px"
+                alt="logo"
+              />
+            </div>
+          </a>
+        </Link>
         <div className={styles.menu}>
           <div className={styles.menuItem}>About Us</div>
           <div className={styles.menuItem}>Fertility Profiles</div>

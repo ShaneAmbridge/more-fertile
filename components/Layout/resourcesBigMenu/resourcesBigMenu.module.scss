@@ -12,6 +12,7 @@
   left: 0;
   display: flex;
   justify-content: center;
+
   .container {
     width: 94%;
 
@@ -30,6 +31,9 @@
           font-size: 18px;
           line-height: 22px;
           color: #525252;
+          a:visited {
+            color: inherit;
+          }
         }
 
         .container {
