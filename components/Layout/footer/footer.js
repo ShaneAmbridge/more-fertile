@@ -34,17 +34,38 @@ const Footer = () => {
         <div className={styles.container}>
           <div className={styles.logoAndSocial}>
             <div className={styles.logo}>
-              <Image width="69px" height="41px" src="/images/flower.png" />
+              <Image
+                width="69px"
+                height="41px"
+                src="/images/flower.png"
+                alt=""
+              />
               <Image
                 width="119px"
                 height="18px"
                 src="/images/new/Morefertile.svg"
+                alt=""
               />
             </div>
             <div className={styles.socials}>
-              <Image width="45px" height="45px" src="/images/new/fb.svg" />
-              <Image width="45px" height="45px" src="/images/new/twitter.svg" />
-              <Image width="45x" height="45px" src="/images/new/in.svg" />
+              <Image
+                width="45px"
+                height="45px"
+                src="/images/new/fb.svg"
+                alt=""
+              />
+              <Image
+                width="45px"
+                height="45px"
+                src="/images/new/twitter.svg"
+                alt=""
+              />
+              <Image
+                width="45x"
+                height="45px"
+                src="/images/new/in.svg"
+                alt=""
+              />
             </div>
           </div>
           <div className={styles.itemcontainer}>
@@ -75,7 +96,12 @@ const Footer = () => {
       <div className={styles.toggleContainer}>
         <div className={styles.wrapperRelative}>
           <div className={styles.toggleShow} onClick={() => setToggle(!toggle)}>
-            <Image src="/images/footer-close.svg" width={14} height={14} />
+            <Image
+              src="/images/footer-close.svg"
+              width={14}
+              height={14}
+              alt=""
+            />
           </div>
           <div ref={toggleRef} className={styles.bottom}>
             {toggle && (
@@ -98,7 +124,12 @@ const Footer = () => {
           className={styles.toggleRemove}
         >
           <div className={styles.arrow}>
-            <Image src="/images/new/down-arrow.svg" width={20} height={20} />
+            <Image
+              src="/images/new/down-arrow.svg"
+              width={20}
+              height={20}
+              alt=""
+            />
           </div>
         </div>
       </div>

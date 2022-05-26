@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import styles from "./categorySidebar.module.scss";
+import Image from "next/image";
+import Accordion from "../../Accordion/Accordion";
 
 const CategorySidebar = ({ categories }) => {
   // console.log(categories);
-  const [categoryData, setCategoryData] = useState([]);
-  console.log(categoryData, "cate data  render");
+
   const [show, setShow] = useState(false);
+
+  const [setActive, setActiveState] = useState("");
+  const [setHeight, setHeightState] = useState("0px");
+  const [setRotate, setRotateState] = useState("accordion__icon");
+  console.log(setActive, setHeight, setRotate);
+
+  const content = useRef(null);
+
+  function toggleAccordion() {
+    setActiveState(setActive === "" ? "active" : "");
+    setHeightState(
+      setActive === "active" ? "0px" : `${content.current.scrollHeight}px`
+    );
+    setRotateState(
+      setActive === "active" ? "accordion__icon" : "accordion__icon rotate"
+    );
+  }
 
   return (
     <div className={styles.sidebar}>
@@ -18,8 +36,11 @@ const CategorySidebar = ({ categories }) => {
             return (
               <li key={i} className={styles.mainCategory}>
                 <Link href={`/categories${category.uri}`} passHref>
-                  <span className={styles.categories}>{category.name}</span>
+                  <a>
+                    <span className={styles.categories}>{category.name}</span>
+                  </a>
                 </Link>
+
                 <ul
                   className={
                     category?.children?.nodes.length > 0
@@ -27,54 +48,13 @@ const CategorySidebar = ({ categories }) => {
                       : ""
                   }
                 >
-                  {category?.children?.nodes.map((item, i) => {
-                    console.log(item, "check item");
+                  {category?.children?.nodes.map((item, j) => {
                     return (
-                      <li key={i}>
-                        <Link href={`/categories${item.uri}`} passHref>
-                          <span
-                            className={styles.category}
-                            onClick={
-                              (() => setCategoryData(item?.children.nodes),
-                              () => setShow(!show))
-                            }
-                          >
-                            {item.name}
-                            <>
-                              {item?.children.nodes.length > 0 && (
-                                <span>----close</span>
-                              )}
-                            </>
-                          </span>
-                        </Link>
-                        {show ? (
-                          <ul
-                            className={
-                              item.children.nodes.length > 0
-                                ? styles.superSubCategory
-                                : ""
-                            }
-                          >
-                            {" "}
-                            {item?.children.nodes.map((subcategory, i) => {
-                              return (
-                                <li key={i}>
-                                  <Link
-                                    href={`/categories${subcategory.uri}`}
-                                    passHref
-                                  >
-                                    <span className={styles.subSmCategory}>
-                                      {subcategory.name}
-                                    </span>
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        ) : (
-                          ""
+                      <>
+                        {category && (
+                          <Accordion key={j + "sadfsadf"} item={item} />
                         )}
-                      </li>
+                      </>
                     );
                   })}
                 </ul>

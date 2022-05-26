@@ -66,61 +66,16 @@
         border-radius: 5px;
         margin-top: 15px;
         margin-bottom: 15px;
-
-        .category {
-          width: 244px;
-          height: 40px;
-
-          display: block;
-          padding-left: 20px;
-
-          background: #ded3ff;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          margin-bottom: 10px;
-          font-family: "Inter";
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 19px;
-          cursor: pointer;
-          color: #563ca5;
-        }
-
-        li {
-          color: #000;
-          cursor: pointer;
-        }
-
-        .superSubCategory {
-          margin-left: 16px;
-          cursor: pointer;
-          margin-top: 15px;
-          margin-bottom: 15px;
-
-          .subSmCategory {
-            width: 244px;
-            height: 40px;
-            cursor: pointer;
-            display: block;
-            padding-left: 20px;
-
-            background: #b5e6d8;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            font-family: "Inter";
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 19px;
-
-            color: #357989;
-          }
-        }
       }
     }
+  }
+}
+
+@keyframes topUpAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

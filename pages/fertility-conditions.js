@@ -271,9 +271,18 @@ const tree = ({ data }) => {
             </h2>
             <ol className={styles.levelThreeWrapper}>
               <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Both M/F
-                </h3>
+                <Link
+                  title="Thyroid hormones affect both sexes, but are essential for female fertility"
+                  href="https://morefertile.com/categories/category/fertility-conditions/both-sexes"
+                  passHref
+                >
+                  <a>
+                    <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                      Both M/F
+                    </h3>
+                  </a>
+                </Link>
+
                 <ol className={styles.levelFourWrapper}>
                   <li>
                     <Link
