@@ -53,7 +53,9 @@ const CategoryPost = ({ items, data }) => {
 
                           <div className={styles.button}>
                             <Link href={`${post.uri}`} passHref>
-                              <button>Read more</button>
+                              <a>
+                                <button>Read more</button>
+                              </a>
                             </Link>
                           </div>
                         </div>

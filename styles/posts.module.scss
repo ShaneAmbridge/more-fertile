@@ -13,11 +13,13 @@
       flex-wrap: wrap;
       gap: 25px;
       justify-content: center;
+      align-items: flex-start;
 
       .contentCards {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: flex-start;
         @media (min-width: "900px") {
           flex: 2;
         }

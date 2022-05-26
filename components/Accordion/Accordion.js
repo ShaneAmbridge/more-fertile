@@ -7,8 +7,6 @@ const Accordion = ({ item }) => {
 
   const content = useRef(null);
 
-  function toggleAccordion() {}
-
   return (
     <li>
       <span className={styles.category}>
@@ -21,7 +19,7 @@ const Accordion = ({ item }) => {
             <>
               {active ? (
                 <span
-                  className={`${setActive} ${styles.plus}`}
+                  className={active ? styles.animationPlus : styles.plus}
                   onClick={() => setActive(false)}
                 >
                   <Image
@@ -48,19 +46,21 @@ const Accordion = ({ item }) => {
 
       {active && (
         <ul className={`${styles.superSubCategory}`}>
-          {item?.children?.nodes.map((subcategory, k) => {
-            return (
-              <li key={k + "kfadl"} ref={content}>
-                <Link href={`/categories${subcategory?.uri}`} passHref>
-                  <a>
-                    <span className={styles.subSmCategory}>
-                      {subcategory.name}
-                    </span>
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
+          <div className={styles.categoryAnimation}>
+            {item?.children?.nodes.map((subcategory, k) => {
+              return (
+                <li key={k + "kfadl"} ref={content}>
+                  <Link href={`/categories${subcategory?.uri}`} passHref>
+                    <a>
+                      <span className={styles.subSmCategory}>
+                        {subcategory.name}
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+              );
+            })}
+          </div>
         </ul>
       )}
     </li>

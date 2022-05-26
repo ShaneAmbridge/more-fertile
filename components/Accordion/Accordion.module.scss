@@ -21,22 +21,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a {
+    color: #563ca5;
+  }
 
   .plus {
     margin-right: 15px;
+  }
+
+  .animationPlus {
     animation: topUpAnimation 0.5s ease-in-out;
+    margin-right: 15px;
   }
 
   .minus {
     margin-right: 15px;
-    animation: topUpAnimation 0.5s ease-in-out;
   }
-}
-
-.active {
-  height: fit-content;
-  width: 100%;
-  transition: all 0.5s ease-in-out;
+  .active {
+    height: fit-content;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 .superSubCategory {
@@ -45,6 +50,7 @@
   margin-top: 15px;
   margin-bottom: 15px;
   animation: topUpAnimation 0.3s ease-in-out;
+  position: relative;
 
   .subSmCategory {
     width: 244px;

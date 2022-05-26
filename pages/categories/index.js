@@ -48,7 +48,9 @@ const Posts = ({ items, data }) => {
                         </div>
 
                         <Link href={`${item?.uri}`} passHref>
-                          <button>Read more</button>
+                          <a>
+                            <button>Read more</button>
+                          </a>
                         </Link>
                       </div>
                     </div>
