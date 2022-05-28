@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./accordion.module.scss";
-import SubAccordion from "../subAccordion/subAccordion";
 const Accordion = ({ item }) => {
   const [active, setActive] = useState(false);
 
@@ -47,9 +46,16 @@ const Accordion = ({ item }) => {
         <ul className={`${styles.superSubCategory}`}>
           <div className={styles.categoryAnimation}>
             {item?.children?.nodes.map((subcategory, k) => {
-              console.log(item, "item subcategory");
               return (
-                <SubAccordion key={k + "sadfsd"} subcategory={subcategory} />
+                <li key={k + "kfadl"}>
+                  <Link href={`/categories${subcategory?.uri}`} passHref>
+                    <a>
+                      <span className={styles.subSmCategory}>
+                        {subcategory.name}
+                      </span>
+                    </a>
+                  </Link>
+                </li>
               );
             })}
           </div>
