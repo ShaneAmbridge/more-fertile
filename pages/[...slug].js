@@ -8,10 +8,10 @@ import Link from "next/link";
 import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
 
 export default function Home({ data, items }) {
-	console.log(data, "data");
+	if (!data?.posts?.nodes[0]) return <div>oo oo oh, no post found </div>;
 
 	const linkPath = data?.posts?.nodes[0]?.uri.split("/");
-	linkPath.shift();
+	// linkPath.shift();
 
 	const pathArray = linkPath.map((path, i) => {
 		return { breadcrumb: path, href: "/" + linkPath.slice(0, i + 1).join("/") };
