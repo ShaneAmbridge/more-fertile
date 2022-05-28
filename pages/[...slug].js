@@ -44,6 +44,11 @@ export default function Home({ data, items }) {
               </>
             )}
           </p>
+          <h5 className={styles.subTitle}>
+            <Link href={breadcrumb[0].href}>
+              <a>{breadcrumb[0].breadcrumb}</a>
+            </Link>
+          </h5>
           <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
           {data?.posts?.nodes[0]?.featuredImage !== null &&
