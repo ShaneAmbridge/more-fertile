@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Link from "next/link";
 import styles from "./categorySidebar.module.scss";
 import Image from "next/image";
-import Accordion from "../../Accordion/Accordion";
+import Accordion from "../../accordion/accordion";
 
 const CategorySidebar = ({ categories }) => {
   console.log(categories, "cateogres");
