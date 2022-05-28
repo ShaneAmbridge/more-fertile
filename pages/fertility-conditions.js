@@ -4,7 +4,7 @@ import { gql } from "@apollo/client";
 import Link from "next/link";
 import client from "../apollo-client";
 import styles from "../styles/fertility-conditions.module.scss";
-const tree = ({ data }) => {
+const FertilityConditons = ({ data }) => {
   console.log(data);
   return (
     <LayoutMain>
@@ -273,7 +273,7 @@ const tree = ({ data }) => {
               <li>
                 <Link
                   title="Thyroid hormones affect both sexes, but are essential for female fertility"
-                  href="https://morefertile.com/categories/category/fertility-conditions/both-sexes"
+                  href="/categories/category/fertility-conditions/both-sexes"
                   passHref
                 >
                   <a>
@@ -474,4 +474,4 @@ export async function getStaticProps() {
   };
 }
 
-export default tree;
+export default FertilityConditons;

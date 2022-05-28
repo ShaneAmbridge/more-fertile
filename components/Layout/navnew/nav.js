@@ -48,15 +48,21 @@ const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
         <div className={styles.menu}>
           <div className={styles.menuItem}>
             About Us
-            <img
-              // className={styles.arrow}
-              src="/images/down.png"
-              alt="Rescources"
+            <Image
+              src="/images/dropdown/dropdown-arrow.svg"
+              width={12}
+              height={8}
+              alt="About Us"
             />
           </div>
           <div className={styles.menuItem}>
             Fertility Profiles
-            <img src="/images/down.png" alt="Rescources" />
+            <Image
+              src="/images/dropdown/dropdown-arrow.svg"
+              width={12}
+              height={8}
+              alt="Fertility Profiles"
+            />
           </div>
           <div
             className={styles.menuItem}
@@ -64,9 +70,11 @@ const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
             onClick={() => setBigmenuopen(!bigmenuOpen)}
           >
             Rescources
-            <img
+            <Image
               className={styles.arrow}
-              src="/images/down.png"
+              src="/images/dropdown/dropdown-arrow.svg"
+              width={12}
+              height={8}
               alt="Rescources"
             />
           </div>

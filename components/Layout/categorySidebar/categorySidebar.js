@@ -5,27 +5,7 @@ import Image from "next/image";
 import Accordion from "../../Accordion/Accordion";
 
 const CategorySidebar = ({ categories }) => {
-  // console.log(categories);
-
-  const [show, setShow] = useState(false);
-
-  const [setActive, setActiveState] = useState("");
-  const [setHeight, setHeightState] = useState("0px");
-  const [setRotate, setRotateState] = useState("accordion__icon");
-  console.log(setActive, setHeight, setRotate);
-
-  const content = useRef(null);
-
-  function toggleAccordion() {
-    setActiveState(setActive === "" ? "active" : "");
-    setHeightState(
-      setActive === "active" ? "0px" : `${content.current.scrollHeight}px`
-    );
-    setRotateState(
-      setActive === "active" ? "accordion__icon" : "accordion__icon rotate"
-    );
-  }
-
+  console.log(categories, "cateogres");
   return (
     <div className={styles.sidebar}>
       <aside>
@@ -34,7 +14,7 @@ const CategorySidebar = ({ categories }) => {
         <ul>
           {categories?.nodes?.map((category, i) => {
             return (
-              <li key={i} className={styles.mainCategory}>
+              <li key={i + "sdfsdf"} className={styles.mainCategory}>
                 <Link href={`/categories${category.uri}`} passHref>
                   <a>
                     <span className={styles.categories}>{category.name}</span>
@@ -50,11 +30,9 @@ const CategorySidebar = ({ categories }) => {
                 >
                   {category?.children?.nodes.map((item, j) => {
                     return (
-                      <>
-                        {category && (
-                          <Accordion key={j + "sadfsadf"} item={item} />
-                        )}
-                      </>
+                      <div key={j + "sadfsadf"}>
+                        {category && <Accordion item={item} />}
+                      </div>
                     );
                   })}
                 </ul>

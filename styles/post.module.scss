@@ -221,7 +221,24 @@
     }
 
     .breadcrumb {
+      text-transform: capitalize;
       margin-top: 54px;
+      a {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 106.02%;
+        /* or 17px */
+
+        letter-spacing: -0.04em;
+        cursor: pointer;
+
+        color: #525252;
+        &:last-child {
+          color: #aa5485;
+        }
+      }
     }
     .title {
       font-family: "Inter";

@@ -1,0 +1,22 @@
+.subSmCategory {
+  width: 244px;
+  height: 40px;
+  cursor: pointer;
+  display: block;
+  padding-left: 20px;
+
+  background: #b5e6d8;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #357989;
+
+  animation: topUpAnimation 0.5s ease-in-out;
+}

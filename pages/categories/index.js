@@ -67,7 +67,7 @@ const Posts = ({ items, data }) => {
   );
 };
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query allPosts {
