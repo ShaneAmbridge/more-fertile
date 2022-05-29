@@ -44,12 +44,15 @@ const SubAccordion = ({ subcategory }) => {
       {active && (
         <ul className={`${styles.subCategoryAccordion}`}>
           <div className={styles.categoryAnimation}>
-            {subcategory?.posts?.nodes.map((subcategory, k) => {
+            {subcategory?.posts?.nodes.map((smCategory, k) => {
               return (
-                <Link key={k + "dfasdf"} href={`/category${subcategory.uri}`}>
+                <Link
+                  key={k + "dfasdf"}
+                  href={`${subcategory.uri}/${smCategory.slug}`}
+                >
                   <a>
                     <span className={styles.subAccordion}>
-                      {subcategory.title}
+                      {smCategory.title}
                     </span>
                   </a>
                 </Link>

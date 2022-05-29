@@ -117,3 +117,59 @@ export const endometriosisData = [
     ],
   },
 ];
+
+export const eggsAgeData = [
+  {
+    title: "Eggs & Organs",
+    link: "/category/fertility-health/health/female/female-health/eggs-organs",
+    name: "Eggs & Organs",
+    icon: "+",
+  },
+  {
+    data: [
+      {
+        id: 1,
+        title: "Eggs & Age",
+        link: "/category/fertility-health/health/female/female-health/eggs-organs/eggs-and-age",
+        name: "Eggs & Age",
+      },
+      {
+        id: 2,
+        title: "Eggs & Follicles",
+        link: "/category/fertility-health/health/female/female-health/eggs-organs/eggs-and-follicles",
+        name: "Eggs & Follicles",
+      },
+      {
+        id: 3,
+        title: "Uterus & Fallopian Tubes",
+        link: "/category/fertility-health/health/female/female-health/eggs-organs/the-uterus-fallopian-tubes",
+        name: "Uterus & Fallopian Tubes",
+      },
+    ],
+  },
+];
+
+export const hormonesData = [
+  {
+    title: "Eggs & Organs",
+    link: "/category/fertility-health/health/female/female-health/eggs-organs",
+    name: "Eggs & Organs",
+    icon: "+",
+  },
+  {
+    data: [
+      {
+        id: 1,
+        title: "Eggs & Age",
+        link: "/category/fertility-health/health/female/female-health/eggs-organs/eggs-and-age",
+        name: "Eggs & Age",
+      },
+      {
+        id: 2,
+        title: "",
+        link: "/category/fertility-health/health/female/female-health/eggs-organs/eggs-and-follicles",
+        name: "Eggs & Follicles",
+      },
+    ],
+  },
+];

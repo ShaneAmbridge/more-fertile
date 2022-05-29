@@ -105,7 +105,7 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
-  console.log(params, "params");
+  // console.log(params, "params");
   const name = params.slug[params.slug.length - 1];
   const categoryName = params?.slug[1];
 
@@ -134,14 +134,17 @@ export async function getStaticProps({ params }) {
               nodes {
                 name
                 uri
+                slug
                 children {
                   nodes {
                     name
                     uri
+                    slug
                     posts {
                       nodes {
                         title
                         uri
+                        slug
                       }
                     }
                   }

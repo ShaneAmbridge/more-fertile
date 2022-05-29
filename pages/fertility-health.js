@@ -4,6 +4,9 @@ import LayoutMain from "../components/Layout/layout";
 import Link from "next/link";
 
 import styles from "../styles/fertility-health.module.scss";
+import TreeDropdown from "../components/treeDropdown/treeDropdown";
+import { eggsAgeData } from "../components/treeDropdown/treeData";
+import HealthDropdown from "../components/healthTreeDropdown/healthDropdown";
 const FertilityHealth = () => {
   return (
     <LayoutMain>
@@ -225,20 +228,9 @@ const FertilityHealth = () => {
                 </Link>
 
                 <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <Link
-                      title="Eggs & Organs"
-                      href="/fertility-health/health/female/female-health/eggs-organs/"
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Eggs & Organs +
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
+                  <HealthDropdown treedata={eggsAgeData} />
+                  <HealthDropdown treedata={eggsAgeData} />
+
                   <li>
                     <Link
                       title="Hormones"
