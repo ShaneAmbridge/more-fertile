@@ -1,0 +1,84 @@
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  background: #b5e6d8;
+
+  font-weight: normal;
+  background: #b5e6d8;
+  color: #357989;
+  &:hover {
+    background: #357989;
+    color: #b5e6d8;
+    a {
+      background: #357989;
+      color: #b5e6d8;
+    }
+  }
+  a {
+    color: #357989;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-100%, -50%);
+    width: 20px;
+    height: 2px;
+    background: black;
+  }
+
+  .toggleBtn {
+    animation: topUpAnimation 0.5s ease-in;
+    font-size: 18px;
+  }
+}
+
+.rectangle {
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: block;
+}
+
+.levelFive {
+  font-weight: normal;
+  background: white;
+  color: #563ca5;
+  margin-top: 20px;
+}
+
+.levelFiveWrapper {
+  position: relative;
+  animation: topUpAnimation 0.5s ease-in;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% + 20px);
+    background: black;
+  }
+  li + li {
+    margin-top: 20px;
+  }
+}
+
+@keyframes topUpAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

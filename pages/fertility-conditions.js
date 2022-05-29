@@ -4,6 +4,14 @@ import LayoutMain from "../components/Layout/layout";
 import Link from "next/link";
 
 import styles from "../styles/fertility-conditions.module.scss";
+import TreeDropdown from "../components/treeDropdown/treeDropdown";
+import {
+  anovulationData,
+  endometriosisData,
+  thyroidData,
+  unexplainedInfertilityData,
+} from "../components/treeDropdown/treeData";
+
 const FertilityConditons = () => {
   const [setActive, setActiveState] = useState(false);
 
@@ -47,7 +55,21 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Ana
+                          ANA
+                        </h4>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      title="APA"
+                      href="/category/fertility-conditions/female/immune/apa"
+                    >
+                      <a>
+                        <h4
+                          className={`${styles.levelFour} ${styles.rectangle}`}
+                        >
+                          APA
                         </h4>
                       </a>
                     </Link>
@@ -62,7 +84,22 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Asab
+                          ASAL
+                        </h4>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      title="Cytokines – Hormone-like chemicals which promote significant changes in the body"
+                      href="/category/fertility-conditions/female/immune/cytokines"
+                      passHref
+                    >
+                      <a>
+                        <h4
+                          className={`${styles.levelFour} ${styles.rectangle}`}
+                        >
+                          Cytokines
                         </h4>
                       </a>
                     </Link>
@@ -77,7 +114,22 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Hla
+                          HLA
+                        </h4>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      title="Immune Balance & Fertility"
+                      href="/category/fertility-conditions/female/immune/immune-balance-and-fertility/"
+                      passHref
+                    >
+                      <a>
+                        <h4
+                          className={`${styles.levelFour} ${styles.rectangle}`}
+                        >
+                          Immune Balance & Fertility
                         </h4>
                       </a>
                     </Link>
@@ -92,7 +144,7 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          La
+                          LA
                         </h4>
                       </a>
                     </Link>
@@ -122,22 +174,7 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Oa
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      title="Cytokines – Hormone-like chemicals which promote significant changes in the body"
-                      href="/category/fertility-conditions/female/immune/cytokines"
-                      passHref
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Cytokines
+                          OA
                         </h4>
                       </a>
                     </Link>
@@ -153,40 +190,9 @@ const FertilityConditons = () => {
                   </a>
                 </Link>
                 <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <Link
-                      title="Anovulation is a lack of ovulation, and there are many causes"
-                      href="/category/fertility-conditions/female/conditions/anovulation-treatments"
-                      passHref
-                    >
-                      <a>
-                        <h4
-                          onClick={() => setActiveState(!setActive)}
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Anovulation +
-                        </h4>
-                      </a>
-                    </Link>
-                    {setActive && (
-                      <ol className={styles.levelFiveWrapper}>
-                        <li>
-                          <Link
-                            title="ABAb - Anti-sperm antibodies~"
-                            href="https://morefertile.com/fertility-conditions/asab/"
-                          >
-                            <a>
-                              <h4
-                                className={`${styles.levelFive} ${styles.rectangle}`}
-                              >
-                                Level 5
-                              </h4>
-                            </a>
-                          </Link>
-                        </li>
-                      </ol>
-                    )}
-                  </li>
+                  <TreeDropdown treedata={anovulationData} />
+                  <TreeDropdown treedata={endometriosisData} />
+
                   <li>
                     <Link
                       title="Age – How female age affects fertility levels"
@@ -304,70 +310,8 @@ const FertilityConditons = () => {
                 </Link>
 
                 <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <Link
-                      title="Thyroid hormones affect both sexes, but are essential for female fertility"
-                      href="/category/fertility-conditions/conditions/both-sexes/thyroid-disorders/"
-                      passHref
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Thyroid Disorders +
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      title="TUnexplained infertility is often a combination of issues or missed diagnosis"
-                      href="/category/fertility-conditions/conditions/both-sexes/unexplained-infertility"
-                      passHref
-                    >
-                      <a>
-                        <h4
-                          onClick={() => setActiveState(!setActive)}
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Unexplained Infertility +
-                        </h4>
-                      </a>
-                    </Link>
-
-                    {setActive && (
-                      <ol className={styles.levelFiveWrapper}>
-                        <li>
-                          <Link
-                            title="ABAb - Anti-sperm antibodies~"
-                            href="/category/fertility-conditions/conditions/both-sexes/unexplained-infertility/causes-and-risks"
-                          >
-                            <a>
-                              <h4
-                                className={`${styles.levelFive} ${styles.rectangle}`}
-                              >
-                                Causes and Risks
-                              </h4>
-                            </a>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            title="ABAb - Anti-sperm antibodies~"
-                            href="/category/fertility-conditions/conditions/both-sexes/unexplained-infertility/problem-solving"
-                          >
-                            <a>
-                              <h4
-                                className={`${styles.levelFive} ${styles.rectangle}`}
-                              >
-                                Problem Solving
-                              </h4>
-                            </a>
-                          </Link>
-                        </li>
-                      </ol>
-                    )}
-                  </li>
+                  <TreeDropdown treedata={thyroidData} />
+                  <TreeDropdown treedata={unexplainedInfertilityData} />
                 </ol>
               </li>
               <li>

@@ -46,7 +46,7 @@ const SubAccordion = ({ subcategory }) => {
           <div className={styles.categoryAnimation}>
             {subcategory?.posts?.nodes.map((subcategory, k) => {
               return (
-                <Link key={k + "dfasdf"} href={subcategory.uri}>
+                <Link key={k + "dfasdf"} href={`/category${subcategory.uri}`}>
                   <a>
                     <span className={styles.subAccordion}>
                       {subcategory.title}
