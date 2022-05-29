@@ -4,7 +4,7 @@ import styles from "./nav.module.scss";
 import Link from "next/link";
 
 const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
-  const [searchbox, setSearchBox] = useState(false);
+  // const [searchbox, setSearchBox] = useState(false);
   const headerRef = useRef(null);
 
   useEffect(() => {
