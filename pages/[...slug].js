@@ -172,6 +172,6 @@ export async function getStaticProps({ params }) {
   // console.log(postOrTree, "postOrTree");
   return {
     props: { data },
-    revalidate: 1,
+    revalidate: 10,
   };
 }
