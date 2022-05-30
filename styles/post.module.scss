@@ -52,7 +52,8 @@
     .breadcrumb {
       text-transform: capitalize;
       margin-top: 54px;
-      a {
+
+      span {
         font-family: "Inter";
         font-style: normal;
         font-weight: 500;
@@ -99,6 +100,7 @@
     }
     .contentandSidebar {
       display: flex;
+      align-items: flex-start;
       gap: 95px;
       width: 100%;
 

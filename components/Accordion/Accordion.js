@@ -6,6 +6,8 @@ import SubAccordion from "../subAccordion/subAccordion";
 const Accordion = ({ item }) => {
   const [active, setActive] = useState(false);
 
+  console.log(item, "main item");
+
   return (
     <li>
       <span className={styles.category}>
@@ -47,6 +49,7 @@ const Accordion = ({ item }) => {
         <ul className={`${styles.superSubCategory}`}>
           <div className={styles.categoryAnimation}>
             {item?.children?.nodes.map((subcategory, k) => {
+              console.log(subcategory, "subcategory");
               return (
                 <SubAccordion key={k + "sdfsdf"} subcategory={subcategory} />
               );

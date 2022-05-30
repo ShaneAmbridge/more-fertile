@@ -5,7 +5,7 @@ import styles from "./categorySidebar.module.scss";
 import Accordion from "../../Accordion/Accordion";
 
 const CategorySidebar = ({ categories }) => {
-  // console.log(categories, "cateogres");
+  console.log(categories, "cateogres");
   return (
     <div className={styles.sidebar}>
       <aside>
@@ -13,9 +13,10 @@ const CategorySidebar = ({ categories }) => {
 
         <ul>
           {categories?.nodes?.map((category, i) => {
+            console.log(category.name, "category name");
             return (
               <li key={i + "sdfsdf"} className={styles.mainCategory}>
-                <Link href={`/categories${category.uri}`} passHref>
+                <Link href={`${category.uri}`} passHref>
                   <a>
                     <span className={styles.categories}>{category.name}</span>
                   </a>

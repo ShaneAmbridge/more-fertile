@@ -10,9 +10,20 @@ import CategorySidebar from "../components/Layout/categorySidebar/categorySideba
 
 export default function Home({ data, items }) {
   const router = useRouter();
-  console.log(router, "router");
 
-  if (!data?.posts?.nodes[0])
+  const linkPath = router.asPath.split("/");
+  linkPath.shift();
+  linkPath.shift();
+
+  const pathArray = linkPath.map((path, i) => {
+    return { breadcrumb: path, href: "/" + linkPath.slice(0, i + 1).join("/") };
+  });
+  const breadcrumb = pathArray;
+  // if (!breadcrumb.includes("category")) {
+  //   breadcrumb.push("category");
+  // }
+
+  if (!data?.posts?.nodes[0] || !breadcrumb.length)
     return (
       <LayoutMain>
         <div className={styles.notfound}>
@@ -25,15 +36,6 @@ export default function Home({ data, items }) {
       </LayoutMain>
     );
 
-  const linkPath = router.asPath.split("/");
-  linkPath.shift();
-  linkPath.shift();
-
-  const pathArray = linkPath.map((path, i) => {
-    return { breadcrumb: path, href: "/" + linkPath.slice(0, i + 1).join("/") };
-  });
-  const breadcrumb = pathArray;
-
   return (
     <LayoutMain items={items}>
       <div className={styles.main}>
@@ -43,18 +45,10 @@ export default function Home({ data, items }) {
               <>
                 {breadcrumb.map((link, i) => {
                   return (
-                    <Link key={i + "dfdf"} href={link.href}>
-                      <a>
-                        <span>
-                          {link.breadcrumb}
-                          <>
-                            {i !== breadcrumb.length - 1 && (
-                              <span> &#62; </span>
-                            )}
-                          </>
-                        </span>
-                      </a>
-                    </Link>
+                    <span key={i + "dfdf"}>
+                      {link.breadcrumb}
+                      <>{i !== breadcrumb.length - 1 && <span> &#62; </span>}</>
+                    </span>
                   );
                 })}
               </>

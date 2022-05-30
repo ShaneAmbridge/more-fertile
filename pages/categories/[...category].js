@@ -17,78 +17,79 @@ const CategoryPost = ({ items, data, singlePost }) => {
 
   return (
     <LayoutMain items={items}>
-      {singlePost?.data?.posts?.nodes.length > 0 && (
-        <div className={styles.categoryContent}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: singlePost?.data?.posts?.nodes[0]?.content,
-            }}
-            className={styles.content}
-          ></div>
-        </div>
-      )}
       <div className={styles.main}>
         <div className={styles.container}>
-          <h1 className={styles.title}>
-            <span>{path[path.length - 1]}</span> Related Posts
-          </h1>
-
           <div className={styles.content}>
-            <div className={styles.contentCards}>
-              {data.posts.nodes.length > 0 ? (
-                <div className={styles.cards}>
-                  {data.posts.nodes &&
-                    data?.posts?.nodes.map((post, index) => {
-                      // console.log(post, "post");
-                      return (
-                        <div key={index} className={styles.card}>
-                          {post.featuredImage !== null ? (
-                            <Image
-                              width="320px"
-                              height="193px"
-                              src={post.featuredImage.node.mediaItemUrl}
-                              alt={post.featuredImage.node.altText}
-                            />
-                          ) : (
-                            <Image
-                              width="320px"
-                              height="193px"
-                              src="/images/morefertile-logo.png"
-                              alt=""
-                            />
-                          )}
-                          <div className={styles.infos}>
-                            <div className={styles.titleAndDescription}>
-                              {" "}
-                              <h3>{post.title}</h3>
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: post.excerpt.slice(0, 150) + "...",
-                                }}
-                                className={styles.content}
-                              ></div>
-                            </div>
-
-                            <div className={styles.button}>
-                              <Link
-                                href={`/${pathPrefix}/${post.slug}`}
-                                passHref
-                              >
-                                <a>
-                                  <button>Read more</button>
-                                </a>
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              ) : (
-                <div className={styles.noPostFound}>
-                  <h1>No posts found.</h1>
+            <div className={styles.contentWrapper}>
+              {singlePost?.data?.posts?.nodes.length > 0 && (
+                <div className={styles.categoryContent}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: singlePost?.data?.posts?.nodes[0]?.content,
+                    }}
+                    className={styles.content}
+                  ></div>
                 </div>
               )}
+              <h1 className={styles.title}>
+                <span>{path[path.length - 1]}</span> Related Posts
+              </h1>
+              <div className={styles.contentCards}>
+                {data.posts.nodes.length > 0 ? (
+                  <div className={styles.cards}>
+                    {data.posts.nodes &&
+                      data?.posts?.nodes.map((post, index) => {
+                        // console.log(post, "post");
+                        return (
+                          <div key={index} className={styles.card}>
+                            {post.featuredImage !== null ? (
+                              <Image
+                                width="320px"
+                                height="193px"
+                                src={post.featuredImage.node.mediaItemUrl}
+                                alt={post.featuredImage.node.altText}
+                              />
+                            ) : (
+                              <Image
+                                width="320px"
+                                height="193px"
+                                src="/images/morefertile-logo.png"
+                                alt=""
+                              />
+                            )}
+                            <div className={styles.infos}>
+                              <div className={styles.titleAndDescription}>
+                                {" "}
+                                <h3>{post.title}</h3>
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: post.excerpt.slice(0, 150) + "...",
+                                  }}
+                                  className={styles.content}
+                                ></div>
+                              </div>
+
+                              <div className={styles.button}>
+                                <Link
+                                  href={`/${pathPrefix}/${post.slug}`}
+                                  passHref
+                                >
+                                  <a>
+                                    <button>Read more</button>
+                                  </a>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+                ) : (
+                  <div className={styles.noPostFound}>
+                    <h1>No posts found.</h1>
+                  </div>
+                )}
+              </div>
             </div>
 
             <CategorySidebar categories={data?.categories} />
@@ -107,7 +108,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const category = params.category.join("/");
+  // const category = params.category.join("/");
   const slug = params.category[params.category.length - 1];
   const { data } = await client.query({
     query: gql`
@@ -123,6 +124,7 @@ export async function getStaticProps({ params }) {
             categories {
               nodes {
                 name
+                slug
               }
             }
 
@@ -139,18 +141,37 @@ export async function getStaticProps({ params }) {
           nodes {
             name
             uri
+            slug
+            posts {
+              nodes {
+                title
+                uri
+                slug
+              }
+            }
             children {
               nodes {
                 name
                 uri
+                slug
+                posts {
+                  nodes {
+                    title
+                    uri
+                    slug
+                  }
+                }
                 children {
                   nodes {
                     name
                     uri
+                    slug
+
                     posts {
                       nodes {
                         title
                         uri
+                        slug
                       }
                     }
                   }
@@ -175,6 +196,7 @@ export async function getStaticProps({ params }) {
             content
             title
             uri
+            slug
             featuredImage {
               node {
                 altText

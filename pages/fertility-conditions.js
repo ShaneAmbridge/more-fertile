@@ -1,20 +1,18 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import LayoutMain from "../components/Layout/layout";
 
 import Link from "next/link";
 
 import styles from "../styles/fertility-conditions.module.scss";
-import TreeDropdown from "../components/treeDropdown/treeDropdown";
+import TreeDropdown from "../components/fertilityConditonDropdown/treeDropdown";
 import {
   anovulationData,
   endometriosisData,
   thyroidData,
   unexplainedInfertilityData,
-} from "../components/treeDropdown/treeData";
+} from "../components/fertilityConditonDropdown/treeData";
 
 const FertilityConditons = () => {
-  const [setActive, setActiveState] = useState(false);
-
   return (
     <LayoutMain>
       <div className={styles.container}>
@@ -36,12 +34,12 @@ const FertilityConditons = () => {
             <ol className={styles.levelThreeWrapper}>
               <li>
                 <Link
-                  href="/categories/category/fertility-conditions/female/immune-infertility/"
+                  href="/categories/category/fertility-conditions/female/immune-conditions"
                   passHref
                 >
                   <a>
                     <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                      Immune
+                      Immune Conditions
                     </h3>
                   </a>
                 </Link>
@@ -49,7 +47,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="ANA – Anti-Nuclear Antibodies which target genetic material"
-                      href="/category/fertility-conditions/female/immune/ana"
+                      href="/category/fertility-conditions/female/immune-conditions/ana"
                     >
                       <a>
                         <h4
@@ -63,7 +61,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="APA"
-                      href="/category/fertility-conditions/female/immune/apa"
+                      href="/category/fertility-conditions/female/immune-conditions/apa"
                     >
                       <a>
                         <h4
@@ -77,7 +75,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="ABAb - Anti-sperm antibodies~"
-                      href="/category/fertility-conditions/female/immune/asab"
+                      href="/category/fertility-conditions/female/immune-conditions/asab"
                       passHref
                     >
                       <a>
@@ -92,7 +90,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="Cytokines – Hormone-like chemicals which promote significant changes in the body"
-                      href="/category/fertility-conditions/female/immune/cytokines"
+                      href="/category/fertility-conditions/female/immune-conditions/cytokines"
                       passHref
                     >
                       <a>
@@ -107,7 +105,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="HLA – proteins on cells that indicate “self” to the immune system"
-                      href="/category/fertility-conditions/female/immune/hla"
+                      href="/category/fertility-conditions/female/immune-conditions/hla"
                       passHref
                     >
                       <a>
@@ -122,7 +120,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="Immune Balance & Fertility"
-                      href="/category/fertility-conditions/female/immune/immune-balance-and-fertility/"
+                      href="/category/fertility-conditions/female/immune-conditions/immune-balance-and-fertility/"
                       passHref
                     >
                       <a>
@@ -137,7 +135,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="LA – Leukocyte Antibodies which target a type of white blood cell"
-                      href="/category/fertility-conditions/female/immune/la"
+                      href="/category/fertility-conditions/female/immune-conditions/la"
                       passHref
                     >
                       <a>
@@ -152,7 +150,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="NK Cells – Natural Killer cells which have many types and can prevent pregnancy when elevated"
-                      href="/category/fertility-conditions/female/immune/nk-cells"
+                      href="/category/fertility-conditions/female/immune-conditions/nk-cells"
                       passHref
                     >
                       <a>
@@ -167,7 +165,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="OA – Ovarian Antibodies which target ovarian tissue"
-                      href="/category/fertility-conditions/female/immune/oa"
+                      href="/category/fertility-conditions/female/immune-conditions/oa"
                       passHref
                     >
                       <a>
@@ -182,10 +180,10 @@ const FertilityConditons = () => {
                 </ol>
               </li>
               <li>
-                <Link href="/categories/category/fertility-conditions/female/conditions">
+                <Link href="/categories/category/fertility-conditions/female/female-conditions">
                   <a>
                     <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                      Conditions
+                      Female Conditions
                     </h3>
                   </a>
                 </Link>
@@ -196,7 +194,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="Age – How female age affects fertility levels"
-                      href="/category/fertility-conditions/female/conditions/asab"
+                      href="/category/fertility-conditions/female/female-conditions/asab"
                       passHref
                     >
                       <a>
@@ -211,7 +209,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="Fallopian Tube Blockages can be caused by mucus plugs, infections and scars"
-                      href="/category/fertility-conditions/female/conditions/blocked-fallopian-tubes"
+                      href="/category/fertility-conditions/female/female-conditions/blocked-fallopian-tubes"
                       passHref
                     >
                       <a>
@@ -226,7 +224,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="FLPD is a problem in the second (luteal) phase of menstrual cycles, when the phase is too short or progesterone levels are too low for implantation. "
-                      href="/category/fertility-conditions/female/conditions/blocked-fallopian-tubes"
+                      href="/category/fertility-conditions/female/female-conditions/blocked-fallopian-tubes"
                       passHref
                     >
                       <a>
@@ -241,7 +239,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="Implantation failure affects about 70% of unsuccessful IVF cycles"
-                      href="/category/fertility-conditions/female/conditions/implantation-failure"
+                      href="/category/fertility-conditions/female/female-conditions/implantation-failure"
                       passHref
                     >
                       <a>
@@ -256,7 +254,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="A handful of genetic conditions make women much less fertile"
-                      href="/category/fertility-conditions/female/conditions/genetic-conditions"
+                      href="/category/fertility-conditions/female/female-conditions/genetic-conditions"
                       passHref
                     >
                       <a>
@@ -271,7 +269,7 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="-"
-                      href="/category/fertility-conditions/female/conditions/miscarriage"
+                      href="/category/fertility-conditions/female/female-conditions/miscarriage"
                       passHref
                     >
                       <a>
@@ -304,7 +302,7 @@ const FertilityConditons = () => {
                 >
                   <a>
                     <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                      Both M/F
+                      Both Sexes
                     </h3>
                   </a>
                 </Link>
@@ -315,10 +313,10 @@ const FertilityConditons = () => {
                 </ol>
               </li>
               <li>
-                <Link href="/category/fertility-conditions/conditions/male">
+                <Link href="/category/fertility-conditions/conditions/male-conditions">
                   <a>
                     <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                      Male
+                      Male Conditions
                     </h3>
                   </a>
                 </Link>
@@ -333,7 +331,7 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Age
+                          Male Age
                         </h4>
                       </a>
                     </Link>
@@ -341,14 +339,14 @@ const FertilityConditons = () => {
                   <li>
                     <Link
                       title="Causes – There are multiple possible causes of low male fertility"
-                      href="/category/fertility-conditions/conditions/male/causes-of-male-infertility/"
+                      href="/category/fertility-conditions/conditions/male/causes-of-male-infertility"
                       passHref
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Causes
+                          Causes Of Male Infertility
                         </h4>
                       </a>
                     </Link>
@@ -378,7 +376,7 @@ const FertilityConditons = () => {
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Drugs
+                          Drugs & Male Fertility
                         </h4>
                       </a>
                     </Link>
