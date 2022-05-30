@@ -11,7 +11,7 @@ export const anovulationData = [
         id: 1,
         title: "Hyperprolactinaemia",
         link: "/category/fertility-conditions/female/female-conditions/anovulation/hyperprolactinaemia",
-        name: "Hyperprolactinaemia",
+        name: "Hyper-prolactinaemia",
       },
       {
         id: 2,
