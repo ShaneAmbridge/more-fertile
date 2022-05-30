@@ -7,13 +7,12 @@
 
   background: #ded3ff;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
+
   margin-bottom: 10px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 19px;
   cursor: pointer;
   color: #563ca5;
@@ -25,12 +24,16 @@
     color: #563ca5;
   }
 
+  a:visited,
+  a:active {
+    color: #563ca5;
+  }
   .plus {
     margin-right: 15px;
   }
 
   .animationPlus {
-    animation: topUpAnimation 0.5s ease-in-out;
+    animation: topUpAnimation 0.5s ease-in;
     margin-right: 15px;
   }
 
@@ -40,7 +43,7 @@
   .active {
     height: fit-content;
     width: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in;
   }
 }
 
@@ -49,29 +52,30 @@
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 15px;
-  animation: topUpAnimation 0.3s ease-in-out;
+  animation: topUpAnimation 0.5s ease-in;
 
-  .subSmCategory {
+  .subPost {
     width: 244px;
     height: 40px;
     cursor: pointer;
     display: block;
     padding-left: 20px;
-
-    background: #b5e6d8;
+    background: rgb(238, 238, 238);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
     margin-bottom: 10px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 19px;
 
     color: #357989;
 
-    animation: topUpAnimation 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    a {
+      color: #357989;
+    }
   }
 }
 

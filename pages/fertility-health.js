@@ -4,6 +4,15 @@ import LayoutMain from "../components/Layout/layout";
 import Link from "next/link";
 
 import styles from "../styles/fertility-health.module.scss";
+
+import HealthDropdown from "../components/healthTreeDropdown/healthDropdown";
+import {
+  eggsAgeData,
+  getPragnantData,
+  hormonesData,
+  pregnanayData,
+  spermTestsData,
+} from "../components/healthTreeDropdown/healthDropdownData";
 const FertilityHealth = () => {
   return (
     <LayoutMain>
@@ -15,7 +24,7 @@ const FertilityHealth = () => {
           <li>
             <Link
               title="Lifestyle"
-              href="/fertility-health/lifestyle-fertility/"
+              href="/categories/category/fertility-health/lifestyle-fertility"
             >
               <a>
                 <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
@@ -27,7 +36,7 @@ const FertilityHealth = () => {
               <li>
                 <Link
                   title="Factors"
-                  href="/fertility-health/lifestyle/fertility/"
+                  href="/categories/category/fertility-health/lifestyle/factors"
                 >
                   <a>
                     <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
@@ -38,56 +47,70 @@ const FertilityHealth = () => {
                 <ol className={styles.levelFourWrapper}>
                   <li>
                     <Link
-                      title="Age "
-                      href="/fertility-health/age-and-fertility/"
+                      title="Age & Fertility"
+                      href="/category/fertility-health/lifestyle/factors/age-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Age
+                          Age & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Emotions"
-                      href="/fertility-health/emotions-and-fertility/"
+                      title="Emotions & Fertility"
+                      href="/category/fertility-health/lifestyle/factors/emotions-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Emotions
+                          Emotions & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Exercise"
-                      href="/fertility-health/exercise-and-fertility/"
+                      title="Exercise & Fertility"
+                      href="/category/fertility-health/lifestyle/factors/exercise-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Exercise
+                          Exercise & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Microbiome"
-                      href="/fertility-health/microbiome-and-fertility/"
+                      title="Microbiome & Fertility"
+                      href="/category/fertility-health/lifestyle/factors/microbiome-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Microbiome
+                          Microbiome & Fertility
+                        </h4>
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      title="Oxidative Stress & Fertility"
+                      href="/category/fertility-health/lifestyle/factors/oxidative-stress-and-fertility"
+                    >
+                      <a>
+                        <h4
+                          className={`${styles.levelFour} ${styles.rectangle}`}
+                        >
+                          Oxidative Stress & Fertility
                         </h4>
                       </a>
                     </Link>
@@ -95,13 +118,13 @@ const FertilityHealth = () => {
                   <li>
                     <Link
                       title="Weight"
-                      href="/fertility-health/weight-and-fertility/"
+                      href="/category/fertility-health/lifestyle/factors/weight-and-fertility/"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Weight
+                          Weight & Fertility
                         </h4>
                       </a>
                     </Link>
@@ -109,90 +132,94 @@ const FertilityHealth = () => {
                 </ol>
               </li>
               <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Substances
-                </h3>
+                <Link href="/categories/category/fertility-health/lifestyle/substances">
+                  <a>
+                    <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                      Substances
+                    </h3>
+                  </a>
+                </Link>
                 <ol className={styles.levelFourWrapper}>
                   <li>
                     <Link
-                      title="Alcohol"
-                      href="/fertility-health/alcohol-and-fertility/"
+                      title="Alcohol & Fertility"
+                      href="/category/fertility-health/lifestyle/substances/alcohol-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Alcohol
+                          Alcohol & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Caffeine"
-                      href="/fertility-health/caffeine-and-fertility/"
+                      title="Caffeine & Fertility"
+                      href="/category/fertility-health/lifestyle/substances/caffeine-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Caffeine
+                          Caffeine & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Diet"
-                      href="/fertility-health/diet-and-fertility/"
+                      title="Diet & Fertility"
+                      href="/category/fertility-health/lifestyle/substances/diet-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Diet
+                          Diet & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Drugs"
-                      href="/fertility-health/drugs-and-fertility/"
+                      title="Drugs & Fertility"
+                      href="/category/fertility-health/lifestyle/substances/drugs-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Drugs
+                          Drugs & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Smoking"
-                      href="/fertility-health/smoking-and-fertility/"
+                      title="Smoking & Fertility"
+                      href="/category/fertility-health/lifestyle/substances/smoking-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Smoking
+                          Smoking & Fertility
                         </h4>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link
-                      title="Supplements"
-                      href="/fertility-health/supplements-and-fertility/"
+                      title="Supplements & Fertility"
+                      href="/category/fertility-health/lifestyle/substances/supplements-and-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Supplements
+                          Supplements & Fertility
                         </h4>
                       </a>
                     </Link>
@@ -202,82 +229,45 @@ const FertilityHealth = () => {
             </ol>
           </li>
           <li>
-            <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>Health</h2>
+            <Link href="/categories/category/fertility-health/health">
+              <a>
+                <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
+                  Health
+                </h2>
+              </a>
+            </Link>
+
             <ol className={styles.levelThreeWrapper}>
               <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Female
-                </h3>
+                <Link href="/categories/category/fertility-health/health/female-health">
+                  <a>
+                    <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                      Female Health
+                    </h3>
+                  </a>
+                </Link>
 
                 <ol className={styles.levelFourWrapper}>
-                  <li>
-                    <Link
-                      title="Eggs & Organs"
-                      href="/fertility-health/female-health/eggs-organs/"
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Eggs & Organs +
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      title="Hormones"
-                      href="/fertility-health/female-health/hormones/"
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Hormones +
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      title="Get Pregnant"
-                      href="/fertility-health/female-health/get-pregnant/"
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Get Pregnant +
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      title="Pregnancy"
-                      href="/fertility-health/female-health/pregnancy/"
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Pregnancy +
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
+                  <HealthDropdown treedata={eggsAgeData} />
+                  <HealthDropdown treedata={hormonesData} />
+                  <HealthDropdown treedata={getPragnantData} />
+                  <HealthDropdown treedata={pregnanayData} />
                 </ol>
               </li>
               <li>
-                <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
-                  Male
-                </h3>
+                <Link href="/categories/category/fertility-health/health/male-health">
+                  <a>
+                    <h3 className={`${styles.levelThree} ${styles.rectangle}`}>
+                      Male Health
+                    </h3>
+                  </a>
+                </Link>
 
                 <ol className={styles.levelFourWrapper}>
                   <li>
                     <Link
                       title="Sperm & Organs"
-                      href="/fertility-health/male-organs-sperm/"
+                      href="/category/fertility-health/health/male-health/male-organs-sperm"
                     >
                       <a>
                         <h4
@@ -290,14 +280,14 @@ const FertilityHealth = () => {
                   </li>
                   <li>
                     <Link
-                      title="Changing Fertility"
-                      href="/fertility-health/changing-male-fertility/"
+                      title="Changing Male Fertility"
+                      href="/category/fertility-health/health/male-health/changing-male-fertility"
                     >
                       <a>
                         <h4
                           className={`${styles.levelFour} ${styles.rectangle}`}
                         >
-                          Changing Fertility
+                          Changing Male Fertility
                         </h4>
                       </a>
                     </Link>
@@ -305,7 +295,7 @@ const FertilityHealth = () => {
                   <li>
                     <Link
                       title="Semen Sampling"
-                      href="/fertility-health/semen-sampling-2/"
+                      href="/category/fertility-health/health/male-health/semen-sampling-2"
                     >
                       <a>
                         <h4
@@ -316,20 +306,7 @@ const FertilityHealth = () => {
                       </a>
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      title="Sperm Tests"
-                      href="/fertility-health/male-health/additional-sperm-tests/"
-                    >
-                      <a>
-                        <h4
-                          className={`${styles.levelFour} ${styles.rectangle}`}
-                        >
-                          Sperm Tests
-                        </h4>
-                      </a>
-                    </Link>
-                  </li>
+                  <HealthDropdown treedata={spermTestsData} />
                 </ol>
               </li>
             </ol>

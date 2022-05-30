@@ -6,7 +6,7 @@ import NavNew from "./navnew/nav";
 import ResourcesBigMenu from "./resourcesBigMenu/resourcesBigMenu";
 const LayoutMain = ({ active, children, items }) => {
   const [bigmenuOpen, setBigmenuopen] = useState(false);
-  console.log(items?.categories);
+
   return (
     <div className={styles.main}>
       <NavNew

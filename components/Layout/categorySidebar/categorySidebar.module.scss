@@ -5,13 +5,13 @@
   height: 100%;
   border-radius: 10px;
   margin-top: 50px;
-
   @media (min-width: "900px") {
     flex: 1;
+    margin-top: 0;
   }
 
   aside {
-    padding: 25px;
+    padding: 0px 25px 25px 25px;
     box-sizing: border-box;
 
     h4 {
@@ -44,7 +44,6 @@
         top: 1886px;
         display: block;
         padding-left: 20px;
-
         background: #e9c9ce;
         border-radius: 10px;
         display: flex;

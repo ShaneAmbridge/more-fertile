@@ -18,7 +18,6 @@ const Footer = () => {
   useEffect(() => {
     if (toggle) {
       if (ww < 901) {
-        console.log(ww);
         toggleRef.current.style.height = "90px";
       }
       toggleRef.current.style.height = "78px";
