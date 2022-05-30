@@ -16,46 +16,58 @@ const Accordion = ({ item }) => {
         </Link>
 
         <>
-          {item?.children.nodes.length > 0 && (
-            <>
-              {active ? (
-                <span
-                  className={active ? styles.animationPlus : styles.plus}
-                  onClick={() => setActive(false)}
-                >
-                  <Image
-                    src="/images/minus-line.svg"
-                    width={12}
-                    height={12}
-                    alt="plus"
-                  />
-                </span>
-              ) : (
-                <span className={styles.minus} onClick={() => setActive(true)}>
-                  <Image
-                    src="/images/plus-line.svg"
-                    width={12}
-                    height={12}
-                    alt="plus"
-                  />
-                </span>
-              )}
-            </>
-          )}
+          <>
+            {active ? (
+              <span
+                className={active ? styles.animationPlus : styles.plus}
+                onClick={() => setActive(false)}
+              >
+                <Image
+                  src="/images/minus-line.svg"
+                  width={12}
+                  height={12}
+                  alt="plus"
+                />
+              </span>
+            ) : (
+              <span className={styles.minus} onClick={() => setActive(true)}>
+                <Image
+                  src="/images/plus-line.svg"
+                  width={12}
+                  height={12}
+                  alt="plus"
+                />
+              </span>
+            )}
+          </>
         </>
       </span>
 
       {active && (
-        <ul className={`${styles.superSubCategory}`}>
-          <div className={styles.categoryAnimation}>
-            {item?.children?.nodes.map((subcategory, k) => {
-              console.log(subcategory, "subcategory");
-              return (
-                <SubAccordion key={k + "sdfsdf"} subcategory={subcategory} />
-              );
-            })}
-          </div>
-        </ul>
+        <>
+          <ul className={`${styles.superSubCategory}`}>
+            <div className={styles.categoryAnimation}>
+              {item?.posts?.nodes && (
+                <div>
+                  {item?.posts?.nodes.map((post, j) => {
+                    return (
+                      <Link key={j + "dfasdf"} href={`/category${post.uri}`}>
+                        <a>
+                          <span className={styles.subPost}>{post.title}</span>
+                        </a>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+              {item?.children?.nodes.map((subcategory, k) => {
+                return (
+                  <SubAccordion key={k + "sdfsdf"} subcategory={subcategory} />
+                );
+              })}
+            </div>
+          </ul>
+        </>
       )}
     </li>
   );

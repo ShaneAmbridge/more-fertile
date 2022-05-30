@@ -53,6 +53,30 @@
   margin-top: 15px;
   margin-bottom: 15px;
   animation: topUpAnimation 0.5s ease-in;
+
+  .subPost {
+    width: 244px;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    padding-left: 20px;
+    background: rgb(238, 238, 238);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+
+    color: #357989;
+
+    display: flex;
+    align-items: center;
+    a {
+      color: #357989;
+    }
+  }
 }
 
 @keyframes topUpAnimation {

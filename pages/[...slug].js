@@ -124,11 +124,25 @@ export async function getStaticProps({ params }) {
           nodes {
             name
             uri
+            posts {
+              nodes {
+                title
+                uri
+                slug
+              }
+            }
             children {
               nodes {
                 name
                 uri
                 slug
+                posts {
+                  nodes {
+                    title
+                    uri
+                    slug
+                  }
+                }
                 children {
                   nodes {
                     name
