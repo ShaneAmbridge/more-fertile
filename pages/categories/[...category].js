@@ -13,7 +13,6 @@ const CategoryPost = ({ items, data, singlePost }) => {
 
   const path = router.query.category;
   const pathPrefix = path.join("/");
-  console.log(pathPrefix);
 
   return (
     <LayoutMain items={items}>
