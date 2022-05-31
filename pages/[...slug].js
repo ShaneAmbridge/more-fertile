@@ -24,19 +24,6 @@ export default function Home({ data, items }) {
   //   breadcrumb.push("category");
   // }
 
-  if (!data?.posts?.nodes[0] || !breadcrumb.length)
-    return (
-      <LayoutMain>
-        <div className={styles.notfound}>
-          <div>
-            <h1>We are sorry.</h1>
-            <h1>This post is not avaliable right now.</h1>{" "}
-            <button onClick={() => router.back()}>Go Back</button>
-          </div>
-        </div>
-      </LayoutMain>
-    );
-
   useEffect(() => {
     const headTitleName = document.querySelector(
       ".responsive-table__head__title--name"
@@ -85,6 +72,19 @@ export default function Home({ data, items }) {
       bodyTextCountry[i].setAttribute("data-title", headTitleCountry.innerText);
     }
   }, []);
+
+  if (!data?.posts?.nodes[0] || !breadcrumb.length)
+    return (
+      <LayoutMain>
+        <div className={styles.notfound}>
+          <div>
+            <h1>We are sorry.</h1>
+            <h1>This post is not avaliable right now.</h1>{" "}
+            <button onClick={() => router.back()}>Go Back</button>
+          </div>
+        </div>
+      </LayoutMain>
+    );
 
   return (
     <LayoutMain items={items}>
