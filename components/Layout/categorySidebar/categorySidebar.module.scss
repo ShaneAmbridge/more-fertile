@@ -84,12 +84,12 @@
       ul {
         display: flex;
         align-items: flex-start;
-        gap: 20px;
+        column-gap: 20px;
         padding-left: 19px;
 
         .mainCategory {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           margin-top: 0;
 
           padding: 16px 0;
@@ -99,10 +99,9 @@
           }
 
           .subCategory {
-            margin: 0;
-
+            margin-top: 0;
             span {
-              margin-bottom: 0;
+              margin-bottom: 10px;
             }
           }
         }

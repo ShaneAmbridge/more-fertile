@@ -17,6 +17,7 @@ const SubAccordion = ({ subcategory }) => {
           <>
             {active ? (
               <span
+                style={{ marginBottom: "0px" }}
                 className={active ? styles.animationPlus : styles.plus}
                 onClick={() => setActive(false)}
               >
@@ -28,7 +29,11 @@ const SubAccordion = ({ subcategory }) => {
                 />
               </span>
             ) : (
-              <span className={styles.minus} onClick={() => setActive(true)}>
+              <span
+                style={{ marginBottom: "0px" }}
+                className={styles.minus}
+                onClick={() => setActive(true)}
+              >
                 <Image
                   src="/images/plus-line.svg"
                   width={12}
@@ -48,7 +53,7 @@ const SubAccordion = ({ subcategory }) => {
               return (
                 <Link
                   key={k + "dfasdf"}
-                  href={`${subcategory.uri}/${smCategory.slug}`}
+                  href={`${subcategory.uri}${smCategory.slug}`}
                 >
                   <a>
                     <span className={styles.subAccordion}>

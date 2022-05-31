@@ -6,8 +6,6 @@ import SubAccordion from "../subAccordion/subAccordion";
 const Accordion = ({ item }) => {
   const [active, setActive] = useState(false);
 
-  console.log(item, "main item");
-
   return (
     <li>
       <span className={styles.category}>
@@ -19,6 +17,7 @@ const Accordion = ({ item }) => {
           <>
             {active ? (
               <span
+                style={{ marginBottom: "0px" }}
                 className={active ? styles.animationPlus : styles.plus}
                 onClick={() => setActive(false)}
               >
@@ -30,7 +29,11 @@ const Accordion = ({ item }) => {
                 />
               </span>
             ) : (
-              <span className={styles.minus} onClick={() => setActive(true)}>
+              <span
+                style={{ marginBottom: "0px" }}
+                className={styles.minus}
+                onClick={() => setActive(true)}
+              >
                 <Image
                   src="/images/plus-line.svg"
                   width={12}
@@ -46,26 +49,24 @@ const Accordion = ({ item }) => {
       {active && (
         <>
           <ul className={`${styles.superSubCategory}`}>
-            <div className={styles.categoryAnimation}>
-              {item?.posts?.nodes && (
-                <div>
-                  {item?.posts?.nodes.map((post, j) => {
-                    return (
-                      <Link key={j + "dfasdf"} href={`/category${post.uri}`}>
-                        <a>
-                          <span className={styles.subPost}>{post.title}</span>
-                        </a>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-              {item?.children?.nodes.map((subcategory, k) => {
-                return (
-                  <SubAccordion key={k + "sdfsdf"} subcategory={subcategory} />
-                );
-              })}
-            </div>
+            {item?.posts?.nodes && (
+              <div>
+                {item?.posts?.nodes.map((post, j) => {
+                  return (
+                    <Link key={j + "dfasdf"} href={`/category${post.uri}`}>
+                      <a>
+                        <span className={styles.subPost}>{post.title}</span>
+                      </a>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+            {item?.children?.nodes.map((subcategory, k) => {
+              return (
+                <SubAccordion key={k + "sdfsdf"} subcategory={subcategory} />
+              );
+            })}
           </ul>
         </>
       )}

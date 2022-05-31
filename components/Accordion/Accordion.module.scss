@@ -73,9 +73,33 @@
 
     display: flex;
     align-items: center;
+
     a {
       color: #357989;
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .category {
+    position: relative;
+    .plus {
+      margin-bottom: 0 !important;
+    }
+    .minus {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .superSubCategory {
+    display: flex;
+    flex-direction: column;
+    margin-left: -50px;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px hsla(0, 4%, 15%, 0.1);
   }
 }
 

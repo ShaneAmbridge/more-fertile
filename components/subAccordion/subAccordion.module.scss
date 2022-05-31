@@ -74,6 +74,23 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .subCategoryAccordion {
+    margin-left: 0;
+
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .subDropdownCategory {
+    .plus {
+      margin-bottom: 0 !important;
+    }
+    .minus {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
 @keyframes accordionAnimation {
   0% {
     opacity: 0;
