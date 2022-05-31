@@ -222,6 +222,6 @@ export async function getStaticProps({ params }) {
   // console.log(postOrTree, "postOrTree");
   return {
     props: { data },
-    revalidate: 2,
+    revalidate: 1,
   };
 }
