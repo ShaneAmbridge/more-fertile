@@ -76,10 +76,10 @@ export default function Home({ data, items }) {
 
           <div className={styles.contentandSidebar}>
             <div
+              className={styles.content}
               dangerouslySetInnerHTML={{
                 __html: data?.posts?.nodes[0]?.content,
               }}
-              className={styles.content}
             ></div>
 
             <div className={styles.sidebar}>

@@ -70,6 +70,31 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .sidebar {
+    aside {
+      overflow: scroll;
+      ul {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+
+        .mainCategory {
+          display: flex;
+          align-items: flex-start;
+          margin-top: 0;
+          gap: 20px;
+
+          .subCategory {
+            margin-top: 0;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 @keyframes topUpAnimation {
   0% {
     opacity: 0;

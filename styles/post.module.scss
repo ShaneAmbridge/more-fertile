@@ -136,6 +136,7 @@
 
         .content {
           width: 100%;
+          order: 2;
 
           img {
             max-width: 100%;
@@ -144,6 +145,7 @@
 
         .sidebar {
           width: 100%;
+          order: 1;
         }
       }
     }
