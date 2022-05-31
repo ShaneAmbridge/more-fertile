@@ -47,7 +47,7 @@ const Accordion = ({ item }) => {
       </span>
 
       {active && (
-        <>
+        <div className={styles.superCategoryWrapper}>
           <ul className={`${styles.superSubCategory}`}>
             {item?.posts?.nodes && (
               <div>
@@ -68,7 +68,7 @@ const Accordion = ({ item }) => {
               );
             })}
           </ul>
-        </>
+        </div>
       )}
     </li>
   );

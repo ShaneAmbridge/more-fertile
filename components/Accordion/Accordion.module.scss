@@ -91,17 +91,24 @@
     }
   }
 
-  .superSubCategory {
-    display: flex;
-    flex-direction: column;
-
+  .superCategoryWrapper {
     position: absolute;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px hsla(0, 4%, 15%, 0.1);
+
+    width: 100%;
     top: 55px;
-    left: 35px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+
+    .superSubCategory {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px hsla(0, 4%, 15%, 0.1);
+    }
   }
 }
 
