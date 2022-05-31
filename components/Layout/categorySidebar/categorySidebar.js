@@ -5,12 +5,10 @@ import styles from "./categorySidebar.module.scss";
 import Accordion from "../../Accordion/Accordion";
 
 const CategorySidebar = ({ categories }) => {
-  console.log(categories, "cateogres");
   return (
     <div className={styles.sidebar}>
+      <h4>All Categories</h4>
       <aside>
-        <h4>All Categories</h4>
-
         <ul className={styles.sidebarContent}>
           {categories?.nodes?.map((category, i) => {
             return (
