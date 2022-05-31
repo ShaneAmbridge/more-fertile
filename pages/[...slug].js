@@ -76,10 +76,10 @@ export default function Home({ data, items }) {
 
           <div className={styles.contentandSidebar}>
             <div
-              className={styles.content}
               dangerouslySetInnerHTML={{
                 __html: data?.posts?.nodes[0]?.content,
               }}
+              className={styles.content}
             ></div>
 
             <div className={styles.sidebar}>
@@ -172,6 +172,6 @@ export async function getStaticProps({ params }) {
   // console.log(postOrTree, "postOrTree");
   return {
     props: { data },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
