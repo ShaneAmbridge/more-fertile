@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { style } from "../postStyle/postStyle";
 import BigMenu from "./bigmenu/bigmenu";
 import Footer from "./footer/footer";
 import styles from "./layout.module.scss";
@@ -21,6 +22,14 @@ const LayoutMain = ({ active, children, items }) => {
       {bigmenuOpen && <ResourcesBigMenu categories={items?.categories} />}
       {children}
       <Footer />
+      <div className="demo">
+        <h3>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab laborum
+          sit reiciendis, dolorem explicabo voluptas labore, amet minus
+          doloremque sequi corrupti excepturi facilis aperiam maiores eaque
+          commodi repellendus. Necessitatibus, ipsam.
+        </h3>
+      </div>
     </div>
   );
 };

@@ -20,9 +20,6 @@ export default function Home({ data, items }) {
     return { breadcrumb: path, href: "/" + linkPath.slice(0, i + 1).join("/") };
   });
   const breadcrumb = pathArray;
-  // if (!breadcrumb.includes("category")) {
-  //   breadcrumb.push("category");
-  // }
 
   useEffect(() => {
     const headTitleName = document.querySelector(
@@ -139,6 +136,15 @@ export default function Home({ data, items }) {
         </div>
       </div>
       {/* )} */}
+
+      {data?.customStyleBy?.rawStyledJsx &&
+        data.customStyleBy.rawStyledJsx !== null && (
+          <style jsx>
+            {`
+              ${data.customStyleBy.rawStyledJsx}
+            `}
+          </style>
+        )}
     </LayoutMain>
   );
 }
@@ -156,6 +162,10 @@ export async function getStaticProps({ params }) {
   const { data } = await client.query({
     query: gql`
       query post($name: String, $slug: [String]) {
+        customStyleBy(slug: $name) {
+          rawStyledJsx
+          slugName
+        }
         posts(where: { name: $name }) {
           nodes {
             content
@@ -203,6 +213,21 @@ export async function getStaticProps({ params }) {
                         title
                         uri
                         slug
+                      }
+                    }
+
+                    children {
+                      nodes {
+                        name
+                        uri
+                        slug
+                        posts {
+                          nodes {
+                            title
+                            uri
+                            slug
+                          }
+                        }
                       }
                     }
                   }

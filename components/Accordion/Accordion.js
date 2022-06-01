@@ -63,6 +63,7 @@ const Accordion = ({ item }) => {
               </div>
             )}
             {item?.children?.nodes.map((subcategory, k) => {
+              // console.log(subcategory, "subcategory");
               return (
                 <SubAccordion key={k + "sdfsdf"} subcategory={subcategory} />
               );
