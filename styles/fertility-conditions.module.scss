@@ -83,6 +83,7 @@
   }
   li {
     position: relative;
+    transition: all 0.5s ease-in;
   }
   > li {
     &::before {
@@ -104,6 +105,7 @@
   width: 70%;
   margin: 0 auto 40px;
   background: #e9c9ce;
+
   &:hover {
     color: #e9c9ce;
     background-color: #7f2f75;
@@ -132,6 +134,31 @@
     width: 20px;
     height: 2px;
     background: black;
+  }
+  h1 {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  .tooltip {
+    position: absolute;
+    top: -20px;
+    right: 35%;
+    z-index: 20;
+    background-color: rgba(53, 52, 52, 0.959);
+    color: #fff;
+    border: 1px solid rgba(88, 88, 88, 0.781);
+    padding: 6px 15px;
+    border-radius: 3px;
+
+    opacity: 0;
+    transition: all 0s ease 0.4s;
+  }
+
+  &:hover {
+    .tooltip {
+      opacity: 1;
+    }
   }
 }
 .levelThreeWrapper {

@@ -22,10 +22,22 @@ const FertilityConditons = ({ data }) => {
           {data.topCategoryBy.secondLevelElements.nodes.map(
             (secondCategory, i) => {
               return (
-                <li key={i + "ddfdf"}>
-                  <Link title={secondCategory.title} href={secondCategory.url}>
+                <li className={styles.componentWrapper} key={i + "ddfdf"}>
+                  <Link
+                    title={secondCategory.tooltip}
+                    href={secondCategory.url}
+                  >
                     <a>
-                      <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
+                      <h2
+                        title={secondCategory.tooltip}
+                        className={`${styles.levelTwo} ${styles.rectangle}`}
+                      >
+                        <div
+                          className={styles.tooltip}
+                          dangerouslySetInnerHTML={{
+                            __html: secondCategory.tooltip,
+                          }}
+                        ></div>
                         {secondCategory.title}
                       </h2>
                     </a>
