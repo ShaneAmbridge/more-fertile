@@ -109,17 +109,27 @@ export default function Home({ data, items }) {
           <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
           {data?.posts?.nodes[0]?.featuredImage !== null &&
-            data?.posts?.nodes[0]?.featuredImage && (
-              <div className={styles.heroImageContainer}>
-                <Image
-                  layout="responsive"
-                  width={1024}
-                  height={487}
-                  src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
-                  alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
-                />
-              </div>
-            )}
+          data?.posts?.nodes[0]?.featuredImage ? (
+            <div className={styles.heroImageContainer}>
+              <Image
+                layout="responsive"
+                width={1024}
+                height={487}
+                src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
+                alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
+              />
+            </div>
+          ) : (
+            <div className={styles.heroImageContainer}>
+              <Image
+                layout="responsive"
+                width={1024}
+                height={487}
+                src="/public/images/couple.png"
+                alt=""
+              />
+            </div>
+          )}
 
           <div className={styles.contentandSidebar}>
             <div

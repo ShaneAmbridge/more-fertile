@@ -6,33 +6,46 @@ const FertilityDropdown = ({ treedata }) => {
   return (
     <li>
       <span className={`${styles.titleContainer}`}>
-        <Link title={treedata[0].title} href={treedata[0].link} passHref>
+        <Link title={treedata.title} href={treedata.url} passHref>
           <a>
-            <h4 className={`${styles.levelFour}`}>{treedata[0].name}</h4>
+            <h4 className={`${styles.levelFour}`}>{treedata.title}</h4>
           </a>
         </Link>
-        <span
-          className={styles.toggleBtn}
-          onClick={() => setActiveState(!setActive)}
-        >
-          {setActive ? <>-</> : <>{treedata[0].icon}</>}
-        </span>
+        {treedata.fifthLevelElements.nodes !== null &&
+          treedata.fifthLevelElements.nodes && (
+            <span
+              className={styles.toggleBtn}
+              onClick={() => setActiveState(!setActive)}
+            >
+              {setActive ? <>-</> : <>+</>}
+            </span>
+          )}
       </span>
       {setActive && (
         <ol className={styles.levelFiveWrapper}>
-          {treedata[1].data.map((item, i) => {
-            return (
-              <li key={i + "sadf"}>
-                <Link title={item.title} href={item.link}>
-                  <a>
-                    <h4 className={`${styles.levelFive} ${styles.rectangle}`}>
-                      {item.name}
-                    </h4>
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
+          {treedata.fifthLevelElements.nodes !== null &&
+            treedata.fifthLevelElements.nodes && (
+              <>
+                {treedata.fifthLevelElements.nodes.map((fifthCategory, x) => {
+                  return (
+                    <li key={x + "sadf"}>
+                      <Link
+                        title={fifthCategory.title}
+                        href={fifthCategory.url}
+                      >
+                        <a>
+                          <h4
+                            className={`${styles.levelFive} ${styles.rectangle}`}
+                          >
+                            {fifthCategory.title}
+                          </h4>
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </>
+            )}
         </ol>
       )}
     </li>
