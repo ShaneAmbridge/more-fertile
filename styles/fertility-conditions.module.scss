@@ -105,6 +105,7 @@
   width: 70%;
   margin: 0 auto 40px;
   background: #e9c9ce;
+  position: relative;
 
   &:hover {
     color: #e9c9ce;
@@ -135,29 +136,82 @@
     height: 2px;
     background: black;
   }
-  h1 {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-  }
+
   .tooltip {
     position: absolute;
-    top: -20px;
-    right: 35%;
+    top: 1px;
+    left: -14px;
     z-index: 20;
-    background-color: rgba(53, 52, 52, 0.959);
-    color: #fff;
-    border: 1px solid rgba(88, 88, 88, 0.781);
-    padding: 6px 15px;
-    border-radius: 3px;
 
-    opacity: 0;
+    color: #fff;
+
+    border-radius: 3px;
+    width: 50px;
+
     transition: all 0s ease 0.4s;
   }
 
-  &:hover {
-    .tooltip {
-      opacity: 1;
+  .tooltipText {
+    // position: relative;
+    position: absolute;
+    animation: topUpAnimation 0.5s ease-in;
+
+    color: #fff;
+    width: 100%;
+    padding: 6px 15px;
+    top: 0;
+    left: -9px;
+    border-radius: 3px;
+
+    transition: all 0s ease 0.4s;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+
+    @media screen and (max-width: 768px) {
+      left: -5px;
+    }
+
+    &::before,
+    &::after {
+      --scale: 1;
+      --arrow-size: 10px;
+      --tooltip-color: #333;
+
+      position: absolute;
+      top: 0;
+      left: 7%;
+      transform: translateX(-50%) translateY(var(--translate-y, 0))
+        scale(var(--scale));
+      transition: 150ms transform;
+      transform-origin: bottom center;
+
+      @media screen and (max-width: 600px) {
+        left: 5%;
+      }
+    }
+
+    &::before {
+      --translate-y: calc(-100% - var(--arrow-size));
+
+      content: attr(data-tooltip);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 0.3rem;
+      text-align: center;
+      width: max-content;
+      max-width: 100%;
+      background: var(--tooltip-color);
+    }
+
+    &::after {
+      --translate-y: calc(-1.1 * var(--arrow-size));
+      transform: translateX(-50%) translateY(var(--translate-y, 0))
+        scale(var(--scale));
+
+      content: "";
+      border: var(--arrow-size) solid transparent;
+      border-top-color: var(--tooltip-color);
+      transform-origin: top center;
     }
   }
 }
@@ -194,12 +248,88 @@
   margin-bottom: 20px;
   background: #ded3ff;
   color: #563ca5;
+  position: relative;
+
   &:hover {
     background: #563ca5;
     color: #ded3ff;
     a {
       background: #563ca5;
       color: #ded3ff;
+    }
+  }
+
+  .tooltip {
+    position: absolute;
+    top: 1px;
+    left: -13px;
+    z-index: 20;
+
+    color: #fff;
+
+    border-radius: 3px;
+    width: 50px;
+
+    transition: all 0s ease 0.4s;
+  }
+
+  .tooltipText {
+    // position: relative;
+    position: absolute;
+    animation: topUpAnimation 0.5s ease-in;
+
+    color: #fff;
+    width: 100%;
+    padding: 6px 15px;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+
+    transition: all 0s ease 0.4s;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+
+    &::before,
+    &::after {
+      --scale: 1;
+      --arrow-size: 10px;
+      --tooltip-color: #333;
+
+      position: absolute;
+      top: 0;
+      left: 8%;
+      transform: translateX(-50%) translateY(var(--translate-y, 0))
+        scale(var(--scale));
+      transition: 150ms transform;
+      transform-origin: bottom center;
+
+      @media screen and (min-width: 901px) {
+        left: 6%;
+      }
+    }
+
+    &::before {
+      --translate-y: calc(-100% - var(--arrow-size));
+
+      content: attr(data-tooltip);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 0.3rem;
+      text-align: center;
+      width: max-content;
+      max-width: 100%;
+      background: var(--tooltip-color);
+    }
+
+    &::after {
+      --translate-y: calc(-1.1 * var(--arrow-size));
+      transform: translateX(-50%) translateY(var(--translate-y, 0))
+        scale(var(--scale));
+
+      content: "";
+      border: var(--arrow-size) solid transparent;
+      border-top-color: var(--tooltip-color);
+      transform-origin: top center;
     }
   }
 }

@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import LayoutMain from "../components/Layout/layout";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import Link from "next/link";
 import styles from "../styles/fertility-health.module.scss";
 import HealthDropdown from "../components/healthTreeDropdown/healthDropdown";
+import Image from "next/image";
 
 const FertilityHealth = ({ data }) => {
+  const [open, setOpen] = useState(false);
+  const [openTooltip, setOpenTooltip] = useState(false);
+
+  const toggleTooltip = (i) => {
+    if (i === open) {
+      setOpen(false);
+    } else {
+      setOpen(i);
+    }
+  };
+  const toggle = (j) => {
+    console.log(j, openTooltip);
+    if (j === openTooltip) {
+      setOpenTooltip(false);
+    } else {
+      setOpenTooltip(j);
+    }
+  };
   return (
     <LayoutMain>
       <div className={styles.container}>
@@ -22,30 +41,73 @@ const FertilityHealth = ({ data }) => {
             (secondCategory, i) => {
               return (
                 <li key={i + "ddfdf"}>
-                  <Link title={secondCategory.title} href={secondCategory.url}>
-                    <a>
-                      <h2 className={`${styles.levelTwo} ${styles.rectangle}`}>
-                        {secondCategory.title}
-                      </h2>
-                    </a>
-                  </Link>
+                  <span className={`${styles.levelTwo} ${styles.rectangle}`}>
+                    <Link href={secondCategory.url}>
+                      <a>
+                        <h2>{secondCategory.title}</h2>
+                      </a>
+                    </Link>
+
+                    <div
+                      onClick={() => toggleTooltip(i)}
+                      className={styles.tooltip}
+                    >
+                      <Image
+                        src="/images/query-icon.svg"
+                        width={15}
+                        height={15}
+                        alt={secondCategory.tooltip}
+                      />
+                    </div>
+
+                    {open === i && (
+                      <div
+                        className={styles.tooltipText}
+                        data-tooltip={secondCategory.tooltip}
+                      ></div>
+                    )}
+                  </span>
                   <ol className={styles.levelThreeWrapper}>
                     {secondCategory.thirdLevelElements.nodes.map(
                       (thirdCategory, j) => {
                         return (
                           <li key={j + "dfdfdf"}>
-                            <Link
-                              title={thirdCategory.title}
-                              href={thirdCategory.url}
+                            <span
+                              className={`${styles.levelThree} ${styles.rectangle}`}
                             >
-                              <a>
-                                <h3
-                                  className={`${styles.levelThree} ${styles.rectangle}`}
-                                >
-                                  {thirdCategory.title}
-                                </h3>
-                              </a>
-                            </Link>
+                              <Link
+                                title={thirdCategory.title}
+                                href={thirdCategory.url}
+                              >
+                                <a>
+                                  <h3 title={thirdCategory.tooltip}>
+                                    {thirdCategory.title}
+                                  </h3>
+                                </a>
+                              </Link>
+
+                              <div
+                                onClick={() =>
+                                  toggle(j.toString() + i.toString() + "dfdfdf")
+                                }
+                                className={styles.tooltip}
+                              >
+                                <Image
+                                  src="/images/query-icon.svg"
+                                  width={15}
+                                  height={15}
+                                  alt={thirdCategory.tooltip}
+                                />
+                              </div>
+
+                              {openTooltip ===
+                                j.toString() + i.toString() + "dfdfdf" && (
+                                <div
+                                  className={styles.tooltipText}
+                                  data-tooltip={thirdCategory.tooltip}
+                                ></div>
+                              )}
+                            </span>
                             <ol className={styles.levelFourWrapper}>
                               {thirdCategory.fourthLevelElements.nodes.map(
                                 (fourthCategory, k) => {
@@ -53,6 +115,7 @@ const FertilityHealth = ({ data }) => {
                                     <HealthDropdown
                                       key={k + "sdfdf"}
                                       treedata={fourthCategory}
+                                      indexNo={k}
                                     />
                                   );
                                 }
