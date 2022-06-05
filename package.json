@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "wpe-build": "rm -rf node_modules && npm i --legacy-peer-deps && npm run build"
+    "wpe-build": "rm -rf node_modules && npm install --legacy-peer-deps && npm run build"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
