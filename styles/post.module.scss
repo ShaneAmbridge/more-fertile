@@ -109,6 +109,30 @@
         width: 75%;
         // max-width: 679px;
 
+        h3 {
+          font-size: 2rem;
+        }
+        p {
+          margin-bottom: 38px;
+          line-height: 25px;
+        }
+
+        ul {
+          padding-left: 3rem;
+        }
+        ul li {
+          line-height: 25px;
+        }
+
+        ul li ul {
+          padding-left: 1rem;
+        }
+
+        h4 {
+          padding-top: 1.5rem;
+          padding-bottom: 0.5rem;
+        }
+
         img {
           max-width: 100%;
         }

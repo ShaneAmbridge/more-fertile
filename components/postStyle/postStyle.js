@@ -15,10 +15,12 @@ export const style = `
   
 .container {
   width: 100%;
-  
+  background-color: red;
 
   padding: 0;
 }
+
+
 
 .responsive-table th,
 td {

@@ -85,62 +85,66 @@ export default function Home({ data, items }) {
 
   return (
     <LayoutMain items={items}>
-      <div className={styles.main}>
-        <div className={styles.container}>
-          <p className={styles.breadcrumb}>
-            {breadcrumb && (
-              <>
-                {breadcrumb.map((link, i) => {
-                  return (
-                    <span key={i + "dfdf"}>
-                      {link.breadcrumb}
-                      <>{i !== breadcrumb.length - 1 && <span> &#62; </span>}</>
-                    </span>
-                  );
-                })}
-              </>
+      <div className="container">
+        <div className={styles.main}>
+          <div className={styles.container}>
+            <p className={styles.breadcrumb}>
+              {breadcrumb && (
+                <>
+                  {breadcrumb.map((link, i) => {
+                    return (
+                      <span key={i + "dfdf"}>
+                        {link.breadcrumb}
+                        <>
+                          {i !== breadcrumb.length - 1 && <span> &#62; </span>}
+                        </>
+                      </span>
+                    );
+                  })}
+                </>
+              )}
+            </p>
+            <h5 className={styles.subTitle}>
+              <Link href={breadcrumb[0].href}>
+                <a>{breadcrumb[0].breadcrumb}</a>
+              </Link>
+            </h5>
+            <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
+
+            {data?.posts?.nodes[0]?.featuredImage !== null &&
+            data?.posts?.nodes[0]?.featuredImage ? (
+              <div className={styles.heroImageContainer}>
+                <Image
+                  layout="responsive"
+                  width={1024}
+                  height={487}
+                  src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
+                  alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
+                />
+              </div>
+            ) : (
+              <div className={styles.heroImageContainer}>
+                <Image
+                  layout="responsive"
+                  width={1024}
+                  height={487}
+                  src="/images/couple.png"
+                  alt=""
+                />
+              </div>
             )}
-          </p>
-          <h5 className={styles.subTitle}>
-            <Link href={breadcrumb[0].href}>
-              <a>{breadcrumb[0].breadcrumb}</a>
-            </Link>
-          </h5>
-          <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
-          {data?.posts?.nodes[0]?.featuredImage !== null &&
-          data?.posts?.nodes[0]?.featuredImage ? (
-            <div className={styles.heroImageContainer}>
-              <Image
-                layout="responsive"
-                width={1024}
-                height={487}
-                src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
-                alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
-              />
-            </div>
-          ) : (
-            <div className={styles.heroImageContainer}>
-              <Image
-                layout="responsive"
-                width={1024}
-                height={487}
-                src="/images/couple.png"
-                alt=""
-              />
-            </div>
-          )}
+            <div className={styles.contentandSidebar}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data?.posts?.nodes[0]?.content,
+                }}
+                className={styles.content}
+              ></div>
 
-          <div className={styles.contentandSidebar}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: data?.posts?.nodes[0]?.content,
-              }}
-              className={styles.content}
-            ></div>
-
-            <div className={styles.sidebar}>
-              <CategorySidebar categories={data?.categories} />
+              <div className={styles.sidebar}>
+                <CategorySidebar categories={data?.categories} />
+              </div>
             </div>
           </div>
         </div>
