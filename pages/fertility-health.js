@@ -48,17 +48,20 @@ const FertilityHealth = ({ data }) => {
                       </a>
                     </Link>
 
-                    <div
-                      onClick={() => toggleTooltip(i)}
-                      className={styles.tooltip}
-                    >
-                      <Image
-                        src="/images/query-icon.svg"
-                        width={15}
-                        height={15}
-                        alt={secondCategory.tooltip}
-                      />
-                    </div>
+                    {secondCategory.tooltip &&
+                      secondCategory.tooltip.length > 0 && (
+                        <div
+                          onClick={() => toggleTooltip(i)}
+                          className={styles.tooltip}
+                        >
+                          <Image
+                            src="/images/query-icon.svg"
+                            width={15}
+                            height={15}
+                            alt={secondCategory.tooltip}
+                          />
+                        </div>
+                      )}
 
                     {open === i && (
                       <div
@@ -86,19 +89,24 @@ const FertilityHealth = ({ data }) => {
                                 </a>
                               </Link>
 
-                              <div
-                                onClick={() =>
-                                  toggle(j.toString() + i.toString() + "dfdfdf")
-                                }
-                                className={styles.tooltip}
-                              >
-                                <Image
-                                  src="/images/query-icon.svg"
-                                  width={15}
-                                  height={15}
-                                  alt={thirdCategory.tooltip}
-                                />
-                              </div>
+                              {thirdCategory.tooltip &&
+                                thirdCategory.tooltip.length > 0 && (
+                                  <div
+                                    onClick={() =>
+                                      toggle(
+                                        j.toString() + i.toString() + "dfdfdf"
+                                      )
+                                    }
+                                    className={styles.tooltip}
+                                  >
+                                    <Image
+                                      src="/images/query-icon.svg"
+                                      width={15}
+                                      height={15}
+                                      alt={thirdCategory.tooltip}
+                                    />
+                                  </div>
+                                )}
 
                               {openTooltip ===
                                 j.toString() + i.toString() + "dfdfdf" && (

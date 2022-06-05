@@ -34,17 +34,19 @@ const HealthDropdown = ({ treedata, indextNo }) => {
             </a>
           </Link>
 
-          <div
-            onClick={() => toggle(indextNo + "dfdfdf")}
-            className={styles.tooltip}
-          >
-            <Image
-              src="/images/query-icon.svg"
-              width={15}
-              height={15}
-              alt={treedata.tooltip}
-            />
-          </div>
+          {treedata.tooltip && treedata.tooltip.length > 0 && (
+            <div
+              onClick={() => toggle(indextNo + "dfdfdf")}
+              className={styles.tooltip}
+            >
+              <Image
+                src="/images/query-icon.svg"
+                width={15}
+                height={15}
+                alt={treedata.tooltip}
+              />
+            </div>
+          )}
 
           {openTooltip === indextNo + "dfdfdf" && (
             <div
@@ -85,17 +87,23 @@ const HealthDropdown = ({ treedata, indextNo }) => {
                           </a>
                         </Link>
 
-                        <div
-                          onClick={() => toggleTooltip(x.toString() + "dfdfdf")}
-                          className={styles.tooltip}
-                        >
-                          <Image
-                            src="/images/query-icon.svg"
-                            width={15}
-                            height={15}
-                            alt={fifthCategory.tooltip}
-                          />
-                        </div>
+                        {fifthCategory.tooltip &&
+                          (fifthCategory.tooltip.length > 0) &
+                          (
+                            <div
+                              onClick={() =>
+                                toggleTooltip(x.toString() + "dfdfdf")
+                              }
+                              className={styles.tooltip}
+                            >
+                              <Image
+                                src="/images/query-icon.svg"
+                                width={15}
+                                height={15}
+                                alt={fifthCategory.tooltip}
+                              />
+                            </div>
+                          )}
 
                         {open === x.toString() + "dfdfdf" && (
                           <div

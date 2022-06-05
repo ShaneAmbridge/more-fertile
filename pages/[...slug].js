@@ -125,7 +125,7 @@ export default function Home({ data, items }) {
                 layout="responsive"
                 width={1024}
                 height={487}
-                src="/public/images/couple.png"
+                src="/images/couple.png"
                 alt=""
               />
             </div>
