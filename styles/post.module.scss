@@ -40,15 +40,12 @@
 .main {
   display: flex;
   justify-content: center;
-  overflow-x: hidden;
-  word-wrap: break-all !important;
 
   .container {
     // margin: 0 auto;
     width: 100%;
     max-width: 1140px;
     color: #525252;
-    word-wrap: break-all !important;
 
     .heroImageContainer {
       margin-bottom: 52px;
@@ -116,6 +113,8 @@
       .content {
         width: 75%;
         // max-width: 679px;
+
+        word-break: break-word;
 
         h3 {
           font-size: 2rem;
@@ -186,8 +185,8 @@
         .content {
           width: 100%;
           order: 2;
-          margin-left: 18px;
-          margin-right: 18px;
+          margin-left: 25px;
+          margin-right: 25px;
 
           img {
             max-width: 100%;
