@@ -40,14 +40,22 @@
 .main {
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  word-wrap: break-all !important;
+
   .container {
     // margin: 0 auto;
     width: 100%;
     max-width: 1140px;
+    color: #525252;
+    word-wrap: break-all !important;
 
     .heroImageContainer {
       margin-bottom: 52px;
+      border-radius: 20px;
+      img {
+        border-radius: 20px;
+      }
     }
 
     .breadcrumb {
@@ -111,6 +119,7 @@
 
         h3 {
           font-size: 2rem;
+          margin-bottom: 1rem;
         }
         p {
           margin-bottom: 38px;
@@ -135,6 +144,10 @@
 
         img {
           max-width: 100%;
+        }
+
+        ol li {
+          line-height: 25px;
         }
       }
       .sidebar {

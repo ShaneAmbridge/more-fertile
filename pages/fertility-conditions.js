@@ -8,7 +8,6 @@ import styles from "../styles/fertility-conditions.module.scss";
 import TreeDropdown from "../components/fertilityConditonDropdown/treeDropdown";
 
 const FertilityConditons = ({ data }) => {
-  console.log(data, "data");
   const [open, setOpen] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
 
