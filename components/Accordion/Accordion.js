@@ -21,7 +21,7 @@ const Accordion = ({ item }) => {
 
   useEffect(() => {
     if (open === undefined) {
-      setLevel2("anovulation");
+      setLevel2(linkPath[4]);
     } else {
       if (level2) {
         setLevel2();
