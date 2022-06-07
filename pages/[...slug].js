@@ -195,6 +195,7 @@ export async function getStaticProps({ params }) {
           nodes {
             name
             uri
+            slug
             posts {
               nodes {
                 title

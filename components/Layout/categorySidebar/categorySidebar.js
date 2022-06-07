@@ -51,9 +51,10 @@ const CategorySidebar = ({ categories }) => {
       <aside>
         <ul className={styles.sidebarContent}>
           {categories?.nodes?.map((category, i) => {
+            console.log(category, "categopry main");
             return (
               <li key={i + "sdfsdf"} className={styles.mainCategory}>
-                <Link href={`${category.uri}`} passHref>
+                <Link href={`/${category.slug}`} passHref>
                   <a>
                     <span
                       className={`${styles.categories} ${
