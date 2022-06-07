@@ -145,43 +145,6 @@
       margin-bottom: 0 !important;
     }
   }
-
-  .superCategoryWrapper {
-    position: absolute;
-
-    width: 100%;
-    top: 55px;
-    left: 0;
-    display: flex;
-    justify-content: center;
-
-    .subCategoryAccordion {
-      display: flex;
-      flex-direction: column;
-      margin-left: 0;
-
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .subDropdownCategory {
-      .plus {
-        margin-bottom: 0 !important;
-      }
-      .minus {
-        margin-bottom: 0 !important;
-      }
-    }
-
-    .superSubCategory {
-      display: flex;
-      // justify-content: center;
-      flex-direction: column;
-      background-color: #fff;
-      padding: 20px 25px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px hsla(0, 4%, 15%, 0.1);
-    }
-  }
 }
 
 @keyframes topUpAnimation {

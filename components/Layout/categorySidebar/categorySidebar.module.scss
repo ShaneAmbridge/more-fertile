@@ -7,8 +7,6 @@
   margin-top: 50px;
   padding: 0px 25px 25px 25px;
   box-sizing: border-box;
-  background-color: #f9f9f9;
-  padding: 25px;
 
   @media (min-width: "900px") {
     flex: 1;
@@ -166,44 +164,8 @@
 @media screen and (max-width: 900px) {
   .sidebar {
     width: 100%;
-    padding: 0;
-    margin-top: 0;
-
-    h4 {
-      display: none;
-    }
-    aside {
-      overflow: scroll;
-      background-color: #f9f9f9;
-      margin-bottom: 39px;
-
-      ul {
-        display: flex;
-        align-items: flex-start;
-        column-gap: 20px;
-        padding-left: 19px;
-        padding-right: 19px;
-
-        .mainCategory {
-          display: flex;
-          align-items: flex-start;
-          margin-top: 0;
-
-          padding-top: 22px;
-
-          .categories {
-            margin-bottom: 0;
-          }
-
-          .subCategory {
-            margin-top: 0;
-            span {
-              margin-bottom: 10px;
-            }
-          }
-        }
-      }
-    }
+    background-color: #f9f9f9;
+    padding: 30px;
   }
 }
 
