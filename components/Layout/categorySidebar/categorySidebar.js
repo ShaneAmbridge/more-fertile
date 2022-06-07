@@ -46,95 +46,99 @@ const CategorySidebar = ({ categories }) => {
   console.log("index", open, level2);
 
   return (
-    <div className={styles.sidebar}>
-      <h4>All Categories</h4>
-      <aside>
-        <ul className={styles.sidebarContent}>
-          {categories?.nodes?.map((category, i) => {
-            return (
-              <li key={i + "sdfsdf"} className={styles.mainCategory}>
-                <Link href={`/${category.slug}`} passHref>
-                  <a>
-                    <span
-                      className={`${styles.categories} ${
-                        activeLink === category.slug ? styles.activeClass : ""
-                      }`}
-                    >
-                      {category.name}
-                    </span>
-                  </a>
-                </Link>
+    <div className={styles.main}>
+      <div className={styles.sidebar}>
+        <h4>All Categories</h4>
+        <aside>
+          <ul className={styles.sidebarContent}>
+            {categories?.nodes?.map((category, i) => {
+              return (
+                <li key={i + "sdfsdf"} className={styles.mainCategory}>
+                  <Link href={`/${category.slug}`} passHref>
+                    <a>
+                      <span
+                        className={`${styles.categories} ${
+                          activeLink === category.slug ? styles.activeClass : ""
+                        }`}
+                      >
+                        {category.name}
+                      </span>
+                    </a>
+                  </Link>
 
-                <ul
-                  className={
-                    category?.children?.nodes.length > 0
-                      ? styles.subCategory
-                      : ""
-                  }
-                >
-                  {category?.children?.nodes.map((item, j) => {
-                    return (
-                      <li key={j + "sfdf"}>
-                        <span
-                          className={`${styles.category} ${
-                            activeLink === item.slug ? styles.activeClass : ""
-                          }`}
-                        >
-                          <Link href={`/categories${item?.uri}`} passHref>
-                            <a>{item.name}</a>
-                          </Link>
+                  <ul
+                    className={
+                      category?.children?.nodes.length > 0
+                        ? styles.subCategory
+                        : ""
+                    }
+                  >
+                    {category?.children?.nodes.map((item, j) => {
+                      return (
+                        <li key={j + "sfdf"}>
+                          <span
+                            className={`${styles.category} ${
+                              activeLink === item.slug ? styles.activeClass : ""
+                            }`}
+                          >
+                            <Link href={`/categories${item?.uri}`} passHref>
+                              <a>{item.name}</a>
+                            </Link>
 
-                          <>
-                            {item.posts.nodes && item.posts.nodes.length > 0 && (
-                              <>
-                                {level2 === item.slug || open === j ? (
-                                  <span
-                                    style={{ marginBottom: "0px" }}
-                                    className={
-                                      open ? styles.animationPlus : styles.plus
-                                    }
-                                    onClick={() => toogle(j)}
-                                  >
-                                    <Image
-                                      src="/images/minus-line.svg"
-                                      width={12}
-                                      height={12}
-                                      alt="plus"
-                                    />
-                                  </span>
-                                ) : (
-                                  <span
-                                    style={{ marginBottom: "0px" }}
-                                    className={styles.minus}
-                                    onClick={() => toogle(j)}
-                                  >
-                                    <Image
-                                      src="/images/plus-line.svg"
-                                      width={12}
-                                      height={12}
-                                      alt="plus"
-                                    />
-                                  </span>
-                                )}
-                              </>
-                            )}
-                          </>
-                        </span>
+                            <>
+                              {item.posts.nodes && item.posts.nodes.length > 0 && (
+                                <>
+                                  {level2 === item.slug || open === j ? (
+                                    <span
+                                      style={{ marginBottom: "0px" }}
+                                      className={
+                                        open
+                                          ? styles.animationPlus
+                                          : styles.plus
+                                      }
+                                      onClick={() => toogle(j)}
+                                    >
+                                      <Image
+                                        src="/images/minus-line.svg"
+                                        width={12}
+                                        height={12}
+                                        alt="plus"
+                                      />
+                                    </span>
+                                  ) : (
+                                    <span
+                                      style={{ marginBottom: "0px" }}
+                                      className={styles.minus}
+                                      onClick={() => toogle(j)}
+                                    >
+                                      <Image
+                                        src="/images/plus-line.svg"
+                                        width={12}
+                                        height={12}
+                                        alt="plus"
+                                      />
+                                    </span>
+                                  )}
+                                </>
+                              )}
+                            </>
+                          </span>
 
-                        {level2 === item.slug || open === j ? (
-                          <Accordion item={item} />
-                        ) : (
-                          ""
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            );
-          })}
-        </ul>
-      </aside>
+                          {level2 === item.slug || open === j ? (
+                            <Accordion item={item} />
+                          ) : (
+                            ""
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </aside>
+      </div>
     </div>
   );
 };

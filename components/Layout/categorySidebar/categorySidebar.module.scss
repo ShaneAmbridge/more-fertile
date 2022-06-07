@@ -1,159 +1,161 @@
-.sidebar {
-  position: sticky;
-  top: 80px;
-  width: 247px;
-  height: 100%;
-  border-radius: 10px;
-  margin-top: 50px;
-  padding: 0px 25px 25px 25px;
-  box-sizing: border-box;
+.main {
+  .sidebar {
+    position: sticky;
+    top: 80px;
+    width: 247px;
+    height: 100%;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 0px 25px 25px 25px;
+    box-sizing: border-box;
 
-  @media (min-width: "900px") {
-    flex: 1;
-    margin-top: 0;
-  }
-  h4 {
-    width: 224px;
-    height: 27px;
-    left: 1706px;
-    top: 1827px;
-    margin-bottom: 32px;
+    @media (min-width: "900px") {
+      flex: 1;
+      margin-top: 0;
+    }
+    h4 {
+      width: 224px;
+      height: 27px;
+      left: 1706px;
+      top: 1827px;
+      margin-bottom: 32px;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 27px;
-    /* identical to box height */
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+      /* identical to box height */
 
-    color: #7f2f75;
-  }
+      color: #7f2f75;
+    }
 
-  ul {
-    list-style: none;
-    padding-left: 0px;
+    ul {
+      list-style: none;
+      padding-left: 0px;
 
-    .mainCategory {
-      .activeClass {
-        background-color: #7f2f75 !important;
-        color: #fff !important;
-      }
-      .category {
-        width: 244px;
-        height: 40px;
-
-        display: block;
-        padding-left: 20px;
-
-        background: #ded3ff;
-        border-radius: 10px;
-
-        margin-bottom: 10px;
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 19px;
-        cursor: pointer;
-        color: #563ca5;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        a {
-          color: #563ca5;
+      .mainCategory {
+        .activeClass {
+          background-color: #7f2f75 !important;
+          color: #fff !important;
         }
-
-        a:visited,
-        a:active {
-          color: #563ca5;
-        }
-        .plus {
-          margin-right: 15px;
-        }
-
-        .animationPlus {
-          animation: topUpAnimation 0.5s ease-in;
-          margin-right: 15px;
-        }
-
-        .minus {
-          margin-right: 15px;
-        }
-        .active {
-          height: fit-content;
-          width: 100%;
-          transition: all 0.5s ease-in;
-        }
-      }
-
-      .superSubCategory {
-        margin-left: 16px;
-        cursor: pointer;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        animation: topUpAnimation 0.5s ease-in;
-
-        .subPost {
+        .category {
           width: 244px;
           height: 40px;
-          cursor: pointer;
+
           display: block;
           padding-left: 20px;
-          background: rgb(238, 238, 238);
+
+          background: #ded3ff;
           border-radius: 10px;
+
           margin-bottom: 10px;
           font-family: "Inter";
           font-style: normal;
           font-weight: 700;
-          font-size: 13px;
+          font-size: 15px;
           line-height: 19px;
-
-          color: #357989;
+          cursor: pointer;
+          color: #563ca5;
 
           display: flex;
           align-items: center;
-
+          justify-content: space-between;
           a {
-            color: #357989;
+            color: #563ca5;
+          }
+
+          a:visited,
+          a:active {
+            color: #563ca5;
+          }
+          .plus {
+            margin-right: 15px;
+          }
+
+          .animationPlus {
+            animation: topUpAnimation 0.5s ease-in;
+            margin-right: 15px;
+          }
+
+          .minus {
+            margin-right: 15px;
+          }
+          .active {
+            height: fit-content;
+            width: 100%;
+            transition: all 0.5s ease-in;
           }
         }
-      }
 
-      .categories {
-        width: 244px;
-        height: 40px;
-        left: 1696px;
-        top: 1886px;
-        display: block;
-        padding-left: 20px;
-        background: #e9c9ce;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
+        .superSubCategory {
+          margin-left: 16px;
+          cursor: pointer;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          animation: topUpAnimation 0.5s ease-in;
 
-        color: #7f2f75;
-        cursor: pointer;
-      }
+          .subPost {
+            width: 244px;
+            height: 40px;
+            cursor: pointer;
+            display: block;
+            padding-left: 20px;
+            background: rgb(238, 238, 238);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 19px;
 
-      .subCategory {
-        margin-left: 16px;
+            color: #357989;
 
-        border-radius: 5px;
-        margin-top: 15px;
-        margin-bottom: 15px;
+            display: flex;
+            align-items: center;
 
-        .activeClass {
-          background: #563ca5 !important;
+            a {
+              color: #357989;
+            }
+          }
+        }
 
-          a {
-            color: #fff !important;
+        .categories {
+          width: 244px;
+          height: 40px;
+          left: 1696px;
+          top: 1886px;
+          display: block;
+          padding-left: 20px;
+          background: #e9c9ce;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 19px;
+
+          color: #7f2f75;
+          cursor: pointer;
+        }
+
+        .subCategory {
+          margin-left: 16px;
+
+          border-radius: 5px;
+          margin-top: 15px;
+          margin-bottom: 15px;
+
+          .activeClass {
+            background: #563ca5 !important;
+
+            a {
+              color: #fff !important;
+            }
           }
         }
       }
@@ -162,10 +164,12 @@
 }
 
 @media screen and (max-width: 900px) {
-  .sidebar {
-    width: 100%;
+  .main {
     background-color: #f9f9f9;
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .sidebar {
   }
 }
 
