@@ -101,11 +101,63 @@ export default function Home({ data, items }) {
               </>
             )}
           </p>
-          <h5 className={styles.subTitle}>
+          {/* <h5 className={styles.subTitle}>
             <Link href={breadcrumb[0].href}>
-              <a>{breadcrumb[0].breadcrumb}</a>
+              <a>{breadcrumb[0].breadcrumb}sgdfg</a>
             </Link>
-          </h5>
+          </h5> */}
+
+          <div className={styles.categoriesName}>
+            <div className={styles.left}>
+              <Link href="/fertility-health">
+                <a>
+                  <span
+                    className={
+                      breadcrumb[0].breadcrumb === "fertility-health"
+                        ? styles.activeCategory
+                        : ""
+                    }
+                  >
+                    Fertility Health
+                  </span>
+                </a>
+              </Link>
+              <Link href="/fertility-conditions">
+                <a>
+                  <span
+                    className={
+                      breadcrumb[0].breadcrumb === "fertility-conditions"
+                        ? styles.activeCategory
+                        : ""
+                    }
+                  >
+                    Fertility Conditons
+                  </span>
+                </a>
+              </Link>
+            </div>
+            <div className={styles.right}>
+              <Link href="/fertility-treatments">
+                <a>
+                  <span
+                    className={
+                      breadcrumb[0].breadcrumb === "fertility-treatments"
+                        ? styles.activeCategory
+                        : ""
+                    }
+                  >
+                    Fertility Treatments
+                  </span>
+                </a>
+              </Link>
+              <Link href="/">
+                <a>
+                  <span>Start you fertility journey</span>
+                </a>
+              </Link>
+            </div>
+          </div>
+
           <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
           {data?.posts?.nodes[0]?.featuredImage !== null &&

@@ -78,21 +78,90 @@
       }
     }
 
-    .subTitle {
+    .categoriesName {
       margin-top: 68px;
-      margin-bottom: 5px;
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 111%;
-      /* identical to box height, or 18px */
+      display: flex;
+      gap: 20px;
+      @media screen and (max-width: 1024px) {
+        align-items: center;
+        justify-content: center;
+      }
 
-      letter-spacing: -0.02em;
+      @media screen and (max-width: 600px) {
+        gap: 10px;
+      }
 
-      color: #525252;
-      text-transform: capitalize;
+      .left {
+        display: flex;
+        column-gap: 20px;
+
+        @media screen and (max-width: 1024px) {
+          flex-direction: column;
+          gap: 0;
+        }
+        .activeCategory {
+          background-color: #7f2f75;
+          color: #ffffff;
+        }
+      }
+      .right {
+        display: flex;
+        column-gap: 20px;
+        @media screen and (max-width: 1024px) {
+          flex-direction: column;
+          gap: 0;
+        }
+        .activeCategory {
+          background-color: #7f2f75;
+          color: #ffffff;
+        }
+      }
+
+      .left,
+      .right {
+        span {
+          width: 244px;
+          height: 40px;
+
+          display: block;
+          padding-left: 20px;
+          background: #e9c9ce;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 19px;
+
+          color: #7f2f75;
+          cursor: pointer;
+
+          @media screen and (max-width: 600px) {
+            font-size: 10px;
+            width: 155px;
+            height: 40px;
+          }
+        }
+      }
     }
+    // .subTitle {
+    //   margin-top: 68px;
+    //   margin-bottom: 5px;
+    //   font-family: "Inter";
+    //   font-style: normal;
+    //   font-weight: 400;
+    //   font-size: 16px;
+    //   line-height: 111%;
+    //   /* identical to box height, or 18px */
+
+    //   letter-spacing: -0.02em;
+
+    //   color: #525252;
+    //   text-transform: capitalize;
+    // }
     .title {
       font-family: "Inter";
       font-style: normal;
