@@ -45,6 +45,11 @@
     width: 100%;
     transition: all 0.5s ease-in;
   }
+
+  .activeClass {
+    background: #563ca5 !important;
+    color: #ded3ff !important;
+  }
 }
 
 .superSubCategory {
@@ -53,6 +58,14 @@
   margin-top: 15px;
   margin-bottom: 15px;
   animation: topUpAnimation 0.5s ease-in;
+  .activeClass {
+    background: #357989 !important;
+    color: #fff !important;
+
+    a {
+      color: #fff !important;
+    }
+  }
 
   .subPost {
     width: 244px;
@@ -73,8 +86,63 @@
 
     display: flex;
     align-items: center;
+
     a {
       color: #357989;
+    }
+  }
+
+  .subDropdownCategory {
+    width: 244px;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    padding-left: 20px;
+    background: #b5e6d8;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #357989;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      color: #357989;
+    }
+
+    .plus {
+      margin-right: 15px;
+    }
+
+    .animationPlus {
+      animation: accordionAnimation 0.5s ease-in;
+      margin-right: 15px;
+    }
+
+    .minus {
+      margin-right: 15px;
+    }
+    .active {
+      height: fit-content;
+      width: 100%;
+      transition: all 0.5s ease-in;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .category {
+    position: relative;
+    .plus {
+      margin-bottom: 0 !important;
+    }
+    .minus {
+      margin-bottom: 0 !important;
     }
   }
 }

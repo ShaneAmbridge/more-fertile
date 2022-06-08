@@ -1,38 +1,120 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./treeDropdown.module.scss";
-const TreeDropdown = ({ treedata }) => {
+import Image from "next/image";
+const TreeDropdown = ({ treedata, indextNo }) => {
   const [setActive, setActiveState] = useState(false);
+
+  const [openTooltip, setOpenTooltip] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const toggle = (indextNo) => {
+    if (indextNo === openTooltip) {
+      setOpenTooltip(false);
+    } else {
+      setOpenTooltip(indextNo);
+    }
+  };
+
+  const toggleTooltip = (i) => {
+    if (i === open) {
+      setOpen(false);
+    } else {
+      setOpen(i);
+    }
+  };
   return (
     <li>
       <span className={`${styles.titleContainer}`}>
-        <Link title={treedata[0].title} href={treedata[0].link} passHref>
-          <a>
-            <h4 className={`${styles.levelFour}`}>{treedata[0].name}</h4>
-          </a>
-        </Link>
-        <span
-          className={styles.toggleBtn}
-          onClick={() => setActiveState(!setActive)}
-        >
-          {setActive ? <>-</> : <>{treedata[0].icon}</>}
+        <span className={`${styles.levelFour}`}>
+          <Link href={treedata.url} passHref>
+            <a>
+              <h4>{treedata.title}</h4>
+            </a>
+          </Link>
+
+          {treedata.tooltip && treedata.tooltip.length > 0 && (
+            <div
+              onClick={() => toggle(indextNo + "dfdfdf")}
+              className={styles.tooltip}
+            >
+              <Image
+                src="/images/query-icon.svg"
+                width={15}
+                height={15}
+                alt={treedata.tooltip}
+              />
+            </div>
+          )}
+
+          {openTooltip === indextNo + "dfdfdf" && (
+            <div
+              className={styles.tooltipText}
+              data-tooltip={treedata.tooltip}
+            ></div>
+          )}
         </span>
+        {treedata.fifthLevelElements.nodes !== null &&
+          treedata.fifthLevelElements.nodes && (
+            <span
+              className={styles.toggleBtn}
+              onClick={() => setActiveState(!setActive)}
+            >
+              {setActive ? <>-</> : <>+</>}
+            </span>
+          )}
       </span>
       {setActive && (
         <ol className={styles.levelFiveWrapper}>
-          {treedata[1].data.map((item, i) => {
-            return (
-              <li key={i + "sadf"}>
-                <Link title={item.title} href={item.link}>
-                  <a>
-                    <h4 className={`${styles.levelFive} ${styles.rectangle}`}>
-                      {item.name}
-                    </h4>
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
+          {treedata.fifthLevelElements.nodes !== null &&
+            treedata.fifthLevelElements.nodes && (
+              <>
+                {treedata.fifthLevelElements.nodes.map((fifthCategory, x) => {
+                  return (
+                    <li key={x + "sadf"}>
+                      <span
+                        className={`${styles.levelFive} ${styles.rectangle}`}
+                      >
+                        <Link
+                          title={fifthCategory.title}
+                          href={fifthCategory.url}
+                        >
+                          <a>
+                            <h4 title={fifthCategory.tooltip}>
+                              {fifthCategory.title}
+                            </h4>
+                          </a>
+                        </Link>
+
+                        {fifthCategory.tooltip &&
+                          fifthCategory.tooltip.length > 0 && (
+                            <div
+                              onClick={() =>
+                                toggleTooltip(x.toString() + "dfdfdf")
+                              }
+                              className={styles.tooltip}
+                            >
+                              <Image
+                                src="/images/query-icon.svg"
+                                width={15}
+                                height={15}
+                                alt={fifthCategory.tooltip}
+                              />
+                            </div>
+                          )}
+
+                        {open === x.toString() + "dfdfdf" && (
+                          <div
+                            className={styles.tooltipText}
+                            data-tooltip={fifthCategory.tooltip}
+                          ></div>
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
+              </>
+            )}
         </ol>
       )}
     </li>

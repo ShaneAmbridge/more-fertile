@@ -11,6 +11,7 @@ const Hero = ({ ww }) => {
             style={{ width: "95vw", height: "100%" }}
             layout="fill"
             src="/images/new/homeHeroMobaile.png"
+            alt=""
           />
         )}
         {ww > 600 && (
@@ -18,6 +19,7 @@ const Hero = ({ ww }) => {
             style={{ width: "100%", height: "100%" }}
             layout="fill"
             src="/images/new/homeHome.png"
+            alt=""
           />
         )}
       </div>

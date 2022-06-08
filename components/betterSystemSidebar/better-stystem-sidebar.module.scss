@@ -1,0 +1,146 @@
+.sidebar {
+  position: sticky;
+  top: 80px;
+  width: 312px;
+  height: 100%;
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 0px 25px 25px 25px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  padding: 25px;
+
+  @media (min-width: "900px") {
+    flex: 1;
+    margin-top: 0;
+  }
+  h4 {
+    width: 224px;
+    height: 27px;
+    left: 1706px;
+    top: 1827px;
+    margin-bottom: 32px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #7f2f75;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0px;
+
+    .mainCategory {
+      .categories {
+        width: 244px;
+        height: 40px;
+        left: 1696px;
+        top: 1886px;
+        display: block;
+        padding-left: 20px;
+        background: #e9c9ce;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #7f2f75;
+        cursor: pointer;
+      }
+
+      .subCategory {
+        margin-left: 16px;
+
+        border-radius: 5px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        .subDropdownCategory {
+          width: 244px;
+          height: 40px;
+          cursor: pointer;
+          display: block;
+          padding-left: 20px;
+          background: #ded3ff;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 19px;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          a {
+            color: #563ca5;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+
+    h4 {
+      display: none;
+    }
+    aside {
+      overflow: scroll;
+      background-color: #f9f9f9;
+      margin-bottom: 39px;
+
+      ul {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 20px;
+        padding-left: 19px;
+        padding-right: 19px;
+
+        .mainCategory {
+          display: flex;
+          align-items: flex-start;
+          margin-top: 0;
+
+          padding-top: 22px;
+
+          .categories {
+            margin-bottom: 0;
+          }
+
+          .subCategory {
+            margin-top: 0;
+            span {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes topUpAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

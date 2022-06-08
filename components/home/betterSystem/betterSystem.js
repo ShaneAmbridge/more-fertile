@@ -1,7 +1,8 @@
 import styles from "./betterSystem.module.scss";
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
-import Services from "./services/services";
+import Link from "next/link";
+
 const BetterSystem = ({ ww }) => {
   const imageRef = useRef();
 
@@ -53,7 +54,11 @@ const BetterSystem = ({ ww }) => {
             fertility health.​
           </div>
           {/* <Services /> */}
-          <button className={styles.button}>Find out more</button>
+          <Link href="/better-system">
+            <a>
+              <button className={styles.button}>Find out more</button>
+            </a>
+          </Link>
         </div>
         <div className={styles.imageContainer}>
           <div

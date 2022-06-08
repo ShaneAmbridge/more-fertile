@@ -38,6 +38,10 @@
     width: 100%;
     transition: all 0.5s ease-in;
   }
+  .activeClass {
+    color: #357989;
+    background: #b5e6d8;
+  }
 }
 
 .subCategoryAccordion {
@@ -46,6 +50,10 @@
   margin-top: 15px;
   margin-bottom: 15px;
   animation: accordionAnimation 0.5s ease-in;
+  .activeClass {
+    background: #357989 !important;
+    color: #fff !important;
+  }
   a {
     color: #357989;
   }
@@ -70,6 +78,26 @@
     align-items: center;
     a {
       color: #357989;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .subCategoryAccordion {
+    margin-left: 0;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .subDropdownCategory {
+    .plus {
+      margin-bottom: 0 !important;
+    }
+    .minus {
+      margin-bottom: 0 !important;
     }
   }
 }
