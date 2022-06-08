@@ -11,6 +11,8 @@ import { useRouter } from "next/router";
 const CategoryPost = ({ items, data, singlePost }) => {
   const router = useRouter();
 
+  console.log(data, "data");
+
   const path = router.query.category;
   const pathPrefix = path.join("/");
 
@@ -165,12 +167,26 @@ export async function getStaticProps({ params }) {
                     name
                     uri
                     slug
-
                     posts {
                       nodes {
                         title
                         uri
                         slug
+                      }
+                    }
+
+                    children {
+                      nodes {
+                        name
+                        uri
+                        slug
+                        posts {
+                          nodes {
+                            title
+                            uri
+                            slug
+                          }
+                        }
                       }
                     }
                   }

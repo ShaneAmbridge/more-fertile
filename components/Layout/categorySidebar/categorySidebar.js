@@ -22,28 +22,26 @@ const CategorySidebar = ({ categories }) => {
   }, [linkPath]);
 
   useEffect(() => {
-    if (open === undefined) {
+    if (first) {
       setLevel2(linkPath[3]);
     } else {
-      if (level2) {
-        setLevel2();
+      if (open === undefined) {
+        setLevel2(linkPath[3]);
+      } else {
+        if (level2) {
+          setLevel2();
+        }
       }
     }
-  }, [linkPath, open]);
+  }, [linkPath, open, level2, first]);
 
   const toogle = (index) => {
-    if (first) {
+    if (index === open) {
       setOpen(false);
-      setFirst(false);
     } else {
-      if (index === open) {
-        setOpen(false);
-      } else {
-        setOpen(index);
-      }
+      setOpen(index);
     }
   };
-  console.log("index", open, level2);
 
   return (
     <div className={styles.main}>
@@ -74,6 +72,7 @@ const CategorySidebar = ({ categories }) => {
                     }
                   >
                     {category?.children?.nodes.map((item, j) => {
+                      // console.log(item, "item");
                       return (
                         <li key={j + "sfdf"}>
                           <span
@@ -86,7 +85,8 @@ const CategorySidebar = ({ categories }) => {
                             </Link>
 
                             <>
-                              {item.posts.nodes && item.posts.nodes.length > 0 && (
+                              {(item.children.nodes.length > 0 ||
+                                item.posts.nodes.length > 0) && (
                                 <>
                                   {level2 === item.slug || open === j ? (
                                     <span

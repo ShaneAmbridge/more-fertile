@@ -27,7 +27,7 @@ const Accordion = ({ item }) => {
         setLevel2();
       }
     }
-  }, [linkPath, open]);
+  }, [linkPath, open, level2]);
 
   const toogle = (index) => {
     if (first) {
@@ -88,7 +88,8 @@ const Accordion = ({ item }) => {
                   </a>
                 </Link>
 
-                {subcategory?.posts.nodes.length > 0 && (
+                {(subcategory.children.nodes.length > 0 ||
+                  subcategory?.posts.nodes.length > 0) && (
                   <>
                     {level2 === subcategory.slug || open === k ? (
                       <span
