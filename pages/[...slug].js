@@ -1,5 +1,5 @@
 import LayoutMain from "../components/Layout/layout";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/post.module.scss";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
@@ -10,7 +10,6 @@ import Head from "next/head";
 
 import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
 import Script from "next/script";
-import useScript from "./customHook/useScript";
 
 export default function Home({ data, items }) {
   const router = useRouter();
@@ -72,35 +71,6 @@ export default function Home({ data, items }) {
       bodyTextCountry[i].setAttribute("data-title", headTitleCountry.innerText);
     }
   }, []);
-
-  // useEffect(() => {
-  //   if (linkPath[linkPath.length - 1] === "semen-sampling") {
-  //     import("../js/vis-tooltip.js");
-  //     import("../js/vis-range-chart.js");
-  //     import("../js/vis-percentage-bar-chart.js");
-  //     import("../js/vis-semen-values-distribution.js");
-  //     import("../js/vis-semen-sample-normal.js");
-  //     import("../js/vis-semen-sample-abnormal.js").then(() => {
-  //       if (typeof window !== undefined) {
-  //         if (
-  //           typeof VisSemenValuesDistribution !== undefined &&
-  //           typeof VisSemenSampleNormal !== undefined &&
-  //           typeof VisSemenSampleAbnormal !== undefined
-  //         ) {
-  //           new VisSemenValuesDistribution(
-  //             document.getElementById(`visSemenValuesDistribution`)
-  //           );
-  //           new VisSemenSampleNormal(
-  //             document.getElementById(`visSemenSampleNormal`)
-  //           );
-  //           new VisSemenSampleAbnormal(
-  //             document.getElementById(`visSemenSampleAbnormal`)
-  //           );
-  //         }
-  //       }
-  //     });
-  //   }
-  // }, [linkPath]);
 
   if (!data?.posts?.nodes[0] || !breadcrumb.length)
     return (
@@ -185,11 +155,6 @@ export default function Home({ data, items }) {
                 </>
               )}
             </p>
-            {/* <h5 className={styles.subTitle}>
-            <Link href={breadcrumb[0].href}>
-              <a>{breadcrumb[0].breadcrumb}sgdfg</a>
-            </Link>
-          </h5> */}
 
             <div className={styles.categoriesName}>
               <div className={styles.left}>
