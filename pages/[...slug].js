@@ -1,13 +1,15 @@
 import LayoutMain from "../components/Layout/layout";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/post.module.scss";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
+import Script from "next/script";
 
 export default function Home({ data, items }) {
   const router = useRouter();
@@ -84,131 +86,186 @@ export default function Home({ data, items }) {
     );
 
   return (
-    <LayoutMain items={items}>
-      <div className={styles.main}>
-        <div className={styles.container}>
-          <p className={styles.breadcrumb}>
-            {breadcrumb && (
-              <>
-                {breadcrumb.map((link, i) => {
-                  return (
-                    <span key={i + "dfdf"}>
-                      {link.breadcrumb}
-                      <>{i !== breadcrumb.length - 1 && <span> &#62; </span>}</>
-                    </span>
-                  );
-                })}
-              </>
-            )}
-          </p>
-          {/* <h5 className={styles.subTitle}>
+    <>
+      {linkPath[linkPath.length - 1] === "semen-sampling" &&
+        typeof VisTooltip === undefined && (
+          <Head>
+            <script
+              async
+              type="text/javascript"
+              src="https://d3js.org/d3.v7.min.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-tooltip.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-range-chart.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-percentage-bar-chart.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-semen-values-distribution.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-semen-sample-normal.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-semen-sample-abnormal.js"
+            ></script>
+          </Head>
+        )}
+
+      <LayoutMain items={items}>
+        {linkPath[linkPath.length - 1] === "semen-sampling" &&
+          typeof VisTooltip === undefined && (
+            <Script id="VisSemenValuesDistribution">
+              new VisSemenValuesDistribution(
+              document.getElementById(`visSemenValuesDistribution`) ); new
+              VisSemenSampleNormal(document.getElementById(`visSemenSampleNormal`));
+              new VisSemenSampleAbnormal(
+              document.getElementById(`visSemenSampleAbnormal`) );
+            </Script>
+          )}
+        <div className={styles.main}>
+          <div className={styles.container}>
+            <p className={styles.breadcrumb}>
+              {breadcrumb && (
+                <>
+                  {breadcrumb.map((link, i) => {
+                    return (
+                      <span key={i + "dfdf"}>
+                        {link.breadcrumb}
+                        <>
+                          {i !== breadcrumb.length - 1 && <span> &#62; </span>}
+                        </>
+                      </span>
+                    );
+                  })}
+                </>
+              )}
+            </p>
+            {/* <h5 className={styles.subTitle}>
             <Link href={breadcrumb[0].href}>
               <a>{breadcrumb[0].breadcrumb}sgdfg</a>
             </Link>
           </h5> */}
 
-          <div className={styles.categoriesName}>
-            <div className={styles.left}>
-              <Link href="/fertility-health">
-                <a>
-                  <span
-                    className={
-                      breadcrumb[0].breadcrumb === "fertility-health"
-                        ? styles.activeCategory
-                        : ""
-                    }
-                  >
-                    Fertility Health
-                  </span>
-                </a>
-              </Link>
-              <Link href="/fertility-conditions">
-                <a>
-                  <span
-                    className={
-                      breadcrumb[0].breadcrumb === "fertility-conditions"
-                        ? styles.activeCategory
-                        : ""
-                    }
-                  >
-                    Fertility Conditons
-                  </span>
-                </a>
-              </Link>
+            <div className={styles.categoriesName}>
+              <div className={styles.left}>
+                <Link href="/fertility-health">
+                  <a>
+                    <span
+                      className={
+                        breadcrumb[0].breadcrumb === "fertility-health"
+                          ? styles.activeCategory
+                          : ""
+                      }
+                    >
+                      Fertility Health
+                    </span>
+                  </a>
+                </Link>
+                <Link href="/fertility-conditions">
+                  <a>
+                    <span
+                      className={
+                        breadcrumb[0].breadcrumb === "fertility-conditions"
+                          ? styles.activeCategory
+                          : ""
+                      }
+                    >
+                      Fertility Conditons
+                    </span>
+                  </a>
+                </Link>
+              </div>
+              <div className={styles.right}>
+                <Link href="/fertility-treatments">
+                  <a>
+                    <span
+                      className={
+                        breadcrumb[0].breadcrumb === "fertility-treatments"
+                          ? styles.activeCategory
+                          : ""
+                      }
+                    >
+                      Fertility Treatments
+                    </span>
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <span>Start you fertility journey</span>
+                  </a>
+                </Link>
+              </div>
             </div>
-            <div className={styles.right}>
-              <Link href="/fertility-treatments">
-                <a>
-                  <span
-                    className={
-                      breadcrumb[0].breadcrumb === "fertility-treatments"
-                        ? styles.activeCategory
-                        : ""
-                    }
-                  >
-                    Fertility Treatments
-                  </span>
-                </a>
-              </Link>
-              <Link href="/">
-                <a>
-                  <span>Start you fertility journey</span>
-                </a>
-              </Link>
-            </div>
-          </div>
 
-          <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
+            <h1 className={styles.title}>{data?.posts?.nodes[0]?.title}</h1>
 
-          {data?.posts?.nodes[0]?.featuredImage !== null &&
-          data?.posts?.nodes[0]?.featuredImage ? (
-            <div className={styles.heroImageContainer}>
-              <Image
-                layout="responsive"
-                width={1024}
-                height={487}
-                src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
-                alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
-              />
-            </div>
-          ) : (
-            <div className={styles.heroImageContainer}>
-              <Image
-                layout="responsive"
-                width={1024}
-                height={487}
-                src="/images/couple.png"
-                alt=""
-              />
-            </div>
-          )}
+            {data?.posts?.nodes[0]?.featuredImage !== null &&
+            data?.posts?.nodes[0]?.featuredImage ? (
+              <div className={styles.heroImageContainer}>
+                <Image
+                  layout="responsive"
+                  width={1024}
+                  height={487}
+                  src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
+                  alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
+                />
+              </div>
+            ) : (
+              <div className={styles.heroImageContainer}>
+                <Image
+                  layout="responsive"
+                  width={1024}
+                  height={487}
+                  src="/images/couple.png"
+                  alt=""
+                />
+              </div>
+            )}
 
-          <div className={styles.contentandSidebar}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: data?.posts?.nodes[0]?.content,
-              }}
-              className={styles.content}
-            ></div>
+            <div className={styles.contentandSidebar}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data?.posts?.nodes[0]?.content,
+                }}
+                className={styles.content}
+              ></div>
 
-            <div className={styles.sidebar}>
-              <CategorySidebar categories={data?.categories} />
+              <div className={styles.sidebar}>
+                <CategorySidebar categories={data?.categories} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* )} */}
+        {/* )} */}
 
-      {data?.customStyleBy?.rawStyledJsx &&
-        data.customStyleBy.rawStyledJsx !== null && (
-          <style jsx>
-            {`
-              ${data.customStyleBy.rawStyledJsx}
-            `}
-          </style>
-        )}
-    </LayoutMain>
+        {data?.customStyleBy?.rawStyledJsx &&
+          data.customStyleBy.rawStyledJsx !== null && (
+            <style jsx>
+              {`
+                ${data.customStyleBy.rawStyledJsx}
+              `}
+            </style>
+          )}
+      </LayoutMain>
+    </>
   );
 }
 export async function getStaticPaths() {

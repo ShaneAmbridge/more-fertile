@@ -172,13 +172,6 @@
 
         word-break: break-word;
 
-        @media screen and (max-width: 600px) {
-          table {
-            overflow-x: scroll;
-            width: 460px;
-          }
-        }
-
         h3 {
           font-size: 2rem;
           margin-bottom: 1rem;
