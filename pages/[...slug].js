@@ -10,6 +10,7 @@ import Head from "next/head";
 
 import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
 import Script from "next/script";
+import useScript from "./customHook/useScript";
 
 export default function Home({ data, items }) {
   const router = useRouter();
@@ -72,6 +73,35 @@ export default function Home({ data, items }) {
     }
   }, []);
 
+  // useEffect(() => {
+  //   if (linkPath[linkPath.length - 1] === "semen-sampling") {
+  //     import("../js/vis-tooltip.js");
+  //     import("../js/vis-range-chart.js");
+  //     import("../js/vis-percentage-bar-chart.js");
+  //     import("../js/vis-semen-values-distribution.js");
+  //     import("../js/vis-semen-sample-normal.js");
+  //     import("../js/vis-semen-sample-abnormal.js").then(() => {
+  //       if (typeof window !== undefined) {
+  //         if (
+  //           typeof VisSemenValuesDistribution !== undefined &&
+  //           typeof VisSemenSampleNormal !== undefined &&
+  //           typeof VisSemenSampleAbnormal !== undefined
+  //         ) {
+  //           new VisSemenValuesDistribution(
+  //             document.getElementById(`visSemenValuesDistribution`)
+  //           );
+  //           new VisSemenSampleNormal(
+  //             document.getElementById(`visSemenSampleNormal`)
+  //           );
+  //           new VisSemenSampleAbnormal(
+  //             document.getElementById(`visSemenSampleAbnormal`)
+  //           );
+  //         }
+  //       }
+  //     });
+  //   }
+  // }, [linkPath]);
+
   if (!data?.posts?.nodes[0] || !breadcrumb.length)
     return (
       <LayoutMain>
@@ -87,58 +117,56 @@ export default function Home({ data, items }) {
 
   return (
     <>
-      {linkPath[linkPath.length - 1] === "semen-sampling" &&
-        typeof VisTooltip === undefined && (
-          <Head>
-            <script
-              async
-              type="text/javascript"
-              src="https://d3js.org/d3.v7.min.js"
-            ></script>
-            <script
-              async
-              type="text/javascript"
-              src="/js/vis-tooltip.js"
-            ></script>
-            <script
-              async
-              type="text/javascript"
-              src="/js/vis-range-chart.js"
-            ></script>
-            <script
-              async
-              type="text/javascript"
-              src="/js/vis-percentage-bar-chart.js"
-            ></script>
-            <script
-              async
-              type="text/javascript"
-              src="/js/vis-semen-values-distribution.js"
-            ></script>
-            <script
-              async
-              type="text/javascript"
-              src="/js/vis-semen-sample-normal.js"
-            ></script>
-            <script
-              async
-              type="text/javascript"
-              src="/js/vis-semen-sample-abnormal.js"
-            ></script>
-          </Head>
-        )}
+      {linkPath[linkPath.length - 1] === "semen-sampling" && (
+        <Head>
+          <script
+            async
+            type="text/javascript"
+            src="https://d3js.org/d3.v7.min.js"
+          ></script>
+          <script
+            async
+            type="text/javascript"
+            src="/js/vis-tooltip.js"
+          ></script>
+          <script
+            async
+            type="text/javascript"
+            src="/js/vis-range-chart.js"
+          ></script>
+          <script
+            async
+            type="text/javascript"
+            src="/js/vis-percentage-bar-chart.js"
+          ></script>
+          <script
+            async
+            type="text/javascript"
+            src="/js/vis-semen-values-distribution.js"
+          ></script>
+          <script
+            async
+            type="text/javascript"
+            src="/js/vis-semen-sample-normal.js"
+          ></script>
+          <script
+            async
+            type="text/javascript"
+            src="/js/vis-semen-sample-abnormal.js"
+          ></script>
+        </Head>
+      )}
 
       <LayoutMain items={items}>
-        {linkPath[linkPath.length - 1] === "semen-sampling" &&
-          typeof VisTooltip === undefined && (
-            <Script id="VisSemenValuesDistribution">
-              new VisSemenValuesDistribution(
-              document.getElementById(`visSemenValuesDistribution`) ); new
-              VisSemenSampleNormal(document.getElementById(`visSemenSampleNormal`));
-              new VisSemenSampleAbnormal(
-              document.getElementById(`visSemenSampleAbnormal`) );
-            </Script>
-          )}
+        {linkPath[linkPath.length - 1] === "semen-sampling" && (
+          <Script id="VisSemenValuesDistribution">
+            new VisSemenValuesDistribution(
+            document.getElementById(`visSemenValuesDistribution`) ); new
+            VisSemenSampleNormal(document.getElementById(`visSemenSampleNormal`));
+            new VisSemenSampleAbnormal(
+            document.getElementById(`visSemenSampleAbnormal`) );
+          </Script>
+        )}
         <div className={styles.main}>
           <div className={styles.container}>
             <p className={styles.breadcrumb}>
