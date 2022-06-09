@@ -23,10 +23,18 @@ const CategorySidebar = ({ categories }) => {
 
   useEffect(() => {
     if (first) {
-      setLevel2(linkPath[3]);
+      if (linkPath[1] === "categories") {
+        setLevel2(linkPath[4]);
+      } else {
+        setLevel2(linkPath[3]);
+      }
     } else {
       if (open === undefined) {
-        setLevel2(linkPath[3]);
+        if (linkPath[1] === "categories") {
+          setLevel2(linkPath[4]);
+        } else {
+          setLevel2(linkPath[3]);
+        }
       } else {
         if (level2) {
           setLevel2();

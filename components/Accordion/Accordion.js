@@ -20,14 +20,26 @@ const Accordion = ({ item }) => {
   }, [linkPath]);
 
   useEffect(() => {
-    if (open === undefined) {
-      setLevel2(linkPath[4]);
+    if (first) {
+      if (linkPath[1] === "categories") {
+        setLevel2(linkPath[5]);
+      } else {
+        setLevel2(linkPath[4]);
+      }
     } else {
-      if (level2) {
-        setLevel2();
+      if (open === undefined) {
+        if (linkPath[1] === "categories") {
+          setLevel2(linkPath[5]);
+        } else {
+          setLevel2(linkPath[4]);
+        }
+      } else {
+        if (level2) {
+          setLevel2();
+        }
       }
     }
-  }, [linkPath, open, level2]);
+  }, [linkPath, open, level2, first]);
 
   const toogle = (index) => {
     if (first) {
@@ -67,7 +79,7 @@ const Accordion = ({ item }) => {
                         activeLink === post.slug ? styles.activeClass : ""
                       }`}
                     >
-                      {post.title}
+                      {post.title}dfsgsdfg
                     </span>
                   </a>
                 </Link>

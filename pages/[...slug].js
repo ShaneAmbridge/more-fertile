@@ -13,6 +13,7 @@ import Script from "next/script";
 
 export default function Home({ data, items }) {
   const router = useRouter();
+  console.log(data, "data");
 
   const linkPath = router.asPath.split("/");
   linkPath.shift();
@@ -340,6 +341,21 @@ export async function getStaticProps({ params }) {
                             title
                             uri
                             slug
+                          }
+                        }
+
+                        children {
+                          nodes {
+                            name
+                            uri
+                            slug
+                            posts {
+                              nodes {
+                                title
+                                uri
+                                slug
+                              }
+                            }
                           }
                         }
                       }
