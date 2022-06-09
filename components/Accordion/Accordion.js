@@ -33,6 +33,9 @@ const Accordion = ({ item }) => {
     if (first) {
       setOpen(false);
       setFirst(false);
+      if (first) {
+        setOpen(index);
+      }
     } else {
       if (index === open) {
         setOpen(false);

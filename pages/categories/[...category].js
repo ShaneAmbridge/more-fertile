@@ -93,7 +93,9 @@ const CategoryPost = ({ items, data, singlePost }) => {
               </div>
             </div>
 
-            <CategorySidebar categories={data?.categories} />
+            <div className={styles.sidebar}>
+              <CategorySidebar categories={data?.categories} />
+            </div>
           </div>
         </div>
       </div>

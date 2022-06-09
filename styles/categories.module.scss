@@ -3,9 +3,10 @@
   display: flex;
   justify-content: center;
   margin: 50px 0px;
+
   .container {
-    width: 92%;
-    max-width: 1024px;
+    width: 100%;
+    max-width: 1200px;
 
     .content {
       display: flex;
@@ -16,6 +17,10 @@
       align-items: flex-start;
 
       .contentWrapper {
+        width: 100%;
+        @media (min-width: "900px") {
+          width: 65%;
+        }
         .categoryContent {
           margin-bottom: 60px;
         }
@@ -32,14 +37,18 @@
           text-transform: capitalize;
           line-height: 1.3;
 
+          @media screen and (max-width: 600px) {
+            font-size: 2.2rem;
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+          }
+
           span {
             font-weight: 700;
             color: #7f2f75;
           }
         }
-        @media (min-width: "900px") {
-          flex: 2;
-        }
+
         .contentCards {
           display: flex;
           flex-wrap: wrap;
@@ -49,6 +58,13 @@
 
         .noPostFound {
           margin-top: 30px;
+        }
+      }
+
+      .sidebar {
+        width: 100%;
+        @media (min-width: "900px") {
+          width: 30%;
         }
       }
     }

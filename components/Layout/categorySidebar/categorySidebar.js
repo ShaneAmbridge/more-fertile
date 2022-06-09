@@ -35,11 +35,27 @@ const CategorySidebar = ({ categories }) => {
     }
   }, [linkPath, open, level2, first]);
 
+  // const toogle = (index) => {
+  //   if (index === open) {
+  //     setOpen(false);
+  //   } else {
+  //     setOpen(index);
+  //   }
+  // };
   const toogle = (index) => {
-    if (index === open) {
+    if (first) {
       setOpen(false);
+      setFirst(false);
+
+      if (first) {
+        setOpen(index);
+      }
     } else {
-      setOpen(index);
+      if (index === open) {
+        setOpen(false);
+      } else {
+        setOpen(index);
+      }
     }
   };
 
