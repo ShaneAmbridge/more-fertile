@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Semen Sampling - MoreFertile</title>
+		<style>
+			main {
+				width: min(96%, 960px);
+				margin: 60px auto;
+			}
+			main > * + * {
+				margin-top: 30px;
+			}
+		</style>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/vis-semen-sampling.css" />
+	</head>
+	<body>
+		<main>
+			<div id="visSemenValuesDistribution"></div>
+			<div id="visSemenSampleNormal"></div>
+			<div id="visSemenSampleAbnormal"></div>
+		</main>
+
+		<!-- JS -->
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<script src="js/vis-tooltip.js"></script>
+		<script src="js/vis-range-chart.js"></script>
+		<script src="js/vis-percentage-bar-chart.js"></script>
+		<script src="js/vis-semen-values-distribution.js"></script>
+		<script src="js/vis-semen-sample-normal.js"></script>
+		<script src="js/vis-semen-sample-abnormal.js"></script>
+
+		<script>
+			// Render the visualizations
+			new VisSemenValuesDistribution(
+				document.getElementById("visSemenValuesDistribution")
+			);
+
+			new VisSemenSampleNormal(document.getElementById("visSemenSampleNormal"));
+
+			new VisSemenSampleAbnormal(
+				document.getElementById("visSemenSampleAbnormal")
+			);
+		</script>
+	</body>
+</html>
