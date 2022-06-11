@@ -48,7 +48,9 @@
 
   .activeClass {
     background: #563ca5 !important;
-    color: #ded3ff !important;
+    a {
+      color: #ded3ff !important;
+    }
   }
 }
 

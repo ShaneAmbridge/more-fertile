@@ -39,8 +39,11 @@
     transition: all 0.5s ease-in;
   }
   .activeClass {
-    color: #357989;
     background: #b5e6d8;
+
+    a {
+      color: #357989;
+    }
   }
 }
 
@@ -53,6 +56,10 @@
   .activeClass {
     background: #357989 !important;
     color: #fff !important;
+
+    a {
+      color: #fff !important;
+    }
   }
   a {
     color: #357989;
@@ -76,14 +83,32 @@
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
     a {
       color: #357989;
+    }
+
+    .plus {
+      margin-right: 15px;
+    }
+
+    .animationPlus {
+      animation: accordionAnimation 0.5s ease-in;
+      margin-right: 15px;
+    }
+
+    .minus {
+      margin-right: 15px;
+    }
+    .active {
+      height: fit-content;
+      width: 100%;
+      transition: all 0.5s ease-in;
     }
   }
 }
 
 @media screen and (max-width: 900px) {
-  
   .subCategoryAccordion {
     margin-left: 0;
 

@@ -1,0 +1,65 @@
+.superCategoryAccordion {
+  margin-left: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  animation: accordionAnimation 0.5s ease-in;
+  .activeClass {
+    background: #357989 !important;
+    color: #fff !important;
+  }
+  a {
+    color: #357989;
+  }
+  .superAccordion {
+    width: 244px;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    padding-left: 20px;
+    background: rgba(147, 230, 248, 0.507);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+
+    color: #357989;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      color: #357989;
+    }
+
+    .plus {
+      margin-right: 15px;
+    }
+
+    .animationPlus {
+      animation: accordionAnimation 0.5s ease-in;
+      margin-right: 15px;
+    }
+
+    .minus {
+      margin-right: 15px;
+    }
+    .active {
+      height: fit-content;
+      width: 100%;
+      transition: all 0.5s ease-in;
+    }
+  }
+}
+
+@keyframes accordionAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

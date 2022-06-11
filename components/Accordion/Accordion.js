@@ -10,7 +10,7 @@ const Accordion = ({ item }) => {
   const [activeLink, setActiveLink] = useState("");
 
   const [open, setOpen] = useState();
-  const [level2, setLevel2] = useState();
+  const [level3, setLevel3] = useState();
   const [first, setFirst] = useState(true);
 
   const linkPath = router.asPath.split("/");
@@ -22,24 +22,24 @@ const Accordion = ({ item }) => {
   useEffect(() => {
     if (first) {
       if (linkPath[1] === "categories") {
-        setLevel2(linkPath[5]);
+        setLevel3(linkPath[5]);
       } else {
-        setLevel2(linkPath[4]);
+        setLevel3(linkPath[4]);
       }
     } else {
       if (open === undefined) {
         if (linkPath[1] === "categories") {
-          setLevel2(linkPath[5]);
+          setLevel3(linkPath[5]);
         } else {
-          setLevel2(linkPath[4]);
+          setLevel3(linkPath[4]);
         }
       } else {
-        if (level2) {
-          setLevel2();
+        if (level3) {
+          setLevel3();
         }
       }
     }
-  }, [linkPath, open, level2, first]);
+  }, [linkPath, open, level3, first]);
 
   const toogle = (index) => {
     if (first) {
@@ -79,7 +79,7 @@ const Accordion = ({ item }) => {
                         activeLink === post.slug ? styles.activeClass : ""
                       }`}
                     >
-                      {post.title}dfsgsdfg
+                      {post.title}
                     </span>
                   </a>
                 </Link>
@@ -106,7 +106,7 @@ const Accordion = ({ item }) => {
                 {(subcategory.children.nodes.length > 0 ||
                   subcategory?.posts.nodes.length > 0) && (
                   <>
-                    {level2 === subcategory.slug || open === k ? (
+                    {level3 === subcategory.slug || open === k ? (
                       <span
                         style={{ marginBottom: "0px" }}
                         className={open ? styles.animationPlus : styles.plus}
@@ -136,7 +136,7 @@ const Accordion = ({ item }) => {
                   </>
                 )}
               </span>
-              {level2 === subcategory.slug || open === k ? (
+              {level3 === subcategory.slug || open === k ? (
                 <SubAccordion subcategory={subcategory} />
               ) : (
                 ""
