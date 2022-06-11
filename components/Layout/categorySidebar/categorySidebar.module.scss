@@ -9,7 +9,7 @@
 
     margin-top: 50px;
 
-    padding: 25px;
+    padding: 25px 50px;
     box-sizing: border-box;
 
     @media (min-width: "900px") {
@@ -28,6 +28,7 @@
       font-weight: 700;
       font-size: 22px;
       line-height: 27px;
+      text-decoration: none;
       /* identical to box height */
 
       color: #7f2f75;

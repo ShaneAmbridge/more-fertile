@@ -96,11 +96,7 @@ const Accordion = ({ item }) => {
                 }`}
               >
                 <Link href={`/categories${subcategory?.uri}`} passHref>
-                  <a>
-                    <span className={styles.subSmCategory}>
-                      {subcategory.name}
-                    </span>
-                  </a>
+                  <a>{subcategory.name}</a>
                 </Link>
 
                 {(subcategory.children.nodes.length > 0 ||

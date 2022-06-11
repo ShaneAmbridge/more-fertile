@@ -90,9 +90,7 @@ const SubAccordion = ({ subcategory }) => {
                 }`}
               >
                 <Link href={`${subcategory.uri}${smCategory.slug}`}>
-                  <a>
-                    <span>{smCategory.name}</span>
-                  </a>
+                  <a>{smCategory.name}</a>
                 </Link>
 
                 {smCategory?.posts.nodes.length > 0 && (

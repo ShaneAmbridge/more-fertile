@@ -80,9 +80,7 @@ const FertilityConditons = ({ data }) => {
                             >
                               <Link href={thirdCategory.url}>
                                 <a>
-                                  <h3 title={thirdCategory.tooltip}>
-                                    {thirdCategory.title}
-                                  </h3>
+                                  <h3>{thirdCategory.title}</h3>
                                 </a>
                               </Link>
 

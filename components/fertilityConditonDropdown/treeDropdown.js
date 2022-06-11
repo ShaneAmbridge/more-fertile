@@ -80,9 +80,7 @@ const TreeDropdown = ({ treedata, indextNo }) => {
                           href={fifthCategory.url}
                         >
                           <a>
-                            <h4 title={fifthCategory.tooltip}>
-                              {fifthCategory.title}
-                            </h4>
+                            <h4>{fifthCategory.title}</h4>
                           </a>
                         </Link>
 
