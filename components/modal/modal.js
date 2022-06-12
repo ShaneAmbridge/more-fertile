@@ -30,7 +30,6 @@ const Modal = ({ showmodal, setShowModal }) => {
     <>
       {showmodal ? (
         <div className={styles.modal} onClick={closeModal} ref={modalRef}>
-          {/* <animated.div style={animation}> */}
           <div className={styles.animate}>
             <div className={styles.modalWrapper}>
               <div className={styles.content}>
