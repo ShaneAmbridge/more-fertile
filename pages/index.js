@@ -11,11 +11,19 @@ import YourFertility from "../components/home/yourFertility/YourFertility";
 import BetterSystem from "../components/home/betterSystem/betterSystem";
 import Products from "../components/home/mobileCarousel/products";
 import MobileCarousel from "../components/home/mobileCarousel/mobileCarousel";
+import Modal from "../components/modal/Modal";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home() {
   const [size, setSize] = useState(0);
   const [ww, setWw] = useState(0);
+
+  const [showmodal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   useLayoutEffect(() => {
     function updateSize() {
       setSize(window.innerWidth);
@@ -28,9 +36,10 @@ export default function Home() {
     setWw(size);
   }, [size]);
   return (
-    <LayoutMain>
+    <LayoutMain openModal={openModal}>
+      <Modal showmodal={showmodal} setShowModal={setShowModal} />
       <Container>
-        <Hero ww={ww} />
+        <Hero openModal={openModal} ww={ww} />
       </Container>
       <MoreFertility ww={ww} />
       <YourFertility ww={ww} />

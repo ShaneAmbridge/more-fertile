@@ -1,7 +1,7 @@
 import styles from "./footer.module.scss";
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-const Footer = () => {
+const Footer = ({ openModal }) => {
   const [toggle, setToggle] = useState(true);
   const toggleRef = useRef();
 
@@ -106,7 +106,9 @@ const Footer = () => {
             {toggle && (
               <div className={styles.container}>
                 <p>Start your natural fertility journey today</p>
-                <div className={styles.button}>Get Started</div>
+                <div onClick={openModal} className={styles.button}>
+                  Get Started
+                </div>
               </div>
             )}
           </div>

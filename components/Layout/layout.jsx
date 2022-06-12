@@ -5,7 +5,7 @@ import Footer from "./footer/footer";
 import styles from "./layout.module.scss";
 import NavNew from "./navnew/nav";
 import ResourcesBigMenu from "./resourcesBigMenu/resourcesBigMenu";
-const LayoutMain = ({ active, children, items }) => {
+const LayoutMain = ({ active, children, items, openModal }) => {
   const [bigmenuOpen, setBigmenuopen] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ const LayoutMain = ({ active, children, items }) => {
         {/* {bigmenuOpen && <BigMenu categories={items?.categories} />} */}
         {bigmenuOpen && <ResourcesBigMenu categories={items?.categories} />}
         {children}
-        <Footer />
+        <Footer openModal={openModal} />
       </div>
     </>
   );

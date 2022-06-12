@@ -2,7 +2,7 @@ import styles from "./hero.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useLayoutEffect } from "react";
-const Hero = ({ ww }) => {
+const Hero = ({ ww, openModal }) => {
   return (
     <div className={styles.main}>
       <div className={styles.image}>
@@ -33,7 +33,7 @@ const Hero = ({ ww }) => {
             Comprehensive fertility information and products
           </p>
           <div className={styles.buttons}>
-            <button className={styles.button}>
+            <button onClick={openModal} className={styles.button}>
               Start your fertility journey
             </button>
             <button className={styles.buttonOutlined}>Find out more</button>
