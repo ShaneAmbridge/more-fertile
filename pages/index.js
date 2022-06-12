@@ -11,7 +11,7 @@ import YourFertility from "../components/home/yourFertility/YourFertility";
 import BetterSystem from "../components/home/betterSystem/betterSystem";
 import Products from "../components/home/mobileCarousel/products";
 import MobileCarousel from "../components/home/mobileCarousel/mobileCarousel";
-import Modal from "../components/modal/Modal";
+import Modal from "../components/modal/modal";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home() {
