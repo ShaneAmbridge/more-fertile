@@ -45,8 +45,10 @@ const Modal = ({ showmodal, setShowModal }) => {
                     <h6>Morefertile</h6>
                   </div>
 
-                  <div className={styles.progressbar}>
-                    <div></div>
+                  <div className={styles.main__progress}>
+                    <div className={styles.progressbar}>
+                      <div></div>
+                    </div>
                   </div>
 
                   <div className={styles.gender}>
@@ -77,12 +79,25 @@ const Modal = ({ showmodal, setShowModal }) => {
                 />
 
                 <div
-                  className={styles.close}
+                  className={styles.close__modal}
                   aria-label="Close modal"
                   onClick={() => setShowModal((prev) => !prev)}
                 >
                   <Image src="/modal/close.svg" width={20} height={20} alt="" />
                 </div>
+              </div>
+
+              <div
+                className={styles.close}
+                aria-label="Close modal"
+                onClick={() => setShowModal((prev) => !prev)}
+              >
+                <Image
+                  src="/modal/modal-close.svg"
+                  width={18}
+                  height={18}
+                  alt=""
+                />{" "}
               </div>
             </div>
           </div>
