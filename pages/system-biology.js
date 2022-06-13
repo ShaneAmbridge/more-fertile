@@ -6,7 +6,7 @@ import Image from "next/image";
 import BetterSystemLeft from "../components/betterSystemLeft/betterSystemLeft";
 import BetterSystemSidebar from "../components/betterSystemSidebar/betterSystemSidebar";
 
-const BetterSystem = () => {
+const SystemBiology = () => {
   return (
     <LayoutMain>
       <div className={styles.main}>
@@ -44,4 +44,4 @@ const BetterSystem = () => {
   );
 };
 
-export default BetterSystem;
+export default SystemBiology;

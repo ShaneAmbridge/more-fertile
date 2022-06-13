@@ -2,10 +2,10 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 import styles from "./services.module.scss";
-const Services = ({ male, female }) => {
+const FemaleServices = () => {
   const [bgColor, setBgColor] = useState("#ded3ff");
   const [IconColor, setIconColor] = useState("rgba(86, 60, 165, 1)");
-  const [active, setActive] = useState("male");
+  const [active, setActive] = useState("female");
   console.log(active);
 
   const maleRef = useRef();
@@ -17,23 +17,23 @@ const Services = ({ male, female }) => {
       setBgColor("#EFC8CE");
       setIconColor("#7F2F75");
     }
-  }, [active, male]);
+  }, [active]);
 
   function leftClick() {
-    maleRef.current.left = "0";
-    const btn = document.querySelector("#btn");
+    maleRef.current.left = "156px";
+    const femalebtn = document.querySelector("#femalebtn");
 
-    btn.style.left = "0";
-    btn.style.background = "#ded3ff";
+    femalebtn.style.left = "0";
+    femalebtn.style.background = "#ded3ff";
     setActive("male");
   }
 
   function rightClick() {
     maleRef.current.left = "156px";
-    const btn = document.querySelector("#btn");
+    const femalebtn = document.querySelector("#femalebtn");
 
-    btn.style.left = "156px";
-    btn.style.background = "#efc8ce";
+    femalebtn.style.left = "156px";
+    femalebtn.style.background = "#efc8ce";
     setActive("female");
   }
 
@@ -42,23 +42,24 @@ const Services = ({ male, female }) => {
       <div className={styles.container}>
         <div>
           <div className={`${styles.maleFemale} main`}>
-            <div ref={maleRef} id="btn"></div>
-            <button
-              onClick={(() => setActive("male"), leftClick)}
-              className={styles.male}
-            >
-              Male
-            </button>
-            <Link href="/system-biology/female">
+            <div ref={maleRef} id="femalebtn"></div>
+            <Link href="/system-biology/male">
               <a>
                 <button
-                  onClick={(() => setActive("female"), rightClick)}
-                  className={styles.female}
+                  onClick={(() => setActive("male"), leftClick)}
+                  className={styles.male}
                 >
-                  Female
+                  Male
                 </button>
               </a>
             </Link>
+
+            <button
+              onClick={(() => setActive("female"), rightClick)}
+              className={styles.female}
+            >
+              Female
+            </button>
           </div>
         </div>
         <div className={styles.roundCards}>
@@ -239,4 +240,4 @@ const Services = ({ male, female }) => {
   );
 };
 
-export default Services;
+export default FemaleServices;

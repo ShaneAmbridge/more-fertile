@@ -67,3 +67,66 @@ a {
 .scroll-header {
   box-shadow: 0 2px 4px hsla(0, 4%, 15%, 0.1);
 }
+
+.main {
+  width: 311px !important;
+  height: 45px !important;
+  padding: 5px 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5 !important;
+  border-radius: 10px;
+  margin-right: 32px;
+  position: relative !important;
+}
+
+.main button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  z-index: 1;
+}
+#btn {
+  left: 0;
+  top: 5px;
+  position: absolute;
+  width: 156px;
+  height: 35px;
+  background: #ded3ff;
+  border-radius: 30px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #525252;
+  cursor: pointer;
+}
+
+#femalebtn {
+  left: 156px;
+  top: 5px;
+  position: absolute;
+  width: 156px;
+  height: 35px;
+  background: #ded3ff;
+  border-radius: 30px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #525252;
+  cursor: pointer;
+}

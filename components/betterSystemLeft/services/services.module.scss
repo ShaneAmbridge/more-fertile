@@ -37,10 +37,10 @@
         line-height: 17px;
         color: #525252;
         cursor: pointer;
-        &:hover {
-          background-color: #ded3ff;
-          color: #563ca5;
-        }
+        // &:hover {
+        //   background-color: #ded3ff;
+        //   color: #563ca5;
+        // }
       }
       .female {
         width: 156px;
@@ -56,10 +56,11 @@
         border-radius: 5px;
         color: #525252;
         cursor: pointer;
-        &:hover {
-          background-color: #efc8ce;
-          color: #7f2f75;
-        }
+        z-index: 1;
+        // &:hover {
+        //   background-color: #efc8ce;
+        //   color: #7f2f75;
+        // }
       }
     }
     h3 {
