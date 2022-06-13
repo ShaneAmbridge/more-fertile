@@ -5,7 +5,7 @@ import { systemData, systemDataFemale } from "./systemdata";
 
 const BetterSystemSidebar = () => {
   return (
-    <div className={styles.sidebar}>
+    <div id="female" className={styles.sidebar}>
       <h4>Systems Biology</h4>
       <aside>
         <ul className={styles.sidebarContent}>

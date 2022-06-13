@@ -4,8 +4,8 @@ import styles from "./better-system-left.module.scss";
 import FemaleServices from "./services/femaleServices";
 const BetterSystemLeft = ({ male, female }) => {
   return (
-    <div className={styles.main}>
-      <div className={styles.container}>
+    <div id="male" className={styles.main}>
+      <div id="female" className={styles.container}>
         <div className={styles.titleAndAction}>
           <div className={styles.titles}>
             <h2 className={styles.title}>
@@ -23,7 +23,7 @@ const BetterSystemLeft = ({ male, female }) => {
             fertility health.​
           </div>
           <div>
-            {male && <Services male={male} female={female} />}
+            {male && <Services />}
             {female && <FemaleServices />}
           </div>
         </div>

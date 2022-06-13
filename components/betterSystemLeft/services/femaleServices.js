@@ -6,7 +6,6 @@ const FemaleServices = () => {
   const [bgColor, setBgColor] = useState("#ded3ff");
   const [IconColor, setIconColor] = useState("rgba(86, 60, 165, 1)");
   const [active, setActive] = useState("female");
-  console.log(active);
 
   const maleRef = useRef();
   useEffect(() => {
@@ -20,7 +19,6 @@ const FemaleServices = () => {
   }, [active]);
 
   function leftClick() {
-    maleRef.current.left = "156px";
     const femalebtn = document.querySelector("#femalebtn");
 
     femalebtn.style.left = "0";
@@ -29,9 +27,7 @@ const FemaleServices = () => {
   }
 
   function rightClick() {
-    maleRef.current.left = "156px";
     const femalebtn = document.querySelector("#femalebtn");
-
     femalebtn.style.left = "156px";
     femalebtn.style.background = "#efc8ce";
     setActive("female");
@@ -43,7 +39,7 @@ const FemaleServices = () => {
         <div>
           <div className={`${styles.maleFemale} main`}>
             <div ref={maleRef} id="femalebtn"></div>
-            <Link href="/system-biology/male">
+            <Link href="/system-biology/male#male">
               <a>
                 <button
                   onClick={(() => setActive("male"), leftClick)}
