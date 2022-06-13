@@ -1,12 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./modal.module.scss";
-import Image from "next/image";
+
 import MaleFemaleContent from "./maleFemaleContent/maleFemaleContent";
 import DateContent from "./dateContent/dateContent";
 
 const Modal = ({ showmodal, setShowModal }) => {
   const modalRef = useRef();
   const [page, setPage] = useState(0);
+
+  const [formdata, setFormdata] = useState({
+    gender: "",
+    months: "",
+  });
+  console.log(formdata);
 
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
@@ -30,10 +36,26 @@ const Modal = ({ showmodal, setShowModal }) => {
   }, [keyPress]);
 
   const DisplayModalContent = () => {
-    if (page === 1) {
-      return <MaleFemaleContent setShowModal={setShowModal} />;
+    if (page === 0) {
+      return (
+        <MaleFemaleContent
+          setFormdata={setFormdata}
+          formdata={formdata}
+          page={page}
+          setPage={setPage}
+          setShowModal={setShowModal}
+        />
+      );
     } else {
-      return <DateContent setShowModal={setShowModal} />;
+      return (
+        <DateContent
+          setFormdata={setFormdata}
+          formdata={formdata}
+          page={page}
+          setPage={setPage}
+          setShowModal={setShowModal}
+        />
+      );
     }
   };
 

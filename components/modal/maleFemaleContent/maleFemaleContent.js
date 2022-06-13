@@ -1,7 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./male-female-content.module.scss";
-const MaleFemaleContent = ({ setShowModal }) => {
+const MaleFemaleContent = ({
+  setShowModal,
+  page,
+  setPage,
+  setFormdata,
+  formdata,
+}) => {
+  const { gender } = formdata;
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.content}>
@@ -13,7 +20,11 @@ const MaleFemaleContent = ({ setShowModal }) => {
 
           <div className={styles.main__progress}>
             <div className={styles.progressbar}>
-              <div></div>
+              <div
+                style={{
+                  width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%",
+                }}
+              ></div>
             </div>
           </div>
 
@@ -21,19 +32,39 @@ const MaleFemaleContent = ({ setShowModal }) => {
             <h4 className={styles.title}>What is your Gender?</h4>
 
             <div className={styles.male}>
-              <span>Male</span>
-
-              <input className={styles.input} type="checkbox" />
+              <label>Male</label>
+              <input
+                name="gender"
+                type="radio"
+                value="male"
+                className={styles.input}
+                onChange={(e) =>
+                  setFormdata({ ...formdata, gender: e.target.value })
+                }
+              />
             </div>
             <div className={styles.female}>
-              <span>Female</span>
+              <label>Female</label>
 
-              <input className={styles.input} type="checkbox" />
+              <input
+                name="gender"
+                className={styles.input}
+                type="radio"
+                value="female"
+                onChange={(e) =>
+                  setFormdata({ ...formdata, gender: e.target.value })
+                }
+              />
             </div>
           </div>
         </div>
         <div className={styles.btn}>
-          <button>Next Question</button>
+          <button
+            disabled={formdata.gender.trim() === ""}
+            onClick={() => setPage((currentPage) => currentPage + 1)}
+          >
+            Next Question
+          </button>
         </div>
       </div>
       <div className={styles.img__container}>

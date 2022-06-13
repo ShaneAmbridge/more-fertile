@@ -1,7 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./date-content.module.scss";
-const DateContent = ({ setShowModal }) => {
+const DateContent = ({
+  setShowModal,
+  page,
+  setPage,
+  setFormdata,
+  formdata,
+}) => {
+  const { months } = formdata;
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.content}>
@@ -13,7 +20,11 @@ const DateContent = ({ setShowModal }) => {
 
           <div className={styles.main__progress}>
             <div className={styles.progressbar}>
-              <div></div>
+              <div
+                style={{
+                  width: page === 0 ? "33.3%" : "66.6%",
+                }}
+              ></div>
             </div>
           </div>
 
@@ -23,30 +34,73 @@ const DateContent = ({ setShowModal }) => {
             </h4>
 
             <div className={styles.male}>
-              <span>1-6 months</span>
+              <label htmlFor="oneToSix">1-6 months</label>
 
-              <input className={styles.input} type="checkbox" />
+              <input
+                type="radio"
+                name="gender"
+                value="1-6 months"
+                className={styles.input}
+                onChange={(e) =>
+                  setFormdata({ ...formdata, months: e.target.value })
+                }
+              />
             </div>
             <div className={styles.female}>
-              <span>6-12 months</span>
+              <label>6-12 months</label>
 
-              <input className={styles.input} type="checkbox" />
+              <input
+                type="radio"
+                name="gender"
+                value="6-12 months"
+                className={styles.input}
+                onChange={(e) =>
+                  setFormdata({ ...formdata, months: e.target.value })
+                }
+              />
             </div>
             <div className={styles.date}>
-              <span>12-24 months</span>
+              <label>12-24 months</label>
 
-              <input className={styles.input} type="checkbox" />
+              <input
+                type="radio"
+                name="gender"
+                value="12-24 months"
+                className={styles.input}
+                onChange={(e) =>
+                  setFormdata({ ...formdata, months: e.target.value })
+                }
+              />
             </div>
             <div className={styles.year}>
-              <span>24+ months</span>
+              <label>24+ months</label>
 
-              <input className={styles.input} type="checkbox" />
+              <input
+                type="radio"
+                name="gender"
+                value="24+ months"
+                className={styles.input}
+                onChange={(e) =>
+                  setFormdata({ ...formdata, months: e.target.value })
+                }
+              />
             </div>
           </div>
         </div>
         <div className={styles.btn}>
-          <button className={styles.back}>Back</button>
-          <button className={styles.next}>Next Question</button>
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((currentPage) => currentPage + 1)}
+            className={styles.next}
+          >
+            Next Question
+          </button>
+          <button
+            onClick={() => setPage((currentPage) => currentPage - 1)}
+            className={styles.back}
+          >
+            Back
+          </button>
         </div>
       </div>
       <div className={styles.img__container}>
