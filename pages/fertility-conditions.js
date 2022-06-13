@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import LayoutMain from "../components/Layout/layout";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import styles from "../styles/fertility-conditions.module.scss";
 import TreeDropdown from "../components/fertilityConditonDropdown/treeDropdown";
+import { AuthContext } from "../context/AuthProvider";
 
 const FertilityConditons = ({ data }) => {
   const [open, setOpen] = useState(false);

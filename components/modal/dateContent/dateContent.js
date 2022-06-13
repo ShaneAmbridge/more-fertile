@@ -128,7 +128,7 @@ const DateContent = ({
           aria-label="Close modal"
           onClick={() => setShowModal((prev) => !prev)}
         >
-          <Image src="/modal/black-close.svg" width={20} height={20} alt="" />
+          <Image src="/modal/close.svg" width={20} height={20} alt="" />
         </div>
       </div>
 

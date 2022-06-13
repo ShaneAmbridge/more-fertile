@@ -7,11 +7,8 @@ import client from "../../apollo-client";
 import LayoutMain from "../../components/Layout/layout";
 import CategorySidebar from "../../components/Layout/categorySidebar/categorySidebar";
 import { useRouter } from "next/router";
-
 const CategoryPost = ({ items, data, singlePost }) => {
   const router = useRouter();
-
-  console.log(data, "data");
 
   const path = router.query.category;
   const pathPrefix = path.join("/");

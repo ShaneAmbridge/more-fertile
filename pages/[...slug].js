@@ -1,5 +1,5 @@
 import LayoutMain from "../components/Layout/layout";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "../styles/post.module.scss";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
@@ -10,10 +10,11 @@ import Head from "next/head";
 
 import CategorySidebar from "../components/Layout/categorySidebar/categorySidebar";
 import Script from "next/script";
+import { AuthContext } from "../context/AuthProvider";
 
 export default function Home({ data, items }) {
   const router = useRouter();
-  console.log(data, "data");
+  const { openModal } = useContext(AuthContext);
 
   const linkPath = router.asPath.split("/");
   linkPath.shift();
@@ -200,11 +201,8 @@ export default function Home({ data, items }) {
                     </span>
                   </a>
                 </Link>
-                <Link href="/">
-                  <a>
-                    <span>Start you fertility journey</span>
-                  </a>
-                </Link>
+
+                <span onClick={openModal}>Start you fertility journey</span>
               </div>
             </div>
 

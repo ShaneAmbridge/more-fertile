@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "../../../styles/male.module.scss";
 import Image from "next/image";
 import BetterSystemSidebar from "../../../components/betterSystemSidebar/betterSystemSidebar";
@@ -8,6 +6,7 @@ import LayoutMain from "../../../components/Layout/layout";
 
 const Male = () => {
   const male = true;
+
   return (
     <LayoutMain>
       <div className={styles.main}>

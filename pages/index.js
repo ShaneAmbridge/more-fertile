@@ -4,24 +4,20 @@ import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import Hero from "../components/home/hero";
 import Container from "../components/container/container";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState, useLayoutEffect, useContext } from "react";
 import React from "react";
 import MoreFertility from "../components/home/moreFertility/moreFertility";
 import YourFertility from "../components/home/yourFertility/YourFertility";
 import BetterSystem from "../components/home/betterSystem/betterSystem";
 import Products from "../components/home/mobileCarousel/products";
 import MobileCarousel from "../components/home/mobileCarousel/mobileCarousel";
+import { AuthContext } from "../context/AuthProvider";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home() {
   const [size, setSize] = useState(0);
   const [ww, setWw] = useState(0);
-
-  const [showmodal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal((prev) => !prev);
-  };
+  const { openModal } = useContext(AuthContext);
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -35,11 +31,7 @@ export default function Home() {
     setWw(size);
   }, [size]);
   return (
-    <LayoutMain
-      openModal={openModal}
-      showmodal={showmodal}
-      setShowModal={setShowModal}
-    >
+    <LayoutMain>
       <Container>
         <Hero openModal={openModal} ww={ww} />
       </Container>
