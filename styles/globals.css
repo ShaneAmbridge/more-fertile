@@ -68,7 +68,8 @@ a {
   box-shadow: 0 2px 4px hsla(0, 4%, 15%, 0.1);
 }
 
-.main {
+/* system biology page global style */
+.biologyMain {
   width: 311px !important;
   height: 45px !important;
   padding: 5px 7px;
@@ -81,7 +82,7 @@ a {
   position: relative !important;
 }
 
-.main button {
+.biologyMain button {
   background-color: transparent;
   border: none;
   outline: none;
@@ -130,3 +131,5 @@ a {
   color: #525252;
   cursor: pointer;
 }
+
+/* system biology page global style */

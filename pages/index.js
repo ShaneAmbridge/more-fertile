@@ -11,7 +11,6 @@ import YourFertility from "../components/home/yourFertility/YourFertility";
 import BetterSystem from "../components/home/betterSystem/betterSystem";
 import Products from "../components/home/mobileCarousel/products";
 import MobileCarousel from "../components/home/mobileCarousel/mobileCarousel";
-import Modal from "../components/modal/modal";
 
 // rm -rf node_modules && rm package-lock.json && npm i --legacy-peer-deps &&
 export default function Home() {
@@ -36,8 +35,11 @@ export default function Home() {
     setWw(size);
   }, [size]);
   return (
-    <LayoutMain openModal={openModal}>
-      <Modal showmodal={showmodal} setShowModal={setShowModal} />
+    <LayoutMain
+      openModal={openModal}
+      showmodal={showmodal}
+      setShowModal={setShowModal}
+    >
       <Container>
         <Hero openModal={openModal} ww={ww} />
       </Container>

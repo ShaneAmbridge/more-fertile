@@ -37,7 +37,7 @@ const FemaleServices = () => {
     <div className={styles.main}>
       <div className={styles.container}>
         <div>
-          <div className={`${styles.maleFemale} main`}>
+          <div className={`${styles.maleFemale} biologyMain`}>
             <div ref={maleRef} id="femalebtn"></div>
             <Link href="/system-biology/male#male">
               <a>

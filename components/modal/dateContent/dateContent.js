@@ -8,7 +8,8 @@ const DateContent = ({
   setFormdata,
   formdata,
 }) => {
-  const { months } = formdata;
+  const { months, gender } = formdata;
+  console.log(gender, "date");
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.content}>
@@ -30,7 +31,9 @@ const DateContent = ({
 
           <div className={styles.gender}>
             <h4 className={styles.title}>
-              How long have you been trying to get pregnant?
+              {gender === "female"
+                ? " How long have you been trying to get pregnant?"
+                : "How long have you and your partner been trying to conceive?*"}
             </h4>
 
             <div className={styles.male}>
@@ -104,12 +107,21 @@ const DateContent = ({
         </div>
       </div>
       <div className={styles.img__container}>
-        <Image
-          src="/modal/man.png"
-          layout="fill"
-          className={styles.img}
-          alt=""
-        />
+        {gender === "female" ? (
+          <Image
+            src="/modal/female.webp"
+            layout="fill"
+            className={styles.img}
+            alt=""
+          />
+        ) : (
+          <Image
+            src="/modal/male.webp"
+            layout="fill"
+            className={styles.img}
+            alt=""
+          />
+        )}
 
         <div
           className={styles.close__modal}

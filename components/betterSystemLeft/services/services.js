@@ -42,7 +42,7 @@ const Services = () => {
       <div className={styles.main}>
         <div className={styles.container}>
           <div>
-            <div className={`${styles.maleFemale} main`}>
+            <div className={`${styles.maleFemale} biologyMain`}>
               <div ref={maleRef} id="btn"></div>
               <button
                 id="male"
