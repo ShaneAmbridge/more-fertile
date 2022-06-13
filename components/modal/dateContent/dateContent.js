@@ -45,7 +45,8 @@ const DateContent = ({ setShowModal }) => {
           </div>
         </div>
         <div className={styles.btn}>
-          <button>Next Question</button>
+          <button className={styles.back}>Back</button>
+          <button className={styles.next}>Next Question</button>
         </div>
       </div>
       <div className={styles.img__container}>

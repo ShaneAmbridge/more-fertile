@@ -30,7 +30,7 @@ const Modal = ({ showmodal, setShowModal }) => {
   }, [keyPress]);
 
   const DisplayModalContent = () => {
-    if (page === 0) {
+    if (page === 1) {
       return <MaleFemaleContent setShowModal={setShowModal} />;
     } else {
       return <DateContent setShowModal={setShowModal} />;
