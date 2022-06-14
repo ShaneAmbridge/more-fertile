@@ -202,7 +202,9 @@ export default function Home({ data, items }) {
                   </a>
                 </Link>
 
-                <span onClick={openModal}>Start you fertility journey</span>
+                <span className={styles.start} onClick={openModal}>
+                  Start you fertility journey
+                </span>
               </div>
             </div>
 
