@@ -120,7 +120,7 @@
 
           .male__input {
             margin-bottom: 15px;
-            padding-left: 15px;
+            padding-left: 35px;
           }
 
           input {
@@ -156,6 +156,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 111%;
+            /* or 22px */
+
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.02em;
+
+            color: #525252;
 
             @media screen and (min-width: 375px) {
               width: 334px;
@@ -163,22 +175,6 @@
 
             @media screen and (min-width: 767px) {
               width: 420px;
-            }
-
-            label {
-              margin-left: 35px;
-              font-family: "Inter";
-              font-style: normal;
-              font-weight: 700;
-              font-size: 16px;
-              line-height: 111%;
-              /* or 22px */
-
-              display: flex;
-              align-items: center;
-              letter-spacing: -0.02em;
-
-              color: #525252;
             }
           }
         }
@@ -188,7 +184,7 @@
 
           .female__input {
             margin-bottom: 15px;
-            padding-left: 15px;
+            padding-left: 35px;
           }
 
           input {
@@ -224,6 +220,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 111%;
+            /* or 22px */
+
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.02em;
+
+            color: #525252;
 
             @media screen and (min-width: 375px) {
               width: 334px;
@@ -231,22 +239,6 @@
 
             @media screen and (min-width: 767px) {
               width: 420px;
-            }
-
-            label {
-              margin-left: 35px;
-              font-family: "Inter";
-              font-style: normal;
-              font-weight: 700;
-              font-size: 16px;
-              line-height: 111%;
-              /* or 22px */
-
-              display: flex;
-              align-items: center;
-              letter-spacing: -0.02em;
-
-              color: #525252;
             }
           }
         }

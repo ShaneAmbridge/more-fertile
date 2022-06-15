@@ -138,8 +138,12 @@
 }
 
 @media screen and (max-width: 900px) {
+  .superSubCategory {
+    margin-bottom: 0;
+  }
   .category {
     position: relative;
+
     .plus {
       margin-bottom: 0 !important;
     }

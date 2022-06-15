@@ -136,3 +136,43 @@ a {
 }
 
 /* system biology page global style */
+
+.accordion {
+  font-weight: 300;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+  text-transform: capitalize;
+  border-bottom: solid 1px #000;
+}
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: red;
+}
+.accordion:after {
+  content: "+";
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  transform: scale(1.5);
+  font-weight: 300;
+}
+.active,
+.accordion:hover {
+  background-color: #fff;
+}
+.active:after {
+  content: "\2212";
+}

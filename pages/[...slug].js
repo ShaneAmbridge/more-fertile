@@ -1,5 +1,5 @@
 import LayoutMain from "../components/Layout/layout";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../styles/post.module.scss";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
@@ -15,6 +15,7 @@ import { AuthContext } from "../context/AuthProvider";
 export default function Home({ data, items }) {
   const router = useRouter();
   const { openModal } = useContext(AuthContext);
+  const [accordions, setAccordions] = useState([]);
 
   const linkPath = router.asPath.split("/");
   linkPath.shift();
@@ -74,6 +75,36 @@ export default function Home({ data, items }) {
     }
   }, []);
 
+  useEffect(() => {
+    const getAccordion = () => {
+      var acc = document.getElementsByClassName("accordion");
+      return acc;
+    };
+    setAccordions(getAccordion());
+  }, []);
+
+  useEffect(() => {
+    if (accordions.length > 0) {
+      var i;
+
+      for (i = 0; i < accordions.length; i++) {
+        accordions[i]?.addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    }
+    return () => {
+      for (i = 0; i < accordions.length; i++) {
+        accordions[i]?.removeEventListener("click");
+      }
+    };
+  }, [accordions]);
   if (!data?.posts?.nodes[0] || !breadcrumb.length)
     return (
       <LayoutMain>
@@ -89,45 +120,48 @@ export default function Home({ data, items }) {
 
   return (
     <>
-      {linkPath[linkPath.length - 1] === "semen-sampling" && (
-        <Head>
-          <script
-            async
-            type="text/javascript"
-            src="https://d3js.org/d3.v7.min.js"
-          ></script>
-          <script
-            async
-            type="text/javascript"
-            src="/js/vis-tooltip.js"
-          ></script>
-          <script
-            async
-            type="text/javascript"
-            src="/js/vis-range-chart.js"
-          ></script>
-          <script
-            async
-            type="text/javascript"
-            src="/js/vis-percentage-bar-chart.js"
-          ></script>
-          <script
-            async
-            type="text/javascript"
-            src="/js/vis-semen-values-distribution.js"
-          ></script>
-          <script
-            async
-            type="text/javascript"
-            src="/js/vis-semen-sample-normal.js"
-          ></script>
-          <script
-            async
-            type="text/javascript"
-            src="/js/vis-semen-sample-abnormal.js"
-          ></script>
-        </Head>
-      )}
+      <Head>
+        {/* <script async type="text/javascript" src="/js/accordion.js"></script> */}
+        {linkPath[linkPath.length - 1] === "semen-sampling" && (
+          <>
+            <script
+              async
+              type="text/javascript"
+              src="https://d3js.org/d3.v7.min.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-tooltip.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-range-chart.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-percentage-bar-chart.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-semen-values-distribution.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-semen-sample-normal.js"
+            ></script>
+            <script
+              async
+              type="text/javascript"
+              src="/js/vis-semen-sample-abnormal.js"
+            ></script>
+          </>
+        )}
+      </Head>
 
       <LayoutMain items={items}>
         {linkPath[linkPath.length - 1] === "semen-sampling" && (
