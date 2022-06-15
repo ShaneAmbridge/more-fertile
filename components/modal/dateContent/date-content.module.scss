@@ -15,7 +15,7 @@
     position: absolute;
     cursor: pointer;
     top: 35px;
-    right: 20px;
+    right: 40px;
     padding: 0;
     z-index: 100;
 
@@ -36,7 +36,7 @@
 
     @media screen and (min-width: 1024px) {
       flex: 1;
-      padding: 50px 0 0 100px;
+      padding: 40px 0 0 100px;
       justify-content: flex-start;
       align-items: flex-start;
     }
@@ -82,7 +82,7 @@
 
           background: #f3f4f7;
           border-radius: 32px;
-          margin-top: 34px;
+          margin-top: 25px;
           @media screen and (min-width: 375px) {
             width: 334px;
           }
@@ -101,7 +101,7 @@
       }
 
       .gender {
-        margin-top: 40px;
+        margin-top: 25px;
 
         .title {
           font-family: "Inter";
@@ -156,7 +156,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 111%;
             /* or 22px */
 
@@ -274,7 +274,7 @@
     .close__modal {
       position: absolute;
       cursor: pointer;
-      top: 10px;
+      top: 15px;
       right: 20px;
       width: 35px;
       height: 35px;

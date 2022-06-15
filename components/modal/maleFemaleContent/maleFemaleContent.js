@@ -8,7 +8,6 @@ const MaleFemaleContent = ({
   setFormdata,
   formdata,
 }) => {
-  const { gender } = formdata;
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.content}>
@@ -32,25 +31,29 @@ const MaleFemaleContent = ({
             <h4 className={styles.title}>What is your Gender?</h4>
 
             <div className={styles.male}>
-              <label>Male</label>
+              <label htmlFor="male">Male</label>
               <input
-                name="gender"
+                name="choose"
                 type="radio"
                 value="male"
+                id="male"
                 className={styles.input}
+                checked={formdata.gender === "male"}
                 onChange={(e) =>
                   setFormdata({ ...formdata, gender: e.target.value })
                 }
               />
             </div>
             <div className={styles.female}>
-              <label>Female</label>
+              <label htmlFor="female">Female</label>
 
               <input
-                name="gender"
+                name="choose"
                 className={styles.input}
+                id="female"
                 type="radio"
                 value="female"
+                checked={formdata.gender === "female"}
                 onChange={(e) =>
                   setFormdata({ ...formdata, gender: e.target.value })
                 }

@@ -15,7 +15,7 @@
     position: absolute;
     cursor: pointer;
     top: 35px;
-    right: 20px;
+    right: 40px;
 
     padding: 0;
     z-index: 100;
@@ -145,7 +145,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 111%;
             /* or 22px */
 
@@ -235,8 +235,8 @@
     .close__modal {
       position: absolute;
       cursor: pointer;
-      top: 10px;
-      right: 0px;
+      top: 15px;
+      right: 6px;
       width: 40px;
       height: 40px;
       padding: 0;

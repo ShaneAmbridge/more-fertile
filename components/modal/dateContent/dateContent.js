@@ -37,52 +37,60 @@ const DateContent = ({
             </h4>
 
             <div className={styles.male}>
-              <label htmlFor="oneToSix">1-6 months</label>
+              <label htmlFor="1-6 months">1-6 months</label>
 
               <input
+                name="choose"
                 type="radio"
-                name="gender"
+                id="1-6 months"
                 value="1-6 months"
                 className={styles.input}
+                checked={months === "1-6 months"}
                 onChange={(e) =>
                   setFormdata({ ...formdata, months: e.target.value })
                 }
               />
             </div>
             <div className={styles.female}>
-              <label>6-12 months</label>
+              <label htmlFor="6-12 months">6-12 months</label>
 
               <input
                 type="radio"
-                name="gender"
+                name="choose"
+                id="6-12 months"
                 value="6-12 months"
                 className={styles.input}
+                checked={months === "6-12 months"}
                 onChange={(e) =>
                   setFormdata({ ...formdata, months: e.target.value })
                 }
               />
             </div>
             <div className={styles.date}>
-              <label>12-24 months</label>
+              <label htmlFor="12-24 months">12-24 months</label>
 
               <input
+                id="12-24 months"
                 type="radio"
-                name="gender"
+                name="choose"
                 value="12-24 months"
                 className={styles.input}
+                checked={months === "12-24 months"}
                 onChange={(e) =>
                   setFormdata({ ...formdata, months: e.target.value })
                 }
               />
             </div>
             <div className={styles.year}>
-              <label>24+ months</label>
+              <label htmlFor="24+ months">24+ months</label>
 
               <input
+                id="24+ months"
                 type="radio"
-                name="gender"
+                name="choose"
                 value="24+ months"
                 className={styles.input}
+                checked={months === "24+ months"}
                 onChange={(e) =>
                   setFormdata({ ...formdata, months: e.target.value })
                 }

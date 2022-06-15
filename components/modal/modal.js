@@ -9,8 +9,8 @@ const Modal = ({ showmodal, setShowModal }) => {
   const [page, setPage] = useState(0);
 
   const [formdata, setFormdata] = useState({
-    gender: "",
-    months: "",
+    gender: "male",
+    months: "1-6 months",
   });
   console.log(formdata);
 

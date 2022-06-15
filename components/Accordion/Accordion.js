@@ -89,7 +89,7 @@ const Accordion = ({ item }) => {
         )}
         {item?.children?.nodes.map((subcategory, k) => {
           return (
-            <li key={k}>
+            <li key={k + "sadfsdf"}>
               <span
                 className={`${styles.subDropdownCategory} ${
                   activeLink === subcategory.slug ? styles.activeClass : ""
