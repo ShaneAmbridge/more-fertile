@@ -15,7 +15,7 @@ import { AuthContext } from "../context/AuthProvider";
 export default function Home({ data, items }) {
   const router = useRouter();
   const { openModal } = useContext(AuthContext);
-  const [accordions, setAccordions] = useState([]);
+  // const [accordions, setAccordions] = useState([]);
 
   const linkPath = router.asPath.split("/");
   linkPath.shift();
@@ -76,35 +76,40 @@ export default function Home({ data, items }) {
   }, []);
 
   useEffect(() => {
-    const getAccordion = () => {
-      var acc = document.getElementsByClassName("accordion");
-      return acc;
-    };
-    setAccordions(getAccordion());
+    const button = document.querySelectorAll("accordion");
+    console.log(button, "button");
   }, []);
 
-  useEffect(() => {
-    if (accordions.length > 0) {
-      var i;
+  // useEffect(() => {
+  //   const getAccordion = () => {
+  //     var acc = document.getElementsByClassName("accordion");
+  //     return acc;
+  //   };
+  //   setAccordions(getAccordion());
+  // }, []);
 
-      for (i = 0; i < accordions.length; i++) {
-        accordions[i]?.addEventListener("click", function () {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        });
-      }
-    }
-    return () => {
-      for (i = 0; i < accordions.length; i++) {
-        accordions[i]?.removeEventListener("click");
-      }
-    };
-  }, [accordions]);
+  // useEffect(() => {
+  //   if (accordions.length > 0) {
+  //     var i;
+
+  //     for (i = 0; i < accordions.length; i++) {
+  //       accordions[i]?.addEventListener("click", function () {
+  //         this.classList.toggle("active");
+  //         var panel = this.nextElementSibling;
+  //         if (panel.style.maxHeight) {
+  //           panel.style.maxHeight = null;
+  //         } else {
+  //           panel.style.maxHeight = panel.scrollHeight + "px";
+  //         }
+  //       });
+  //     }
+  //   }
+  //   return () => {
+  //     for (i = 0; i < accordions.length; i++) {
+  //       accordions[i]?.removeEventListener("click");
+  //     }
+  //   };
+  // }, [accordions]);
   if (!data?.posts?.nodes[0] || !breadcrumb.length)
     return (
       <LayoutMain>

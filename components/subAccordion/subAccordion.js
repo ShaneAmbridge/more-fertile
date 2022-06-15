@@ -5,7 +5,7 @@ import styles from "./subAccordion.module.scss";
 import { useRouter } from "next/router";
 import SuperSubAccordion from "../superSubAccordion/superSubAccordion";
 const SubAccordion = ({ subcategory }) => {
-  console.log(subcategory, "subcategory");
+  // console.log(subcategory, "subcategory");
   const router = useRouter();
   const [activeLink, setActiveLink] = useState("");
   const [open, setOpen] = useState();
