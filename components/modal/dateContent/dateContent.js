@@ -58,8 +58,10 @@ const DateContent = ({
                 : "How long have you and your partner been trying to conceive?*"}
             </h4>
 
-            <div ref={inputRef} onClick={handleClick} className={styles.male}>
-              <label htmlFor="1-6 months">1-6 months</label>
+            <div className={styles.male}>
+              <label className={styles.male__input} htmlFor="1-6 months">
+                1-6 months
+              </label>
 
               <input
                 name="choose"
@@ -73,12 +75,10 @@ const DateContent = ({
                 }
               />
             </div>
-            <div
-              ref={inputRef}
-              onClick={handleActive}
-              className={styles.female}
-            >
-              <label htmlFor="6-12 months">6-12 months</label>
+            <div className={styles.female}>
+              <label className={styles.female__input} htmlFor="6-12 months">
+                6-12 months
+              </label>
 
               <input
                 type="radio"
@@ -92,8 +92,10 @@ const DateContent = ({
                 }
               />
             </div>
-            <div ref={inputRef} onClick={handleDate} className={styles.date}>
-              <label htmlFor="12-24 months">12-24 months</label>
+            <div className={styles.date}>
+              <label className={styles.date__input} htmlFor="12-24 months">
+                12-24 months
+              </label>
 
               <input
                 id="12-24 months"
@@ -107,8 +109,10 @@ const DateContent = ({
                 }
               />
             </div>
-            <div ref={inputRef} onClick={handleYear} className={styles.year}>
-              <label htmlFor="24+ months">24+ months</label>
+            <div className={styles.year}>
+              <label className={styles.year__input} htmlFor="24+ months">
+                24+ months
+              </label>
 
               <input
                 id="24+ months"

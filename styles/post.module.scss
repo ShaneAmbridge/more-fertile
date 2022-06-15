@@ -191,42 +191,108 @@
 
         word-break: break-word;
 
-        h3 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-        p {
-          margin-bottom: 38px;
-          line-height: 25px;
-
-          strong {
-            font-weight: 700;
-          }
+        h2,
+        h2 span,
+        h2 span strong {
+          font-size: 28px;
+          font-family: "Inter";
+          color: #8a2678;
+          line-height: 60px;
+          font-weight: 700;
+          text-align: left;
         }
 
-        ul {
-          padding-left: 3rem;
-          margin-bottom: 1rem;
-        }
-        ul li {
-          line-height: 40px;
-        }
-
-        ul li ul {
-          padding-left: 1rem;
+        h3,
+        h3 span {
+          font-size: 20px;
+          font-family: "Inter";
+          color: #525252;
+          font-weight: 600;
+          line-height: 55px;
+          text-decoration: underline;
         }
 
-        h4 {
-          padding-bottom: 0.5rem;
+        h4,
+        h4 span {
+          font-size: 18px;
+          font-family: "Inter";
+          color: #525252;
+          font-weight: 500;
+          line-height: 48px;
+          text-decoration: underline;
         }
+
+        p,
+        p span {
+          font-family: "Inter";
+          color: #525252;
+          font-size: 16px;
+          line-height: 30px;
+          font-weight: 400;
+        }
+
+        p strong,
+        p strong span,
+        strong p,
+        strong p span {
+          font-family: "Inter";
+          color: #525252;
+          font-size: 18px;
+          line-height: 30px;
+          font-weight: 400;
+        }
+
+        ul li,
+        ol li,
+        ul li span,
+        ol li span {
+          font-family: "Inter";
+          color: #525252;
+          line-height: 30px;
+          font-weight: 400;
+          list-style-position: outside;
+        }
+
+        div[class^="post_container"] img {
+          border-radius: 25px;
+        }
+
+        // h3 {
+        //   font-size: 2rem;
+        //   margin-bottom: 1rem;
+        // }
+        // p {
+        //   margin-bottom: 38px;
+        //   line-height: 25px;
+
+        //   strong {
+        //     font-weight: 700;
+        //   }
+        // }
+
+        // ul {
+        //   padding-left: 3rem;
+        //   margin-bottom: 1rem;
+        // }
+        // ul li {
+        //   line-height: 40px;
+        // }
+
+        // ul li ul {
+        //   padding-left: 1rem;
+        // }
+
+        // h4 {
+        //   padding-bottom: 0.5rem;
+        // }
 
         img {
           max-width: 100%;
         }
 
-        ol li {
-          line-height: 40px;
-        }
+        // ol li {
+        //   line-height: 40px;
+        // }
       }
       .sidebar {
         width: 35%;
@@ -235,51 +301,24 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* and (max-width: 991px) 
+
+
+/* desktop */
+// @media screen and (max-width: 991px) {
+//   .responsive-table .responsive-table__head {
+//     display: none;
+//   }
+
+//   .responsive-table .responsive-table__body__text::before {
+//     content: attr(data-title) " :";
+//   }
+// }*/
+
+@media screen and (max-width: 1240px) {
   .main {
     .container {
-      .heroImageContainer {
-        padding: 0 1rem;
-        img {
-          aspect-ratio: 15.5 / 10;
-        }
-      }
-      .breadcrumb {
-        margin-top: 23px;
-        margin-left: 24px;
-        margin-right: 24px;
-        line-height: 1.5;
-      }
-
-      .title {
-        margin-top: 30px;
-        font-size: 34px;
-        margin-left: 18px;
-        margin-right: 18px;
-      }
-      .subTitle {
-        margin-left: 18px;
-        margin-right: 18px;
-      }
-      .contentandSidebar {
-        display: flex;
-        gap: 0px;
-        flex-direction: column;
-
-        .content {
-          width: 100%;
-
-          padding: 0 1.5rem;
-
-          img {
-            max-width: 100%;
-          }
-        }
-
-        .sidebar {
-          width: 100%;
-        }
-      }
+      padding: 0 1rem;
     }
   }
 }
@@ -287,6 +326,7 @@
 @media screen and (max-width: 900px) {
   .main {
     .container {
+      padding: 0 1rem;
       .heroImageContainer {
         padding: 0 1rem;
         img {

@@ -116,51 +116,21 @@
         }
 
         .male {
-          margin-bottom: 15px;
-        }
+          position: relative;
 
-        .male,
-        .female {
-          width: 300px;
-          height: 51px;
-          left: 150px;
-          top: 268px;
-
-          border: 1px solid #d6d6d6;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          @media screen and (min-width: 375px) {
-            width: 334px;
+          .male__input {
+            margin-bottom: 15px;
+            padding-left: 15px;
           }
 
-          @media screen and (min-width: 767px) {
-            width: 420px;
-          }
-
-          label {
-            margin-left: 35px;
-            font-family: "Inter";
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 111%;
-            /* or 22px */
-
-            display: flex;
-            align-items: center;
-            letter-spacing: -0.02em;
-
-            color: #525252;
-          }
-
-          .input {
+          input {
+            position: absolute;
+            top: 16px;
+            right: 0;
             margin-right: 10px;
             width: 1.3em;
             height: 1.3em;
-            background-color: white;
+            background-color: fff;
             border-radius: 50%;
             vertical-align: middle;
             border: 1px solid #ddd;
@@ -172,6 +142,111 @@
 
             &:checked {
               background-color: #efc8cd;
+            }
+          }
+
+          .male__input {
+            width: 300px;
+            height: 51px;
+            left: 150px;
+            top: 268px;
+
+            border: 1px solid #d6d6d6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @media screen and (min-width: 375px) {
+              width: 334px;
+            }
+
+            @media screen and (min-width: 767px) {
+              width: 420px;
+            }
+
+            label {
+              margin-left: 35px;
+              font-family: "Inter";
+              font-style: normal;
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 111%;
+              /* or 22px */
+
+              display: flex;
+              align-items: center;
+              letter-spacing: -0.02em;
+
+              color: #525252;
+            }
+          }
+        }
+
+        .female {
+          position: relative;
+
+          .female__input {
+            margin-bottom: 15px;
+            padding-left: 15px;
+          }
+
+          input {
+            position: absolute;
+            top: 16px;
+            right: 0;
+            margin-right: 10px;
+            width: 1.3em;
+            height: 1.3em;
+            background-color: fff;
+            border-radius: 50%;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            padding: 5px;
+
+            &:checked {
+              background-color: #efc8cd;
+            }
+          }
+
+          .female__input {
+            width: 300px;
+            height: 51px;
+            left: 150px;
+            top: 268px;
+
+            border: 1px solid #d6d6d6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @media screen and (min-width: 375px) {
+              width: 334px;
+            }
+
+            @media screen and (min-width: 767px) {
+              width: 420px;
+            }
+
+            label {
+              margin-left: 35px;
+              font-family: "Inter";
+              font-style: normal;
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 111%;
+              /* or 22px */
+
+              display: flex;
+              align-items: center;
+              letter-spacing: -0.02em;
+
+              color: #525252;
             }
           }
         }
