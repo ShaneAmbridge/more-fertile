@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./date-content.module.scss";
 const DateContent = ({
   setShowModal,
@@ -9,7 +9,29 @@ const DateContent = ({
   formdata,
 }) => {
   const { months, gender } = formdata;
-  console.log(gender, "date");
+
+  const inputRef = useRef();
+  const handleClick = () => {
+    if (inputRef.current) {
+      setFormdata({ ...formdata, months: "1-6 months" });
+    }
+  };
+  const handleActive = () => {
+    if (inputRef.current) {
+      setFormdata({ ...formdata, months: "6-12 months" });
+    }
+  };
+  const handleDate = () => {
+    if (inputRef.current) {
+      setFormdata({ ...formdata, months: "12-24 months" });
+    }
+  };
+  const handleYear = () => {
+    if (inputRef.current) {
+      setFormdata({ ...formdata, months: "24+ months" });
+    }
+  };
+
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.content}>
@@ -36,7 +58,7 @@ const DateContent = ({
                 : "How long have you and your partner been trying to conceive?*"}
             </h4>
 
-            <div className={styles.male}>
+            <div ref={inputRef} onClick={handleClick} className={styles.male}>
               <label htmlFor="1-6 months">1-6 months</label>
 
               <input
@@ -51,7 +73,11 @@ const DateContent = ({
                 }
               />
             </div>
-            <div className={styles.female}>
+            <div
+              ref={inputRef}
+              onClick={handleActive}
+              className={styles.female}
+            >
               <label htmlFor="6-12 months">6-12 months</label>
 
               <input
@@ -66,7 +92,7 @@ const DateContent = ({
                 }
               />
             </div>
-            <div className={styles.date}>
+            <div ref={inputRef} onClick={handleDate} className={styles.date}>
               <label htmlFor="12-24 months">12-24 months</label>
 
               <input
@@ -81,7 +107,7 @@ const DateContent = ({
                 }
               />
             </div>
-            <div className={styles.year}>
+            <div ref={inputRef} onClick={handleYear} className={styles.year}>
               <label htmlFor="24+ months">24+ months</label>
 
               <input

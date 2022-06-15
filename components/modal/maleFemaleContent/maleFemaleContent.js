@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./male-female-content.module.scss";
 const MaleFemaleContent = ({
   setShowModal,
@@ -8,6 +8,18 @@ const MaleFemaleContent = ({
   setFormdata,
   formdata,
 }) => {
+  const inputRef = useRef();
+  const handleClick = () => {
+    if (inputRef.current) {
+      setFormdata({ ...formdata, gender: "male" });
+    }
+  };
+  const handleActive = () => {
+    if (inputRef.current) {
+      setFormdata({ ...formdata, gender: "female" });
+    }
+  };
+
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.content}>
@@ -30,7 +42,7 @@ const MaleFemaleContent = ({
           <div className={styles.gender}>
             <h4 className={styles.title}>What is your Gender?</h4>
 
-            <div className={styles.male}>
+            <div ref={inputRef} onClick={handleClick} className={styles.male}>
               <label htmlFor="male">Male</label>
               <input
                 name="choose"
@@ -44,7 +56,11 @@ const MaleFemaleContent = ({
                 }
               />
             </div>
-            <div className={styles.female}>
+            <div
+              ref={inputRef}
+              onClick={handleActive}
+              className={styles.female}
+            >
               <label htmlFor="female">Female</label>
 
               <input
