@@ -29,14 +29,11 @@ const CategoryPost = ({ items, data, singlePost }) => {
                   ></div>
                 </div>
               )}
-              {data.posts.nodes.length > 0 && (
-                <h1 className={styles.title}>
-                  <span>{path[path.length - 1]}</span> Related Posts
-                </h1>
-              )}
-
+              <h1 className={styles.title}>
+                <span>{path[path.length - 1]}</span> Related Posts
+              </h1>
               <div className={styles.contentCards}>
-                {data.posts.nodes.length > 0 && (
+                {data.posts.nodes.length > 0 ? (
                   <div className={styles.cards}>
                     {data.posts.nodes &&
                       data?.posts?.nodes.map((post, index) => {
@@ -85,11 +82,10 @@ const CategoryPost = ({ items, data, singlePost }) => {
                         );
                       })}
                   </div>
-                  // ) : (
-                  //   <div className={styles.noPostFound}>
-                  //     <h1>No posts found.</h1>
-                  //   </div>
-                  // )}
+                ) : (
+                  <div className={styles.noPostFound}>
+                    <h1>No posts found.</h1>
+                  </div>
                 )}
               </div>
             </div>

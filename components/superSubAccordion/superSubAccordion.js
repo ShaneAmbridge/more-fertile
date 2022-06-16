@@ -20,12 +20,8 @@ const SuperSubAccordion = ({ superSubCategory, parentUri }) => {
         {superSubCategory?.posts?.nodes.map((superSmcategory, k) => {
           return (
             <Link
-              key={k + "dfasdfff33"}
-              href={
-                superSubCategory.posts.nodes.length > 0
-                  ? `/categories${parentUri.uri}${superSmcategory.slug}`
-                  : `${parentUri.uri}${superSmcategory.slug}`
-              }
+              key={k + "dfasdf"}
+              href={`${parentUri.uri}${superSmcategory.slug}`}
             >
               <a>
                 <span

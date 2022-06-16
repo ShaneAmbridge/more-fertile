@@ -89,14 +89,8 @@ const SubAccordion = ({ subcategory }) => {
                   activeLink === smCategory.slug ? styles.activeClass : ""
                 }`}
               >
-                <Link
-                  href={
-                    smCategory.posts.nodes.length > 0
-                      ? `/categories${subcategory.uri}${smCategory.slug}`
-                      : `${subcategory.uri}${smCategory.slug}`
-                  }
-                >
-                  <a>{smCategory.name}</a>
+                <Link href={`${subcategory.uri}${smCategory.slug}`}>
+                  <a>{smCategory.name}asdfsdaf</a>
                 </Link>
 
                 {smCategory?.posts.nodes.length > 0 && (
