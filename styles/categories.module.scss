@@ -23,6 +23,26 @@
         }
         .categoryContent {
           margin-bottom: 60px;
+          color: #525252;
+
+          p {
+            line-height: 30px;
+
+            strong {
+              font-weight: 700;
+            }
+          }
+          ul {
+            padding-left: 3rem;
+          }
+
+          ul li {
+            line-height: 35px;
+          }
+
+          ol li {
+            line-height: 35px;
+          }
         }
         .title {
           font-family: "Inter";
