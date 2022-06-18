@@ -12,10 +12,13 @@ import CategorySidebar from "../components/Layout/categorySidebar/categorySideba
 import Script from "next/script";
 import { AuthContext } from "../context/AuthProvider";
 
-export default function Home({ data, items }) {
+export default function Home({ data, items, categoriesPost }) {
+  console.log(categoriesPost.data.posts.nodes, "post data");
   const router = useRouter();
   const { openModal } = useContext(AuthContext);
   const [accordions, setAccordions] = useState([]);
+
+  const pathPrefix = router.asPath.split("/").join("/");
 
   const linkPath = router.asPath.split("/");
   linkPath.shift();
@@ -106,18 +109,18 @@ export default function Home({ data, items }) {
     };
   }, [accordions]);
 
-  if (!data?.posts?.nodes[0] || !breadcrumb.length)
-    return (
-      <LayoutMain>
-        <div className={styles.notfound}>
-          <div>
-            <h1>We are sorry.</h1>
-            <h1>This post is not avaliable right now.</h1>{" "}
-            <button onClick={() => router.back()}>Go Back</button>
-          </div>
-        </div>
-      </LayoutMain>
-    );
+  // if (!data?.posts?.nodes[0] || !breadcrumb.length)
+  //   return (
+  //     <LayoutMain>
+  //       <div className={styles.notfound}>
+  //         <div>
+  //           <h1>We are sorry.</h1>
+  //           <h1>This post is not avaliable right now.</h1>{" "}
+  //           <button onClick={() => router.back()}>Go Back</button>
+  //         </div>
+  //       </div>
+  //     </LayoutMain>
+  //   );
 
   return (
     <>
@@ -269,12 +272,73 @@ export default function Home({ data, items }) {
             )}
 
             <div className={styles.contentandSidebar}>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data?.posts?.nodes[0]?.content,
-                }}
-                className={styles.content}
-              ></div>
+              <div className={styles.content__main}>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: data?.posts?.nodes[0]?.content,
+                  }}
+                  className={styles.content}
+                ></div>
+
+                {categoriesPost.data.posts.nodes.length > 0 && (
+                  <>
+                    <h2 className={styles.title}>Related Posts</h2>
+                    <div className={styles.contentCards}>
+                      <div className={styles.cards}>
+                        {categoriesPost.data.posts.nodes &&
+                          categoriesPost.data.posts.nodes.map((post, index) => {
+                            // console.log(post, "post");
+                            return (
+                              <div key={index} className={styles.card}>
+                                <div className={styles.img}>
+                                  {post.featuredImage !== null ? (
+                                    <Image
+                                      width="100%"
+                                      height="100%"
+                                      src={post.featuredImage.node.mediaItemUrl}
+                                      alt={post.featuredImage.node.altText}
+                                    />
+                                  ) : (
+                                    <Image
+                                      width="100%"
+                                      height="100%"
+                                      src="/images/morefertile-logo.png"
+                                      alt=""
+                                    />
+                                  )}
+                                </div>
+                                <div className={styles.infos}>
+                                  <div className={styles.titleAndDescription}>
+                                    {" "}
+                                    <h3>{post.title}</h3>
+                                    <div
+                                      dangerouslySetInnerHTML={{
+                                        __html:
+                                          post.excerpt.slice(0, 150) + "...",
+                                      }}
+                                      className={styles.post__content}
+                                    ></div>
+                                  </div>
+
+                                  <div className={styles.button}>
+                                    <Link
+                                      href={`/${pathPrefix}/${post.slug}`}
+                                      passHref
+                                    >
+                                      <a>
+                                        <button>Read more</button>
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
 
               <div className={styles.sidebar}>
                 <CategorySidebar categories={data?.categories} />
@@ -304,9 +368,47 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
+  console.log(params);
   // console.log(params, "params");
   const name = params.slug[params.slug.length - 1];
   const categoryName = params?.slug[1];
+  // const category = params.slug[params.slug.length - 2];
+
+  const categoriesPost = await client.query({
+    query: gql`
+      query allPosts($category: String) {
+        posts(where: { categoryName: $category }) {
+          nodes {
+            excerpt
+            link
+            slug
+            uri
+            title
+
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+
+            featuredImage {
+              node {
+                altText
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    `,
+
+    variables: {
+      category: name,
+    },
+  });
+
+  // console.log(categories, "categories post");
 
   const { data } = await client.query({
     query: gql`
@@ -411,7 +513,7 @@ export async function getStaticProps({ params }) {
 
   // console.log(postOrTree, "postOrTree");
   return {
-    props: { data },
+    props: { data, categoriesPost },
     revalidate: 1,
   };
 }
