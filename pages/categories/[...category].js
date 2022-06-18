@@ -225,7 +225,7 @@ export async function getStaticProps({ params }) {
       name: slug,
     },
   });
-  console.log(singlePost, "category data");
+  // console.log(singlePost, "category data");
   return {
     props: { data, singlePost },
     revalidate: 1,

@@ -3,8 +3,11 @@ import Image from "next/image";
 import BetterSystemSidebar from "../../../components/betterSystemSidebar/betterSystemSidebar";
 import BetterSystemLeft from "../../../components/betterSystemLeft/betterSystemLeft";
 import LayoutMain from "../../../components/Layout/layout";
+import client from "../../../apollo-client";
+import { gql } from "@apollo/client";
 
-const Male = () => {
+const Male = ({ data }) => {
+  console.log(data, "male data");
   const male = true;
 
   return (
@@ -43,5 +46,48 @@ const Male = () => {
     </LayoutMain>
   );
 };
+
+export async function getStaticProps() {
+  // const category = params.category.join("/");
+
+  const { data } = await client.query({
+    query: gql`
+      {
+        posts {
+          nodes {
+            categories(where: { slug: "systems-biology" }) {
+              nodes {
+                name
+                uri
+
+                posts {
+                  nodes {
+                    title
+                    id
+                    excerpt
+                    slug
+                    uri
+
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        link
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+  console.log(data, "male data");
+  return {
+    props: { data },
+    revalidate: 1,
+  };
+}
 
 export default Male;

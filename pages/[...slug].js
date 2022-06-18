@@ -75,26 +75,6 @@ export default function Home({ data, items }) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   var acc = document.getElementsByClassName("accordion");
-  //   var i;
-  //   if (acc.length > 0) {
-  //     for (i = 0; i < acc.length; i++) {
-  //       console.log(acc, "accc");
-  //       acc[i].addEventListener("click", function () {
-  //         this.classList.toggle("active");
-  //         var panel = this.nextElementSibling;
-
-  //         if (panel.style.maxHeight) {
-  //           panel.style.maxHeight = null;
-  //         } else {
-  //           panel.style.maxHeight = panel.scrollHeight + "px";
-  //         }
-  //       });
-  //     }
-  //   }
-  // }, []);
-
   useEffect(() => {
     const getAccordion = () => {
       var acc = document.getElementsByClassName("accordion");
@@ -125,6 +105,7 @@ export default function Home({ data, items }) {
       }
     };
   }, [accordions]);
+
   if (!data?.posts?.nodes[0] || !breadcrumb.length)
     return (
       <LayoutMain>
@@ -268,8 +249,8 @@ export default function Home({ data, items }) {
             data?.posts?.nodes[0]?.featuredImage ? (
               <div className={styles.heroImageContainer}>
                 <Image
-                  layout="responsive"
-                  width={1024}
+                  // layout="responsive"
+                  width={1240}
                   height={487}
                   src={data?.posts?.nodes[0]?.featuredImage?.node.mediaItemUrl}
                   alt={data?.posts?.nodes[0]?.featuredImage?.node.altText}
@@ -278,8 +259,8 @@ export default function Home({ data, items }) {
             ) : (
               <div className={styles.heroImageContainer}>
                 <Image
-                  layout="responsive"
-                  width={1024}
+                  // layout="responsive"
+                  width={1240}
                   height={487}
                   src="/images/couple.png"
                   alt=""

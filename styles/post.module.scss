@@ -53,6 +53,7 @@
       img {
         border-radius: 20px;
         aspect-ratio: 16 / 8;
+        object-fit: cover;
       }
     }
 
@@ -295,6 +296,8 @@
 
         img {
           max-width: 100%;
+          object-fit: cover;
+          aspect-ratio: 16/10;
         }
 
         // ol li {
@@ -320,10 +323,10 @@
 //   }
 // }*/
 
-@media screen and (max-width: 1240px) {
+@media screen and (min-width: 900px) and (max-width: 1240px) {
   .main {
     .container {
-      padding: 0 1rem;
+      margin: 0 18px;
     }
   }
 }
@@ -332,9 +335,9 @@
   .main {
     .container {
       .heroImageContainer {
-        padding: 0 1rem;
+        padding: 0 18px;
         img {
-          aspect-ratio: 15.5 / 10;
+          aspect-ratio: 16 / 10;
         }
       }
       .breadcrumb {
@@ -349,6 +352,7 @@
         font-size: 34px;
         margin-left: 18px;
         margin-right: 18px;
+        line-height: 1.3;
       }
       .subTitle {
         margin-left: 18px;
@@ -362,11 +366,11 @@
         .content {
           width: 100%;
 
-          padding: 0 1.5rem;
+          padding: 0 1.2rem;
 
-          img {
-            max-width: 100%;
-          }
+          // img {
+          //   max-width: 100%;
+          // }
         }
 
         .sidebar {

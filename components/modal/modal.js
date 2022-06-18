@@ -12,7 +12,7 @@ const Modal = ({ showmodal, setShowModal }) => {
     gender: "male",
     months: "1-6 months",
   });
-  console.log(formdata);
+  // console.log(formdata);
 
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
