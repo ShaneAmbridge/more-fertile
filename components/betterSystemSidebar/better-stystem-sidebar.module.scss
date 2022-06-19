@@ -36,6 +36,14 @@
     padding-left: 0px;
 
     .mainCategory {
+      .activeClass {
+        background: #7f2f75 !important;
+        color: #fff !important;
+
+        a {
+          color: #e9c9ce !important;
+        }
+      }
       .categories {
         width: 244px;
         height: 40px;
@@ -64,6 +72,15 @@
         border-radius: 5px;
         margin-top: 15px;
         margin-bottom: 15px;
+
+        .activeClass {
+          background: #563ca5 !important;
+          color: #ded3ff !important;
+
+          a {
+            color: #ded3ff !important;
+          }
+        }
 
         .subDropdownCategory {
           width: 244px;

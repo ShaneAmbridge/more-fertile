@@ -54,7 +54,7 @@ const BetterSystem = ({ ww }) => {
             fertility health.​
           </div>
           {/* <Services /> */}
-          <Link href="/systems-biology/male">
+          <Link href="/systems-biology">
             <a>
               <button className={styles.button}>Find out more</button>
             </a>

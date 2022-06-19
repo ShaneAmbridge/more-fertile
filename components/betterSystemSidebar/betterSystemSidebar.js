@@ -1,10 +1,15 @@
 import React from "react";
 import styles from "./better-stystem-sidebar.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 // import { systemData, systemDataFemale } from "./systemdata";
 
 const BetterSystemSidebar = ({ categories }) => {
-  console.log(categories, "categories");
+  console.log(categories, "categories  data");
+  const router = useRouter();
+  const path = router.asPath.split("/");
+  const activeLink = path[path.length - 1];
+
   return (
     <div id="female" className={styles.sidebar}>
       <h4>Systems Biology</h4>
@@ -12,9 +17,13 @@ const BetterSystemSidebar = ({ categories }) => {
         <ul className={styles.sidebarContent}>
           {categories.nodes[0].children.nodes.map((category, index) => (
             <li key={index} className={styles.mainCategory}>
-              <Link href={`/categories${category.uri}`}>
+              <Link href={`/systems-biology/${category.slug}`}>
                 <a>
-                  <span className={`${styles.categories}`}>
+                  <span
+                    className={`${styles.categories} ${
+                      activeLink === category.slug ? styles.activeClass : ""
+                    }`}
+                  >
                     {category.name}
                   </span>
                 </a>
@@ -24,8 +33,15 @@ const BetterSystemSidebar = ({ categories }) => {
                 {category.posts.nodes.map((post, j) => {
                   return (
                     <li key={j + "sfdf"}>
-                      <span className={`${styles.subDropdownCategory}`}>
-                        <Link href={`${category?.uri}${post.slug}`} passHref>
+                      <span
+                        className={`${styles.subDropdownCategory} ${
+                          activeLink === post.slug ? styles.activeClass : ""
+                        }`}
+                      >
+                        <Link
+                          href={`/systems-biology/${category.slug}/${post.slug}`}
+                          passHref
+                        >
                           <a>
                             <span className={styles.subSmCategory}>
                               {post.title}
