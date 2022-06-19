@@ -92,7 +92,7 @@ a {
   z-index: 1;
 }
 #btn {
-  left: 0;
+  left: 5px;
   top: 5px;
   position: absolute;
   width: 156px;
@@ -114,7 +114,7 @@ a {
 }
 
 #femalebtn {
-  left: 156px;
+  left: 150px;
   top: 5px;
   position: absolute;
   width: 156px;

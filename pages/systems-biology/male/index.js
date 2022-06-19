@@ -5,9 +5,9 @@ import BetterSystemLeft from "../../../components/betterSystemLeft/betterSystemL
 import LayoutMain from "../../../components/Layout/layout";
 import client from "../../../apollo-client";
 import { gql } from "@apollo/client";
+import { useEffect, useState } from "react";
 
 const Male = ({ data }) => {
-  console.log(data, "male data");
   const male = true;
 
   return (
@@ -33,10 +33,10 @@ const Male = ({ data }) => {
 
             <div className={styles.content}>
               <div className={styles.content__left}>
-                <BetterSystemLeft male={male} />
+                <BetterSystemLeft data={data.categories} male={male} />
               </div>
               <div className={styles.content__right}>
-                <BetterSystemSidebar />
+                <BetterSystemSidebar categories={data.categories} />
               </div>
             </div>
           </div>
@@ -52,26 +52,43 @@ export async function getStaticProps() {
 
   const { data } = await client.query({
     query: gql`
-      {
-        posts {
+      query GetSystemData {
+        categories(where: { slug: "systems-biology" }) {
           nodes {
-            categories(where: { slug: "systems-biology" }) {
+            name
+            uri
+            slug
+
+            posts {
+              nodes {
+                title
+                uri
+                slug
+                content
+              }
+            }
+            children {
               nodes {
                 name
                 uri
-
+                slug
                 posts {
                   nodes {
                     title
-                    id
-                    excerpt
-                    slug
                     uri
-
-                    featuredImage {
-                      node {
-                        mediaItemUrl
-                        link
+                    slug
+                  }
+                }
+                children {
+                  nodes {
+                    name
+                    uri
+                    slug
+                    posts {
+                      nodes {
+                        title
+                        uri
+                        slug
                       }
                     }
                   }
@@ -83,7 +100,7 @@ export async function getStaticProps() {
       }
     `,
   });
-  console.log(data, "male data");
+
   return {
     props: { data },
     revalidate: 1,

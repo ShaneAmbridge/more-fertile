@@ -109,18 +109,18 @@ export default function Home({ data, items, categoriesPost }) {
     };
   }, [accordions]);
 
-  // if (!data?.posts?.nodes[0] || !breadcrumb.length)
-  //   return (
-  //     <LayoutMain>
-  //       <div className={styles.notfound}>
-  //         <div>
-  //           <h1>We are sorry.</h1>
-  //           <h1>This post is not avaliable right now.</h1>{" "}
-  //           <button onClick={() => router.back()}>Go Back</button>
-  //         </div>
-  //       </div>
-  //     </LayoutMain>
-  //   );
+  if (!data?.posts?.nodes[0] || !breadcrumb.length)
+    return (
+      <LayoutMain>
+        <div className={styles.notfound}>
+          <div>
+            <h1>We are sorry.</h1>
+            <h1>This post is not avaliable right now.</h1>{" "}
+            <button onClick={() => router.back()}>Go Back</button>
+          </div>
+        </div>
+      </LayoutMain>
+    );
 
   return (
     <>
