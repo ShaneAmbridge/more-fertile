@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
-import styles from "./services.module.scss";
+import styles from "./Services.module.scss";
 import { useRouter } from "next/router";
 const Services = () => {
   const [bgColor, setBgColor] = useState("#ded3ff");
