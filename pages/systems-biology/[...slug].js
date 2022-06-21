@@ -111,7 +111,6 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
-  // console.log(params, "params");
   const name = params.slug[params.slug.length - 1];
 
   const { data } = await client.query({

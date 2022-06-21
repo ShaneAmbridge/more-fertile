@@ -2,15 +2,11 @@ import React from "react";
 import styles from "./better-stystem-sidebar.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { systemData, systemDataFemale } from "./systemdata";
 
 const BetterSystemSidebar = ({ categories }) => {
-  // console.log(categories, "categories  data");
   const router = useRouter();
   const path = router.asPath.split("/");
   const activeLink = path[path.length - 1];
-  const femalePath = path[path.length - 2];
-  // console.log(femalePath, "path");
 
   return (
     <div id="female" className={styles.sidebar}>
@@ -59,31 +55,6 @@ const BetterSystemSidebar = ({ categories }) => {
               </ul>
             </li>
           ))}
-          {/* <li className={styles.mainCategory}>
-            <Link href="/home">
-              <a>
-                <span className={`${styles.categories}`}>Female</span>
-              </a>
-            </Link>
-
-            <ul className={styles.subCategory}>
-              {systemDataFemale.map((item, j) => {
-                return (
-                  <li key={j + "sfdf"}>
-                    <span className={`${styles.subDropdownCategory}`}>
-                      <Link href={`/categories${item?.link}`} passHref>
-                        <a>
-                          <span className={styles.subSmCategory}>
-                            {item.name}
-                          </span>
-                        </a>
-                      </Link>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </li> */}
         </ul>
       </aside>
     </div>

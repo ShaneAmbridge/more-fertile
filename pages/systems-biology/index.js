@@ -1,6 +1,5 @@
 import styles from "../../styles/male.module.scss";
 import Image from "next/image";
-
 import LayoutMain from "../../components/Layout/layout";
 import client from "../../apollo-client";
 import { gql } from "@apollo/client";
@@ -8,7 +7,6 @@ import PostBetterSystemLeft from "../../components/PostBetterSystemLeft/PostBett
 import BetterSystemSidebar from "../../components/betterSystemSidebar/betterSystemSidebar";
 
 const SystemsBiology = ({ data }) => {
-  console.log(data, "main index js");
   return (
     <LayoutMain>
       <div className={styles.main}>
@@ -55,8 +53,6 @@ const SystemsBiology = ({ data }) => {
 };
 
 export async function getStaticProps() {
-  // const category = params.category.join("/");
-
   const { data } = await client.query({
     query: gql`
       query GetSystemData {
