@@ -1,10 +1,28 @@
 import styles from "./mobileMenu.module.scss";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const MobileMenu = ({ setMobileOpen }) => {
   const [open, setOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  console.log(open);
+  // const [isOpen, setIsOpen] = useState(false);
+  // console.log(open, isOpen);
+
+  // useEffect(() => {
+  //   if (open) {
+  //     setIsOpen(false);
+  //   } else if (isOpen) {
+  //     setOpen(false);
+  //   }
+  // }, [open, isOpen]);
+
+  const handleToggle = (id) => {
+    console.log(open, id, "menu");
+    if (open === id) {
+      setOpen(false);
+    } else {
+      setOpen(id);
+    }
+  };
+
   return (
     <>
       <div className={styles.mobile}>
@@ -23,15 +41,15 @@ const MobileMenu = ({ setMobileOpen }) => {
           <li className={styles.item}>
             <div
               className={`${
-                open
+                open === "Fertility Profiles"
                   ? `${styles.sidebarItem} ${styles.open}`
                   : styles.sidebarItem
               }`}
             >
               <a
                 className={`${styles.link} ${styles.closeDropdown}`}
-                onClick={() => setOpen(!open)}
-                dropdown={open ? "yes" : "no"}
+                onClick={() => handleToggle("Fertility Profiles")}
+                dropdown={open === "Fertility Profiles" ? "yes" : "no"}
               >
                 Fertility Profiles
                 <Image
@@ -39,12 +57,12 @@ const MobileMenu = ({ setMobileOpen }) => {
                   src="/images/dropdown/dropdown-arrow.svg"
                   width={15}
                   height={15}
-                  alt="Rescources"
+                  alt="Fertility Profiles"
                 />
               </a>
               <div
                 className={`${
-                  open
+                  open === "Fertility Profiles"
                     ? `${styles.sidebarContent} ${styles.animationPlus}`
                     : styles.sidebarContent
                 }`}
@@ -74,15 +92,15 @@ const MobileMenu = ({ setMobileOpen }) => {
           <li className={styles.item}>
             <div
               className={`${
-                isOpen
+                open === "Resources"
                   ? `${styles.sidebarItem} ${styles.open}`
                   : styles.sidebarItem
               }`}
             >
               <a
                 className={`${styles.link} ${styles.closeDropdown}`}
-                onClick={() => setIsOpen(!isOpen)}
-                dropdown={isOpen ? "yes" : "no"}
+                onClick={() => handleToggle("Resources")}
+                dropdown={open === "Resources" ? "yes" : "no"}
               >
                 Resources
                 <Image
@@ -95,7 +113,7 @@ const MobileMenu = ({ setMobileOpen }) => {
               </a>
               <div
                 className={`${
-                  isOpen
+                  open === "Resources"
                     ? `${styles.sidebarContent} ${styles.animationPlus}`
                     : styles.sidebarContent
                 }`}
