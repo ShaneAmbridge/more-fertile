@@ -20,7 +20,7 @@ const FertilityConditons = ({ data }) => {
     }
   };
   const toggle = (j) => {
-    console.log(j, openTooltip);
+    // console.log(j, openTooltip);
     if (j === openTooltip) {
       setOpenTooltip(false);
     } else {

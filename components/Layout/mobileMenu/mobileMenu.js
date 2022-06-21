@@ -143,32 +143,24 @@ const MobileMenu = ({ setMobileOpen }) => {
                       Fertility Treatments
                     </a>
                   </li>
-                  <li className={styles.item}>
-                    <a
-                      className={styles.link}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Lifestyle & Fertility
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>
           </li>
-          <li className={styles.item}>
+          {/* <li className={styles.item}>
             <a className={styles.link} onClick={() => setMobileOpen(false)}>
               Products
             </a>
-          </li>
-          <li className={styles.item}>
+          </li> */}
+          {/* <li className={styles.item}>
             <a
               className={`${styles.link} ${styles.pro}`}
               onClick={() => setMobileOpen(false)}
             >
               <div className={styles.loginButton}>Login</div>
             </a>
-          </li>
-          <li className={styles.item}>
+          </li> */}
+          {/* <li className={styles.item}>
             <a
               className={`${styles.link} ${styles.pro}`}
               onClick={() => setMobileOpen(false)}
@@ -178,7 +170,7 @@ const MobileMenu = ({ setMobileOpen }) => {
                 For Professionals
               </div>
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </>

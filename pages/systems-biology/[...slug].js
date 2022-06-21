@@ -8,6 +8,7 @@ import { gql } from "@apollo/client";
 import PostBetterSystemLeft from "../../components/PostBetterSystemLeft/PostBetterSystemLeft";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const PostDetails = ({ data }) => {
   const router = useRouter();
@@ -20,6 +21,23 @@ const PostDetails = ({ data }) => {
   const breadcrumb = pathArray;
 
   const activeBreadcrumb = linkPath[linkPath.length - 1];
+
+  // new table code
+  useEffect(() => {
+    const headTitle = document.querySelectorAll(
+      ".table-head .table-row .header"
+    );
+    const bodyTextRows = document.querySelectorAll(".table-body .table-row");
+
+    for (let i = 0; i < bodyTextRows.length; i++) {
+      for (let j = 0; j < bodyTextRows[i].children.length; j++) {
+        bodyTextRows[i].children[j].setAttribute(
+          "data-title",
+          headTitle[j].innerText
+        );
+      }
+    }
+  }, []);
   return (
     <LayoutMain>
       <div className={styles.main}>
