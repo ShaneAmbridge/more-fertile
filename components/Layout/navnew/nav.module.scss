@@ -144,6 +144,7 @@
   @media screen and (min-width: 1024px) {
     display: none;
   }
+  background-color: #ffffff;
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -153,7 +154,7 @@
   width: 470px;
   z-index: 10000;
   transition: all 0.5s ease;
-
+  overflow: auto;
   @media screen and (max-width: 600px) {
     width: 80%;
     top: 0;
