@@ -1,0 +1,174 @@
+.mobile {
+  background-color: #ffffff;
+  z-index: 10000;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  padding-right: 20px;
+  .close {
+    // text-align: end;
+    // padding: 22px 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f4eded;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.menu {
+  background-color: #ffffff;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    height: 100vh;
+    padding: 0.1rem 2rem 3.5rem;
+    transition: all 0.5s ease;
+  }
+
+  .list {
+    li {
+      list-style: none;
+
+      .link {
+        &[open="yes"] .arrow {
+          transform: rotate(-180deg);
+        }
+
+        .loginButton {
+          margin-top: 1.5rem;
+          width: 100%;
+          height: 40px;
+          background: #efc8ce;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 17px;
+          color: #8a2678;
+          cursor: pointer;
+          &:hover {
+            color: #efc8ce;
+            background: #8a2678;
+          }
+        }
+        .forProffesional {
+          width: 100%;
+          height: 40px;
+          background: #b5e6d8;
+          border-radius: 10px;
+          padding-left: 9px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          cursor: pointer;
+          color: #357989;
+          &:hover {
+            color: #b5e6d8;
+            background: #357989;
+            span {
+              background: white;
+
+              color: #357989;
+            }
+          }
+          span {
+            width: 44px;
+            height: 25px;
+            background: #357989;
+            border-radius: 5px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+      .pro {
+        border-bottom: none !important;
+      }
+
+      .closeDropdown {
+        display: flex;
+        justify-content: space-between;
+        .arrow {
+          transition: all 0.3s ease-in-out;
+        }
+        &[dropdown="yes"] .arrow {
+          transform: rotate(-180deg);
+        }
+      }
+
+      a {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        display: block;
+        color: #525252;
+        font-weight: 300;
+        font-family: "Lexend";
+
+        padding: 20px 0;
+        font-size: 18px;
+        line-height: 25px;
+        cursor: pointer;
+      }
+      .sidebarItem.open > .sidebarContent {
+        height: auto;
+      }
+      .sidebarItem.open > .arrow {
+        transform: rotate(-180deg);
+      }
+
+      .sidebarItem {
+        display: block;
+        transition: all 1s ease;
+        border-radius: 5px;
+        .animationPlus {
+          animation: topUpAnimation 0.5s ease-in;
+        }
+
+        .sidebarContent {
+          height: 0;
+          overflow: hidden;
+
+          .dropdown__list {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@keyframes topUpAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

@@ -2,10 +2,16 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import styles from "./nav.module.scss";
 import Link from "next/link";
+import MobileMenu from "../mobileMenu/mobileMenu";
 
 const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
   // const [searchbox, setSearchBox] = useState(false);
   const headerRef = useRef(null);
+
+  const [isMobileOpen, setMobileOpen] = useState(false);
+  const toogleMobileMenu = () => {
+    setMobileOpen(false);
+  };
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -25,75 +31,98 @@ const NavNew = ({ items, setBigmenuopen, bigmenuOpen }) => {
   }, []);
 
   return (
-    <nav className={styles.main} ref={headerRef}>
-      <div className={styles.container}>
-        <Link href="/">
-          <a>
-            <div className={styles.logo}>
+    <>
+      <nav className={styles.main} ref={headerRef}>
+        <div className={styles.container}>
+          <Link href="/">
+            <a>
+              <div className={styles.logo}>
+                <Image
+                  src={"/images/flower.png"}
+                  width="54px"
+                  height="32px"
+                  alt="logo"
+                />
+                <Image
+                  src={"/images/new/Morefertile.svg"}
+                  width="113px"
+                  height="20px"
+                  alt="logo"
+                />
+              </div>
+            </a>
+          </Link>
+          <div className={styles.menu}>
+            <div className={styles.menuItem}>
+              About Us
               <Image
-                src={"/images/flower.png"}
-                width="54px"
-                height="32px"
-                alt="logo"
-              />
-              <Image
-                src={"/images/new/Morefertile.svg"}
-                width="113px"
-                height="20px"
-                alt="logo"
+                src="/images/dropdown/dropdown-arrow.svg"
+                width={12}
+                height={8}
+                alt="About Us"
               />
             </div>
-          </a>
-        </Link>
-        <div className={styles.menu}>
-          <div className={styles.menuItem}>
-            About Us
-            <Image
-              src="/images/dropdown/dropdown-arrow.svg"
-              width={12}
-              height={8}
-              alt="About Us"
-            />
+            <div className={styles.menuItem}>
+              Fertility Profiles
+              <Image
+                src="/images/dropdown/dropdown-arrow.svg"
+                width={12}
+                height={8}
+                alt="Fertility Profiles"
+              />
+            </div>
+            <div
+              className={styles.menuItem}
+              bigmenu={bigmenuOpen ? "yes" : "no"}
+              onClick={() => setBigmenuopen(!bigmenuOpen)}
+            >
+              Rescources
+              <Image
+                className={styles.arrow}
+                src="/images/dropdown/dropdown-arrow.svg"
+                width={12}
+                height={8}
+                alt="Rescources"
+              />
+            </div>
+            <div className={styles.menuItem}>Products</div>
           </div>
-          <div className={styles.menuItem}>
-            Fertility Profiles
-            <Image
-              src="/images/dropdown/dropdown-arrow.svg"
-              width={12}
-              height={8}
-              alt="Fertility Profiles"
-            />
+          <div className={styles.actionButtons}>
+            <div className={styles.loginButton}>Login</div>
+            <div className={styles.forProffesional}>
+              <span>PRO</span>
+              For Professionals
+            </div>
           </div>
-          <div
-            className={styles.menuItem}
-            bigmenu={bigmenuOpen ? "yes" : "no"}
-            onClick={() => setBigmenuopen(!bigmenuOpen)}
-          >
-            Rescources
-            <Image
-              className={styles.arrow}
-              src="/images/dropdown/dropdown-arrow.svg"
-              width={12}
-              height={8}
-              alt="Rescources"
-            />
-          </div>
-          <div className={styles.menuItem}>Products</div>
-        </div>
-        <div className={styles.actionButtons}>
-          <div className={styles.loginButton}>Login</div>
-          <div className={styles.forProffesional}>
-            <span>PRO</span>
-            For Professionals
-          </div>
-        </div>
-        <div className={styles.mobileMenu}>
-          <div className={styles.menuIcon}>
-            <img src="/images/new/mobileMenuIcon.svg" />
+
+          <div className={styles.mobileMenu}>
+            <div
+              aria-expanded={isMobileOpen ? "true" : "false"}
+              onClick={() => {
+                setMobileOpen((prev) => !prev);
+              }}
+              className={styles.menuIcon}
+            >
+              <img src="/images/new/mobileMenuIcon.svg" alt="" />
+            </div>
           </div>
         </div>
+      </nav>
+
+      {/* hidden mobile menu drawer */}
+      <div className={isMobileOpen ? styles.mobileMenuOpen : ""}>
+        <div className={styles.mobileMenuDrawer}>
+          <MobileMenu
+            setMobileOpen={setMobileOpen}
+            isMobileOpen={isMobileOpen}
+          />
+        </div>
+        <div
+          className={isMobileOpen ? styles.darkoverflow : ""}
+          onClick={toogleMobileMenu}
+        />
       </div>
-    </nav>
+    </>
   );
 };
 
