@@ -31,11 +31,11 @@ const SystemsBiology = ({ data }) => {
               <div className={styles.content__left}>
                 <PostBetterSystemLeft />
 
-                {data?.categories?.nodes[0]?.posts?.nodes[1] && (
+                {data?.categories?.nodes[0]?.posts?.nodes[5] && (
                   <div
                     dangerouslySetInnerHTML={{
                       __html:
-                        data?.categories?.nodes[0]?.posts?.nodes[1].content,
+                        data?.categories?.nodes[0]?.posts?.nodes[5].content,
                     }}
                     className={styles.post__content}
                   ></div>

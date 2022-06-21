@@ -36,7 +36,7 @@
     padding-left: 0px;
 
     .mainCategory {
-      .activeClass {
+      .activeFemaleClass {
         background: #7f2f75 !important;
         color: #fff !important;
 
@@ -72,6 +72,15 @@
         border-radius: 5px;
         margin-top: 15px;
         margin-bottom: 15px;
+
+        .activeFemaleClass {
+          background: #7f2f75 !important;
+          color: #fff !important;
+
+          a {
+            color: #e9c9ce !important;
+          }
+        }
 
         .activeClass {
           background: #563ca5 !important;

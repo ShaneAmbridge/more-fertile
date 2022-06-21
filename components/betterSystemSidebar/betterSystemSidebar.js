@@ -5,10 +5,12 @@ import { useRouter } from "next/router";
 // import { systemData, systemDataFemale } from "./systemdata";
 
 const BetterSystemSidebar = ({ categories }) => {
-  console.log(categories, "categories  data");
+  // console.log(categories, "categories  data");
   const router = useRouter();
   const path = router.asPath.split("/");
   const activeLink = path[path.length - 1];
+  const femalePath = path[path.length - 2];
+  // console.log(femalePath, "path");
 
   return (
     <div id="female" className={styles.sidebar}>
@@ -21,7 +23,9 @@ const BetterSystemSidebar = ({ categories }) => {
                 <a>
                   <span
                     className={`${styles.categories} ${
-                      activeLink === category.slug ? styles.activeClass : ""
+                      activeLink === category.slug
+                        ? styles.activeFemaleClass
+                        : ""
                     }`}
                   >
                     {category.name}
@@ -36,7 +40,7 @@ const BetterSystemSidebar = ({ categories }) => {
                       <span
                         className={`${styles.subDropdownCategory} ${
                           activeLink === post.slug ? styles.activeClass : ""
-                        }`}
+                        }  `}
                       >
                         <Link
                           href={`/systems-biology/${category.slug}/${post.slug}`}
