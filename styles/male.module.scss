@@ -44,7 +44,13 @@
 
       a:visited,
       a:active {
-        color: inherit;
+        color: #525252;
+      }
+
+      a {
+        span {
+          color: #525252;
+        }
       }
 
       .activeBreadbrumb {
@@ -233,14 +239,6 @@
           // ol li {
           //   line-height: 35px;
           // }
-
-          /* Page Wrapper/Container Style */
-          .container {
-            width: 100%;
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px;
-          }
 
           /* Responsive Table Style */
           .responsive-table {

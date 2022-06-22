@@ -1,6 +1,7 @@
 import styles from "./mobileMenu.module.scss";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 const MobileMenu = ({ setMobileOpen }) => {
   const [open, setOpen] = useState(false);
   // const [isOpen, setIsOpen] = useState(false);
@@ -120,28 +121,34 @@ const MobileMenu = ({ setMobileOpen }) => {
               >
                 <ul className={styles.dropdown__list}>
                   <li className={styles.item}>
-                    <a
-                      className={styles.link}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Fertility Health
-                    </a>
+                    <Link href="/fertility-health">
+                      <a
+                        className={styles.link}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        Fertility Health
+                      </a>
+                    </Link>
                   </li>
                   <li className={styles.item}>
-                    <a
-                      className={styles.link}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Fertility Conditions
-                    </a>
+                    <Link href="/fertility-conditions">
+                      <a
+                        className={styles.link}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        Fertility Conditions
+                      </a>
+                    </Link>
                   </li>
                   <li className={styles.item}>
-                    <a
-                      className={styles.link}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Fertility Treatments
-                    </a>
+                    <Link href="/fertility-treatments">
+                      <a
+                        className={styles.link}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        Fertility Treatments
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
