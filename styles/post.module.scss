@@ -299,7 +299,7 @@
           img {
             max-width: 100%;
             object-fit: cover;
-            aspect-ratio: 16/10;
+            aspect-ratio: 16/8;
           }
 
           // table style
@@ -477,7 +477,9 @@
       .heroImageContainer {
         padding: 0 18px;
         img {
-          aspect-ratio: 16 / 10;
+          object-position: right;
+          aspect-ratio: 16/10;
+          height: 214px !important;
         }
       }
       .breadcrumb {

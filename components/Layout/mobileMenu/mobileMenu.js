@@ -1,6 +1,6 @@
 import styles from "./mobileMenu.module.scss";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 const MobileMenu = ({ setMobileOpen }) => {
   const [open, setOpen] = useState(false);
@@ -154,30 +154,6 @@ const MobileMenu = ({ setMobileOpen }) => {
               </div>
             </div>
           </li>
-          {/* <li className={styles.item}>
-            <a className={styles.link} onClick={() => setMobileOpen(false)}>
-              Products
-            </a>
-          </li> */}
-          {/* <li className={styles.item}>
-            <a
-              className={`${styles.link} ${styles.pro}`}
-              onClick={() => setMobileOpen(false)}
-            >
-              <div className={styles.loginButton}>Login</div>
-            </a>
-          </li> */}
-          {/* <li className={styles.item}>
-            <a
-              className={`${styles.link} ${styles.pro}`}
-              onClick={() => setMobileOpen(false)}
-            >
-              <div className={`${styles.forProffesional}`}>
-                <span>PRO</span>
-                For Professionals
-              </div>
-            </a>
-          </li> */}
         </ul>
       </div>
     </>
